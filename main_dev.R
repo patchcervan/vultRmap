@@ -18,7 +18,11 @@ library(testthat)
 create_package("D:/Documentos/mis_trabajos/Academic/vultRmap")
 
 # Add license
+<<<<<<< HEAD
 use_mit_license("Francisco Cervantes Peralta")
+=======
+use_mit_license("BIRDIE Development Team")
+>>>>>>> 7d79abbe2419425e9315909073039ac3230f3f0a
 
 # Remember to edit the DESCRIPTION file
 
@@ -31,6 +35,16 @@ use_pipe()
 
 # Import packages
 use_package("dplyr")
+<<<<<<< HEAD
+=======
+use_package("magrittr")
+use_package("lubridate")
+use_package("stringr")
+use_package("readr")
+use_package("RCurl")
+use_package("rjson")
+use_package("data.table")
+>>>>>>> 7d79abbe2419425e9315909073039ac3230f3f0a
 
 
 # Function listCwacSites --------------------------------------------------
@@ -58,6 +72,158 @@ use_test()
 test()
 
 
+<<<<<<< HEAD
+=======
+# Function getCwacSiteInfo --------------------------------------------------
+
+# Add function
+use_r("getCwacSiteInfo")
+
+# test locally
+load_all()
+
+getCwacSiteInfo(23312919)
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
+
+
+# Function listCwacCards --------------------------------------------------
+
+# Add function
+use_r("listCwacCards")
+
+# test locally
+load_all()
+
+listCwacCards(32481810)
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
+
+
+
+# Function getCwacSurvey --------------------------------------------------
+
+# Add function
+use_r("getCwacSurvey")
+
+# test locally
+load_all()
+
+getCwacSurvey(508082)
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
+
+
+# Function jsonToTibble --------------------------------------------------
+
+# Add function
+use_r("jsonToTibble")
+
+# test locally
+load_all()
+
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
+
+
+# Function getDicctionary --------------------------------------------------
+
+# Add function
+use_r("getCwacDictionary")
+
+# test locally
+load_all()
+
+getCwacDictionary()
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
+
+
+# Function searchCwacTerm --------------------------------------------------
+
+# Add function
+use_r("searchCwacTerm")
+
+# test locally
+load_all()
+
+searchCwacTerm("Season")
+searchCwacTerm(option = "fields")
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
+
+>>>>>>> 7d79abbe2419425e9315909073039ac3230f3f0a
 # Install -----------------------------------------------------------------
 
 devtools::install()
