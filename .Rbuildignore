@@ -1,7 +1,5 @@
 ^vultRmap\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
-<<<<<<< HEAD
 main_dev.R
-=======
->>>>>>> 7d79abbe2419425e9315909073039ac3230f3f0a
+
