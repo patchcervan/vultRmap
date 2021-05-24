@@ -18,14 +18,9 @@ library(testthat)
 create_package("D:/Documentos/mis_trabajos/Academic/vultRmap")
 
 # Add license
-<<<<<<< HEAD
 use_mit_license("Francisco Cervantes Peralta")
-=======
-use_mit_license("BIRDIE Development Team")
->>>>>>> 7d79abbe2419425e9315909073039ac3230f3f0a
 
 # Remember to edit the DESCRIPTION file
-
 
 
 # Imports -----------------------------------------------------------------
