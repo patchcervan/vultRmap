@@ -2,4 +2,4 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 main_dev.R
-
+data_prep/*

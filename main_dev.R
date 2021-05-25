@@ -15,10 +15,10 @@ library(testthat)
 
 
 # Create a package structure
-create_package("D:/Documentos/mis_trabajos/Academic/vultRmap")
+# create_package("D:/Documentos/mis_trabajos/Academic/vultRmap")
 
 # Add license
-use_mit_license("Francisco Cervantes Peralta")
+# use_mit_license("Francisco Cervantes Peralta")
 
 # Remember to edit the DESCRIPTION file
 
@@ -28,8 +28,46 @@ use_mit_license("Francisco Cervantes Peralta")
 # Import pipe
 use_pipe()
 
+# Prepare Rcpp
+use_rcpp()
+
 # Import packages
 use_package("dplyr")
+
+
+
+# Data general covariates -------------------------------------------------------------
+
+# Prepare and save covariates. This takes a while. Don't run if not necessary
+# source("data_prep/range_covts_prep.R")
+
+# Create an ROxygen2 file and document
+document()
+
+
+# Rcpp function calcMinDist_cpp --------------------------------------------------
+
+# Add function
+use_rcpp("calcMinDist_cpp")
+
+# test locally. Best to Install and Restart
+# load_all()
+
+calcMinDist_cpp(r = matrix(1:6, ncol = 2), x = matrix(4:5, ncol = 2))
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
 
 
 # Function listCwacSites --------------------------------------------------
