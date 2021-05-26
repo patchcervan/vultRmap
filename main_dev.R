@@ -53,7 +53,7 @@ use_rcpp("calcMinDist_cpp")
 # test locally. Best to Install and Restart
 # load_all()
 
-calcMinDist_cpp(r = matrix(1:6, ncol = 2), x = matrix(4:5, ncol = 2))
+vultRmap::calcMinDist_cpp(r = matrix(1:6, ncol = 2), x = matrix(4:5, ncol = 2))
 
 # Add documentation
 # Add ROxygen skeleton manually
@@ -70,15 +70,15 @@ use_test()
 test()
 
 
-# Function listCwacSites --------------------------------------------------
+# Function calcDist --------------------------------------------------
 
 # Add function
-use_r("listCwacSites")
+use_r("calcDist")
 
 # test locally
 load_all()
 
-listCwacSites("Eastern Cape")
+calcDist(c(0,0), x = 1:3, y = 1:3)
 
 # Add documentation
 # Add ROxygen skeleton manually
