@@ -33,7 +33,7 @@ use_rcpp()
 
 # Import packages
 use_package("dplyr")
-
+use_package("sp")
 
 
 # Data general covariates -------------------------------------------------------------
@@ -79,6 +79,36 @@ use_r("calcDist")
 load_all()
 
 calcDist(c(0,0), x = 1:3, y = 1:3)
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
+
+
+# Function calcHabMinDist --------------------------------------------------
+
+# Add function
+use_r("calcHabMinDist")
+
+# test locally
+load_all()
+
+hab <- expand.grid(-10:10, -10:10)
+names(hab) <- c("lon", "lat")
+origin <- c(2, 1)
+features <- data.frame(lon = c(-5, 5),
+                      lat = c(-5, 5))
+vultRmap::calcHabMinDist(hab, origin, features)
 
 # Add documentation
 # Add ROxygen skeleton manually

@@ -2,6 +2,7 @@
 
 export("%>%")
 export(calcDist)
+export(calcHabMinDist)
 export(calcMinDist_cpp)
 importFrom(Rcpp,sourceCpp)
 importFrom(magrittr,"%>%")
