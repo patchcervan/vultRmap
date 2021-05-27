@@ -34,6 +34,7 @@ use_rcpp()
 # Import packages
 use_package("dplyr")
 use_package("sp")
+use_package("rgdal")
 
 
 # Data general covariates -------------------------------------------------------------
@@ -108,6 +109,7 @@ names(hab) <- c("lon", "lat")
 origin <- c(2, 1)
 features <- data.frame(lon = c(-5, 5),
                       lat = c(-5, 5))
+
 vultRmap::calcHabMinDist(hab, origin, features)
 
 # Add documentation
@@ -124,6 +126,35 @@ use_test()
 
 test()
 
+
+# Function prepColHab --------------------------------------------------
+
+# Add function
+use_r("prepColHab")
+
+# test locally
+load_all()
+
+# Load colony data and sup. feeding sites
+col_all <- utils::read.csv("data_aux/colony_data.csv")
+sfs <- utils::read.csv("data_aux/sup_feeding_data.csv")
+col_all <- read.csv("data_aux/colony_data.csv")
+col_cc <- unlist(col_all[7, c("lon", "lat")])
+vultRmap::prepColHab(col_cc, 100, col_all, sfs)
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
 
 # Install -----------------------------------------------------------------
 

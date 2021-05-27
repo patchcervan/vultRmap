@@ -1,0 +1,820 @@
+name,lon,lat,avg_ad,avg_juv,names_old,counted,type,id
+100,27.662549,-30.605252,NA,NA,NA,0,roost,cvcol001
+103,27.435605,-30.67841,NA,NA,NA,0,breed,cvcol002
+104,27.241082,-30.824726,NA,NA,NA,0,breed,cvcol003
+105,27.229028,-30.838027,NA,NA,NA,0,breed,cvcol004
+106,27.56695,-31.123177,NA,NA,NA,0,roost,cvcol005
+107,27.607268,-31.212546,NA,NA,NA,0,breed,cvcol006
+108,27.698711,-31.215872,NA,NA,NA,0,roost,cvcol007
+11,29.305659,-29.06436,NA,NA,NA,0,breed,cvcol008
+112,27.887415,-31.099484,94,40,NA,0,breed,cvcol009
+117,27.655317,-30.678685,NA,NA,NA,0,roost,cvcol010
+118,27.692163,-30.700314,NA,NA,NA,0,roost,cvcol011
+120,27.490471,-31.587065,NA,NA,NA,0,breed,cvcol012
+121,27.468857,-31.5933,NA,NA,NA,0,roost,cvcol013
+122,27.418148,-31.582909,NA,NA,NA,0,roost,cvcol014
+123,27.404432,-31.587481,NA,NA,NA,0,roost,cvcol015
+124,27.294285,-31.653573,NA,NA,NA,0,breed,cvcol016
+125,27.138832,-31.764141,NA,NA,NA,0,breed,cvcol017
+126,27.163771,-31.774948,NA,NA,NA,0,breed,cvcol018
+127,26.980055,-31.787418,NA,NA,NA,0,breed,cvcol019
+128,26.982964,-31.823997,NA,NA,NA,0,roost,cvcol020
+129,27.07025,-31.89092,NA,NA,NA,0,breed,cvcol021
+133,27.36162,-31.895493,NA,NA,NA,0,breed,cvcol022
+134,27.444334,-31.924174,NA,NA,NA,0,breed,cvcol023
+135,27.479248,-31.726731,NA,NA,NA,0,breed,cvcol024
+136,27.712427,-31.591638,NA,NA,NA,0,breed,cvcol025
+137,27.810936,-31.593716,NA,NA,NA,0,roost,cvcol026
+139,27.813845,-31.582909,NA,NA,NA,0,roost,cvcol027
+141,27.99008,-31.607849,NA,NA,NA,0,roost,cvcol028
+142,27.981352,-31.602029,NA,NA,NA,0,roost,cvcol029
+143,28.132232,-31.543836,NA,NA,NA,0,roost,cvcol030
+144,28.317611,-31.517233,NA,NA,NA,0,breed,cvcol031
+146,28.364995,-31.529703,NA,NA,NA,0,breed,cvcol032
+147,28.367905,-31.536354,NA,NA,NA,0,breed,cvcol033
+148,28.378296,-31.551318,NA,NA,NA,0,breed,cvcol034
+149,28.374139,-31.545914,NA,NA,NA,0,breed,cvcol035
+150,28.382452,-31.55589,NA,NA,NA,0,breed,cvcol036
+151,28.391181,-31.559215,NA,NA,NA,0,breed,cvcol037
+152,28.458931,-31.419134,NA,NA,NA,0,roost,cvcol038
+153,28.514628,-31.402923,NA,NA,NA,0,roost,cvcol039
+154,28.522526,-31.341404,NA,NA,NA,0,breed,cvcol040
+155,28.541645,-31.316464,NA,NA,NA,0,breed,cvcol041
+156,28.552452,-31.337247,NA,NA,NA,0,breed,cvcol042
+157,28.606902,-31.338494,NA,NA,NA,0,roost,cvcol043
+158,28.589445,-31.329765,NA,NA,NA,0,roost,cvcol044
+160,28.976414,-31.269077,NA,NA,NA,0,breed,cvcol045
+161,28.971426,-31.276144,NA,NA,NA,0,breed,cvcol046
+162,28.976414,-31.287783,NA,NA,NA,0,breed,cvcol047
+163,28.971426,-31.31397,NA,NA,NA,0,roost,cvcol048
+165,28.995949,-31.318126,NA,NA,NA,0,breed,cvcol049
+166,29.104433,-31.3015,NA,NA,NA,0,roost,cvcol050
+168,29.080326,-31.195919,NA,NA,NA,0,breed,cvcol051
+169,29.151402,-31.009699,NA,NA,NA,0,roost,cvcol052
+171,29.219568,-31.023832,NA,NA,NA,0,breed,cvcol053
+173,29.261548,-31.025079,NA,NA,NA,0,breed,cvcol055
+175,29.279006,-31.136063,NA,NA,NA,0,breed,cvcol056
+176,29.278174,-31.122761,NA,NA,NA,0,breed,cvcol057
+177,29.288981,-31.12484,NA,NA,NA,0,breed,cvcol058
+178,29.256145,-31.14687,NA,NA,NA,0,breed,cvcol059
+180,29.403285,-31.006374,NA,NA,NA,0,roost,cvcol060
+184,29.23661,-31.346392,NA,NA,NA,0,breed,cvcol061
+186,29.242844,-31.29859,NA,NA,NA,0,roost,cvcol062
+187,29.237857,-31.299006,NA,NA,NA,0,breed,cvcol063
+188,29.217905,-31.284873,NA,NA,NA,0,breed,cvcol064
+191,29.259055,-31.252866,NA,NA,NA,0,roost,cvcol065
+192,29.262795,-31.227095,NA,NA,NA,0,breed,cvcol066
+194,29.234947,-31.19966,NA,NA,NA,0,breed,cvcol067
+195,29.246169,-31.192178,NA,NA,NA,0,breed,cvcol068
+196,29.289813,-31.208389,NA,NA,NA,0,roost,cvcol069
+197,29.552918,-30.865046,NA,NA,NA,0,breed,cvcol070
+199,29.294385,-30.783159,NA,NA,NA,0,breed,cvcol071
+200,29.161377,-30.747411,NA,NA,NA,0,breed,cvcol072
+201,29.176341,-30.752815,NA,NA,NA,0,breed,cvcol073
+202,28.401988,-30.834702,NA,NA,NA,0,breed,cvcol074
+203,28.408638,-30.830129,NA,NA,NA,0,breed,cvcol075
+204,28.429836,-30.720808,NA,NA,NA,0,breed,cvcol076
+21,28.670782,-28.656888,NA,NA,NA,0,roost,cvcol077
+211,28.737832,-29.948492,NA,NA,NA,0,roost,cvcol078
+213,29.223309,-29.651288,NA,NA,NA,0,roost,cvcol079
+37,29.07991,-29.697012,NA,NA,NA,0,roost,cvcol080
+39,29.066609,-29.713639,NA,NA,NA,0,breed,cvcol081
+40,29.062453,-29.712807,NA,NA,NA,0,roost,cvcol082
+42,29.003015,-29.705325,NA,NA,NA,0,roost,cvcol084
+45,28.8937,-29.686204,NA,NA,NA,0,breed,cvcol085
+47,28.86211,-29.684542,NA,NA,NA,0,breed,cvcol086
+49,28.955631,-29.733591,NA,NA,NA,0,breed,cvcol087
+51,28.958125,-29.763519,NA,NA,NA,0,breed,cvcol088
+54,28.940252,-29.798851,NA,NA,NA,0,breed,cvcol089
+58,28.943577,-29.815062,NA,NA,NA,0,breed,cvcol091
+60,28.931524,-29.828364,NA,NA,NA,0,breed,cvcol092
+61,28.93568,-29.876166,NA,NA,NA,0,breed,cvcol093
+62,28.916976,-29.878244,NA,NA,NA,0,breed,cvcol094
+72,28.123503,-30.322596,NA,NA,NA,0,breed,cvcol098
+73,28.13722,-30.333403,NA,NA,NA,0,breed,cvcol099
+75,28.096494,-30.350969,NA,NA,NA,0,breed,cvcol100
+77,28.09442,-30.355445,NA,NA,NA,0,breed,cvcol101
+78,28.08918,-30.363522,NA,NA,NA,0,breed,cvcol102
+80,28.029567,-30.367072,NA,NA,NA,0,roost,cvcol103
+84,28.049102,-30.467665,NA,NA,NA,0,breed,cvcol104
+85,28.047024,-30.515883,NA,NA,NA,0,breed,cvcol105
+95,27.833381,-30.53916,NA,NA,NA,0,breed,cvcol108
+96,27.842109,-30.53916,NA,NA,NA,0,breed,cvcol109
+98,27.860398,-30.538329,NA,NA,NA,0,breed,cvcol110
+99,27.821742,-30.541654,NA,NA,NA,0,breed,cvcol111
+Aasvogelvlei,21.68180556,-33.86622222,NA,NA,NA,0,breed,cvcol112
+Aasvo#lberg,21.66694444,-34.21694444,NA,NA,NA,0,roost,cvcol113
+Abbey,28.96666667,-29.85,NA,NA,NA,0,breed,cvcol114
+Agieskloof,26.06028954,-32.54975578,NA,NA,NA,0,roost,cvcol115
+Bakerskop,29.06666667,-28.33333333,NA,NA,NA,0,roost,cvcol116
+Bamboo Mountain,29.35,-29.73333333,NA,NA,NA,0,roost,cvcol118
+Bellona,26.48333333,-30.91666667,NA,NA,NA,0,roost,cvcol119
+Ben Dearg,27.92898,-31.11071,NA,NA,NA,0,breed,cvcol120
+Bloukrans,27.25,-28.85,NA,NA,NA,0,roost,cvcol121
+Bonwalenong,27.43333333,-22.61666667,NA,NA,NA,0,breed,cvcol123
+Boschberg,21.70025,-33.73063889,NA,NA,NA,0,breed,cvcol124
+CalaMountain,27.71666667,-31.6,NA,NA,NA,0,roost,cvcol125
+Campagne Castle,29.35,-29.1,NA,NA,NA,0,roost,cvcol126
+Carbineers Wall,29.45,-29.31666667,NA,NA,NA,0,roost,cvcol127
+Claasenskop,27.66666667,-28.68333333,NA,NA,NA,0,roost,cvcol129
+CV_74,28.145948,-30.337976,NA,NA,NA,0,breed,cvcol132
+Dalhousie,27.8,-31.21667,NA,NA,NA,0,breed,cvcol133
+"Devil's Knuckle, Nth",29.11666667,-29.83333333,NA,NA,NA,0,roost,cvcol134
+"Devil's Knuckle, Sth",29.1,-29.86666667,NA,NA,NA,0,roost,cvcol135
+Eastern Btress,29.10687,-28.948047,NA,NA,NA,0,breed,cvcol137
+Eastman's Peak,29.28333333,-29.03333333,NA,NA,NA,0,roost,cvcol138
+Elephant,29.13208,-28.97884,NA,NA,NA,0,breed,cvcol139
+ElephantA,29.13555,-28.97986,NA,NA,NA,0,breed,cvcol140
+ElephantC,29.14315,-28.98192,NA,NA,NA,0,breed,cvcol141
+Enjesuthi Cottage,29.46666667,-29.13333333,NA,NA,NA,0,roost,cvcol142
+Gamka Mountain,21.75722222,-33.71138889,NA,NA,NA,0,breed,cvcol144
+Giant's Castle,29.48333333,-29.35,NA,NA,NA,0,roost,cvcol145
+Glenfurnis,28.96666667,-23.06666667,NA,NA,NA,0,breed,cvcol146
+Gxabenya,26.96666667,-31.8,NA,NA,NA,0,roost,cvcol147
+Gypaetus Point,29.43333333,-29.25,NA,NA,NA,0,roost,cvcol148
+Ingwe,29.01666667,-28.56666667,NA,NA,NA,0,breed,cvcol149
+Inverket,27.41666667,-32.2,NA,NA,NA,0,roost,cvcol150
+Irenesdale,29.00809,-28.57216,NA,NA,NA,0,roost,cvcol151
+Jozanas,27.436013,-30.678828,NA,NA,NA,0,breed,cvcol153
+Ka-Masihlenga,29.43333333,-29.4,NA,NA,NA,0,roost,cvcol154
+"Ka-Ntuba Pass, North",29.3,-29.51666667,NA,NA,NA,0,roost,cvcol155
+"Ka-Ntuba Pass, South",29.3,-29.53333333,NA,NA,NA,0,roost,cvcol156
+Kambule,29.45,-29.31666667,NA,NA,NA,0,roost,cvcol157
+Kepiseng,29.004186,-29.703652,NA,NA,NA,0,breed,cvcol158
+Kerkenberg,29.12324,-28.5122,NA,NA,NA,0,roost,cvcol159
+Khubelu,28.9,-28.95,NA,NA,NA,0,breed,cvcol161
+Koakoatsi River,29.06666667,-28.96666667,NA,NA,NA,0,breed,cvcol162
+"Korfshoek area, Golden Gate NP",28.7659,-28.49213,NA,NA,NA,0,roost,cvcol163
+Kransberg (Groothoek),27.6,-24.46666667,NA,NA,NA,0,breed,cvcol164
+Kukubye,27.75,-22.75,NA,NA,NA,0,breed,cvcol166
+Kwatabamnyama,29.61666667,-29.45,NA,NA,NA,0,breed,cvcol167
+Langeberg,21.63305556,-33.93305556,NA,NA,NA,0,breed,cvcol168
+Langkloof,21.63330556,-33.81513889,NA,NA,NA,0,breed,cvcol169
+Langkloofspruit,28.03333333,-31.15,NA,NA,NA,0,roost,cvcol170
+Litsoene,28.33333333,-29.83333333,NA,NA,NA,0,roost,cvcol172
+Little Bamboo Mtn,29.3,-29.7,NA,NA,NA,0,roost,cvcol173
+Loskop,29.31666667,-23.48333333,NA,NA,NA,0,breed,cvcol175
+Loteni Pass,29.45,-29.36666667,NA,NA,NA,0,breed,cvcol176
+"Loteni River, Source",29.45,-29.36666667,NA,NA,NA,0,roost,cvcol177
+Mafeteng Maboloka Mn,27.3,-29.9,NA,NA,NA,0,roost,cvcol178
+Makoaneng,28.956492,-29.764878,NA,NA,NA,0,breed,cvcol180
+Malima Farm,28.68333333,-28.53333333,NA,NA,NA,0,breed,cvcol181
+Malpas,28.026493,-30.68174,NA,NA,NA,0,breed,cvcol182
+Manyana,25.65,-24.85,NA,NA,NA,0,roost,cvcol183
+Maqhaba,28.56666667,-30.11666667,NA,NA,NA,0,roost,cvcol184
+Maqoho,28.591906,-29.955008,NA,NA,NA,0,breed,cvcol185
+Mara (584),29.35,-27.76666667,NA,NA,NA,0,roost,cvcol187
+"Mara, Zoutpansberg",29.6,-23.03333333,NA,NA,NA,0,breed,cvcol188
+Martha & Mary,26.36666667,-32.08333333,NA,NA,NA,0,roost,cvcol190
+Martha/Mary - think historic,26.34250199,-32.10176434,NA,NA,NA,0,roost,cvcol191
+Maseepho,28.08333333,-30.01666667,NA,NA,NA,0,breed,cvcol192
+Matabeng,28.935781,-29.876286,NA,NA,NA,0,breed,cvcol194
+Matebeng,28.920415,-29.878055,NA,NA,NA,0,breed,cvcol195
+Mavis Bank,28.01667,-30.66667,NA,NA,NA,0,breed,cvcol197
+Mbenge,27.7,-31.58333,NA,NA,NA,0,breed,cvcol199
+"Mbundi River, Source",28.96666667,-29.85,NA,NA,NA,0,roost,cvcol200
+Mechachaneng,28.66666667,-28.66666667,NA,NA,NA,0,breed,cvcol201
+Memel,29.71666667,-27.75,NA,NA,NA,0,roost,cvcol202
+Mlahlangubo Pass,29.4,-29.46666667,NA,NA,NA,0,breed,cvcol204
+Mlahlangubo River,29.23333333,-29.65,NA,NA,NA,0,breed,cvcol205
+Mokhotlong,29.1,-29.31666667,NA,NA,NA,0,breed,cvcol207
+Mount Amery,28.95,-28.76666667,NA,NA,NA,0,roost,cvcol210
+Mount Dompie,28.96666667,-28.78333333,NA,NA,NA,0,breed,cvcol211
+Mount Durnford,29.45,-29.3,NA,NA,NA,0,roost,cvcol212
+Mount Komati River Lodge,30.3748,-25.8363,NA,NA,NA,0,roost,cvcol213
+Mount Sutherland,29.23333333,-29.88333333,NA,NA,NA,0,roost,cvcol214
+Mtzikaba,29.93333333,-31.3,NA,NA,NA,0,breed,cvcol215
+"Mweni Needle, Outer, N",29.03333333,-28.86666667,NA,NA,NA,0,breed,cvcol216
+"Mweni Needle, Outer, S",29.03333333,-28.86666667,NA,NA,NA,0,roost,cvcol217
+Mweni Pass,29.01666667,-28.85,NA,NA,NA,0,roost,cvcol218
+"Mweni Pinnacles, Sth",29,-28.88333333,NA,NA,NA,0,breed,cvcol220
+Mzimkhuku,30.667247,-30.250368,NA,NA,NA,0,breed,cvcol221
+"Ndawana River, Source",29.2,-29.88333333,NA,NA,NA,0,roost,cvcol222
+Nkosazana,29.3,-29.06666667,NA,NA,NA,0,roost,cvcol223
+Nonesi Nek,26.98333333,-31.83333333,NA,NA,NA,0,roost,cvcol224
+Nooitgedacht_roost,27.55,-28.86666667,NA,NA,NA,0,roost,cvcol225
+Ntabenende,29.03333333,-28.73333333,NA,NA,NA,0,roost,cvcol226
+"Oldenburg, Golden Gate Highlands NP",28.66985,-28.50978,NA,NA,NA,0,roost,cvcol228
+Otse Hill,25.73333333,-25.01666667,NA,NA,NA,0,breed,cvcol229
+Perdeberg,21.52088889,-33.95255556,NA,NA,NA,0,roost,cvcol230
+Phuthing,29.045141,-29.086569,NA,NA,NA,0,breed,cvcol231
+Platrug,21.7,-34.23305556,NA,NA,NA,0,breed,cvcol232
+Qhaliseng,28.970624,-29.742004,NA,NA,NA,0,breed,cvcol233
+Ramaephos,28.939916,-29.798535,NA,NA,NA,0,breed,cvcol236
+Redi,29.43333333,-29.41666667,NA,NA,NA,0,roost,cvcol237
+Rensbergskop,29.28333333,-28.4,NA,NA,NA,0,roost,cvcol238
+Rhino Peak,29.15,-29.7,NA,NA,NA,0,roost,cvcol239
+Rockeries Pass,29.01666667,-28.88333333,NA,NA,NA,0,roost,cvcol240
+Rondawelkop,28.7,-28.5,NA,NA,NA,0,roost,cvcol241
+Rooipoort,29.98333333,-24.2,NA,NA,NA,0,roost,cvcol242
+Ruitjies - accord to farmer up to 100birds summer,26.48873567,-32.38062476,NA,NA,NA,0,roost,cvcol243
+Scaly Peak,29.36666667,-29.16666667,NA,NA,NA,0,breed,cvcol244
+Scheerpoort,27.75731,-25.74989,NA,NA,NA,0,breed,cvcol245
+Sebale,27.61666667,-22.53333333,NA,NA,NA,0,roost,cvcol246
+Sehlabathebe,29.11666667,-29.83333333,NA,NA,NA,0,roost,cvcol248
+Sentinel,28.81666667,-28.75,NA,NA,NA,0,breed,cvcol250
+Seolwane,27.68333333,-22.66666667,NA,NA,NA,0,breed,cvcol251
+Ship's Prow Pass,29.33333333,-29.1,NA,NA,NA,0,roost,cvcol252
+Tenane,28.46666667,-29.56666667,NA,NA,NA,0,roost,cvcol253
+Thaba-Tseka,28.55,-29.45,NA,NA,NA,0,breed,cvcol256
+Thabana-Sephar,28.931321,-29.826595,NA,NA,NA,0,breed,cvcol257
+The ape,29.36331,-29.14043,NA,NA,NA,0,breed,cvcol258
+The Ape,29.36666667,-29.13333333,NA,NA,NA,0,breed,cvcol259
+The Castle B,27.91667,-31.1,NA,NA,NA,0,breed,cvcol260
+The Hawk,29.43333333,-29.38333333,NA,NA,NA,0,roost,cvcol261
+The Tent,29.45,-29.36666667,NA,NA,NA,0,roost,cvcol262
+"Thomathu, Source",29.13333333,-29.76666667,NA,NA,NA,0,roost,cvcol263
+Tlhayaku,29.06666667,-29.05,NA,NA,NA,0,breed,cvcol264
+Tsatsane,28.046282,-30.468039,NA,NA,NA,0,breed,cvcol265
+Tsatsane Valley,28.04649,-30.51658,NA,NA,NA,0,breed,cvcol266
+"Umzimkulu River, SRCE",29.18333333,-29.68333333,NA,NA,NA,0,roost,cvcol268
+Uniondale,29.58333333,-23,NA,NA,NA,0,breed,cvcol269
+Vumenjani,27.86667,-32.38333,NA,NA,NA,0,breed,cvcol271
+Wabai Hill,29.53333333,-20.11666667,NA,NA,NA,0,roost,cvcol272
+Waterberg,17.2,-20.36666667,NA,NA,NA,0,breed,cvcol273
+Weltevreden,30.38333333,-25.66666667,NA,NA,NA,0,roost,cvcol274
+Witch Peak,29.26666667,-29.06666667,NA,NA,NA,0,roost,cvcol275
+Witpunt 1100,28.95,-28.5,NA,NA,NA,0,roost,cvcol276
+Wolkberg,29.83038333,-24.02435,NA,NA,NA,0,roost,cvcol277
+Unnamed,28.37717,-31.54927,NA,NA,NA,0,breed,cvcol279
+Unnamed,28.55174,-31.33817,NA,NA,NA,0,breed,cvcol280
+Unnamed,28.9719,-31.27867,NA,NA,NA,0,breed,cvcol281
+Unnamed,29.28835,-31.12715,NA,NA,NA,0,breed,cvcol282
+Unnamed,29.2184,-31.0244,NA,NA,NA,0,breed,cvcol283
+Unnamed,28.09509,-30.35441,NA,NA,NA,0,breed,cvcol284
+Unnamed,28.13673,-30.33373,NA,NA,NA,0,breed,cvcol285
+Unnamed,28.93609,-29.81048,NA,NA,NA,0,breed,cvcol287
+Unnamed,29.05102,-29.71602,NA,NA,NA,0,breed,cvcol288
+Unnamed,28.87609,-29.68463,NA,NA,NA,0,breed,cvcol289
+Unnamed,29.30589,-29.0666,NA,NA,NA,0,breed,cvcol290
+Unnamed,28.39346,-29.05722,NA,NA,NA,0,breed,cvcol291
+Unnamed,29.05234559,-30.00341552,NA,NA,NA,0,roost,cvcol292
+Unnamed,29.20765966,-30.61239048,NA,NA,NA,0,roost,cvcol293
+Unnamed,29.35010327,-30.64588669,NA,NA,NA,0,roost,cvcol294
+Unnamed,30.10630197,-30.99293564,NA,NA,NA,0,roost,cvcol296
+Unnamed,29.91768657,-31.17813261,NA,NA,NA,0,roost,cvcol297
+Unnamed,30.00987222,-31.23334276,NA,NA,NA,0,roost,cvcol298
+Unnamed,29.84291157,-31.41323519,NA,NA,NA,0,roost,cvcol299
+Unnamed,29.79403541,-31.28990392,NA,NA,NA,0,roost,cvcol300
+Unnamed,29.74634365,-31.36888423,NA,NA,NA,0,roost,cvcol301
+Unnamed,29.80141816,-31.11531937,NA,NA,NA,0,roost,cvcol302
+Unnamed,29.5805674,-31.02944569,NA,NA,NA,0,roost,cvcol303
+Unnamed,29.35130741,-30.85055189,NA,NA,NA,0,roost,cvcol304
+Unnamed,29.3072478,-30.76523712,NA,NA,NA,0,roost,cvcol305
+Unnamed,27.94234744,-31.1185472,NA,NA,NA,0,roost,cvcol307
+Unnamed,28.36802012,-31.53349387,NA,NA,NA,0,roost,cvcol308
+Unnamed,28.10524166,-31.76169823,NA,NA,NA,0,roost,cvcol309
+Unnamed,27.41379006,-31.58220651,NA,NA,NA,0,roost,cvcol310
+Unnamed,27.28690154,-31.6598653,NA,NA,NA,0,roost,cvcol311
+Unnamed,26.98488003,-31.83169376,NA,NA,NA,0,roost,cvcol312
+Unnamed,27.07070941,-31.89151363,NA,NA,NA,0,roost,cvcol313
+Unnamed,27.4400837,-31.81076105,NA,NA,NA,0,roost,cvcol314
+Unnamed,29.4040526,-31.0059983,NA,NA,NA,0,roost,cvcol315
+Unnamed,26.11000464,-30.74807008,NA,NA,NA,0,roost,cvcol316
+Unnamed,26.03155801,-31.75288631,NA,NA,NA,0,roost,cvcol317
+Unnamed,27.26871116,-32.36136819,NA,NA,NA,0,roost,cvcol318
+Unnamed,27.31671877,-32.11131201,NA,NA,NA,0,roost,cvcol319
+Unnamed,27.75622915,-32.20882992,NA,NA,NA,0,roost,cvcol320
+Unnamed,27.64742245,-32.1692705,NA,NA,NA,0,roost,cvcol321
+Unnamed,27.63684183,-32.1768897,NA,NA,NA,0,roost,cvcol322
+Unnamed,28.33409698,-32.30698584,NA,NA,NA,0,roost,cvcol323
+Unnamed,28.97319819,-31.27125362,NA,NA,NA,0,roost,cvcol324
+Unnamed,29.55106601,-30.66034661,NA,NA,NA,0,roost,cvcol325
+Unnamed,28.78829391,-30.56984957,NA,NA,NA,0,roost,cvcol326
+Unnamed,28.43098074,-30.72254286,NA,NA,NA,0,roost,cvcol327
+Unnamed,27.76835937,-31.6559839,NA,NA,NA,0,roost,cvcol328
+Unnamed,27.79950903,-31.579642,NA,NA,NA,0,roost,cvcol329
+Unnamed,27.69415683,-31.58677202,NA,NA,NA,0,roost,cvcol330
+Unnamed,27.47472734,-31.72865341,NA,NA,NA,0,roost,cvcol331
+Unnamed,27.81634723,-32.16522672,NA,NA,NA,0,roost,cvcol332
+Unnamed,27.87631725,-31.45949321,NA,NA,NA,0,roost,cvcol333
+Unnamed,27.87645263,-31.46011428,NA,NA,NA,0,roost,cvcol334
+Unnamed,27.9983282,-31.62103333,NA,NA,NA,0,roost,cvcol335
+Unnamed,27.93113877,-31.57757476,NA,NA,NA,0,roost,cvcol336
+Unnamed,28.05831877,-31.57875838,NA,NA,NA,0,roost,cvcol337
+Unnamed,27.93075988,-31.54798141,NA,NA,NA,0,roost,cvcol338
+Unnamed,27.98329899,-31.56627666,NA,NA,NA,0,roost,cvcol339
+Unnamed,29.1539991,-31.0098018,NA,NA,NA,0,roost,cvcol340
+Unnamed,28.7508625,-30.47564171,NA,NA,NA,0,roost,cvcol341
+Unnamed,28.54222162,-31.07526789,NA,NA,NA,0,roost,cvcol342
+Unnamed,27.77421607,-30.59954001,NA,NA,NA,0,roost,cvcol343
+Unnamed,27.66610676,-30.60633407,NA,NA,NA,0,roost,cvcol344
+Unnamed,27.56450168,-30.69320159,NA,NA,NA,0,roost,cvcol345
+Unnamed,27.13522182,-30.89325842,NA,NA,NA,0,roost,cvcol346
+Unnamed,27.7779418,-31.03274711,NA,NA,NA,0,roost,cvcol347
+Unnamed,27.91718307,-31.18767232,NA,NA,NA,0,roost,cvcol348
+Unnamed,27.70955256,-31.23209461,NA,NA,NA,0,roost,cvcol349
+Unnamed,27.633775,-31.22194279,NA,NA,NA,0,roost,cvcol350
+Unnamed,27.56848001,-31.20898142,NA,NA,NA,0,roost,cvcol351
+Unnamed,27.46769585,-31.33722059,NA,NA,NA,0,roost,cvcol352
+Unnamed,28.32347707,-31.78403647,NA,NA,NA,0,roost,cvcol353
+Unnamed,28.37323767,-31.83372918,NA,NA,NA,0,roost,cvcol354
+Unnamed,28.12816042,-32.39420334,NA,NA,NA,0,roost,cvcol355
+Unnamed,27.70203795,-32.26352583,NA,NA,NA,0,roost,cvcol356
+Unnamed,27.67842061,-32.50232683,NA,NA,NA,0,roost,cvcol357
+Unnamed,27.30625808,-32.291769,NA,NA,NA,0,roost,cvcol358
+Unnamed,27.37325807,-31.85250455,NA,NA,NA,0,roost,cvcol359
+Unnamed,27.4374164,-31.8597991,NA,NA,NA,0,roost,cvcol360
+Unnamed,27.24393104,-31.94503807,NA,NA,NA,0,roost,cvcol361
+Unnamed,27.18810824,-32.1701381,NA,NA,NA,0,roost,cvcol362
+Unnamed,26.51981333,-32.11177557,NA,NA,NA,0,roost,cvcol363
+Unnamed,26.30220544,-31.78202351,NA,NA,NA,0,roost,cvcol364
+Unnamed,25.54389311,-31.68059437,NA,NA,NA,0,roost,cvcol365
+Unnamed,26.59410691,-31.49135103,NA,NA,NA,0,roost,cvcol366
+Unnamed,26.73966297,-30.95926478,NA,NA,NA,0,roost,cvcol367
+Unnamed,26.94438867,-31.10649719,NA,NA,NA,0,roost,cvcol368
+Unnamed,26.74736702,-31.19118366,NA,NA,NA,0,roost,cvcol369
+Unnamed,26.66650605,-31.3747256,NA,NA,NA,0,roost,cvcol371
+189,29.227465,-31.253698,102,44,Dungu,1,breed,cvcol372
+205,28.751964,-30.497593,3,1,Jumbla,1,breed,cvcol373
+Babangibone,28.97819,-28.57886,52,22,Babangibone,1,roost,cvcol374
+Bannerman Face,29.45,-29.26666667,3,1,"Bannerman A,Bannerman C,bannermans",1,roost,cvcol375
+Blouberg,29.06666667,-23.06666667,1494,642,Blouberg,1,breed,cvcol376
+Bonwalenong,27.43333333,-22.61666667,475,204,Bonwalenong,1,breed,cvcol377
+Castle,28.46666667,-30.73333333,42,18,Castle,1,roost,cvcol378
+Colleywobbles,28.59980556,-32.00058333,388,167,Collywobbles,1,breed,cvcol379
+Elephant,29.12654,-28.97478,24,10,Cathedral peak (Cockade and Elephant),1,breed,cvcol380
+Fangs,28.9452,-28.8607,4,2,Fangs,1,breed,cvcol381
+Game Pass,29.637,-29.382,60,26,Game Pass,1,roost,cvcol382
+Ganabu,29.22,-28.95,76,33,Ganabu (Ladysmith District/Cathedral Peak),1,breed,cvcol383
+Gladstone's Nose,29.685,-29.398,45,19,Gladstone's Nose,1,roost,cvcol384
+Gray's Pass,29.33333333,-29.06666667,10,4,Culfargie (Grays Pass),1,roost,cvcol385
+Ha Mokiba,28.29916,-29.08843,4,2,Ha Mokiba,1,breed,cvcol386
+Ha Tefo,28.32967,-29.07553,60,26,Ha Tefo,1,breed,cvcol387
+"Icidi Stream, Source",28.95,-28.81666667,4,2,Icidi Stream,1,roost,cvcol388
+Injesuthi Triplets,29.38333333,-29.18333333,20,9,Injesuthi Triplets,1,breed,cvcol389
+Isiwa Samange,30.7,-28.8,18,8,"Isiwa Samanqe (Greytown),Isiwa Samange",1,breed,cvcol390
+Karnmelkspruit,27.23333333,-30.85,48,21,"Karnmelkspruit,Barkley East/ Lady Grey Nestling Site",1,breed,cvcol392
+Koakoatsi,29.04859,-29.02387,4,2,Koakoatsi,1,breed,cvcol393
+Kransberg,27.60003,-24.47327,1299,559,Kransberg,1,breed,cvcol394
+Ku-Yeneni,29.16666667,-31.5,364,157,"Mlengana,Port St Johns/ Mlengana",1,breed,cvcol395
+Kumulungana,29.68333333,-29.5,8,3,Kumulungana,1,breed,cvcol396
+Lefikeng Pass,28.26967,-29.11154,20,9,Lefikeng Pass,1,breed,cvcol397
+Lichecheng,28.90554,-28.943094,16,7,Lichecheng,1,breed,cvcol398
+Long Wall,29.45,-29.33333333,6,3,"Long Wall (A),Long Wall,Witteberg (Longwall & Giants Pass)",1,breed,cvcol399
+Lower Moremoholo,29.06666667,-29.23333333,21,9,Motsitseng,1,breed,cvcol400
+Majoana Mabeli,28.147088,-30.337816,78,34,Majoana Mabeli,1,breed,cvcol401
+Manguan Pass,29.3,-29.55,3,1,Manguang,1,roost,cvcol402
+Mannyelong,25.76666667,-25.06666667,156,67,"Botswana,Mannyelanong,Mannyenalong,Mannyelong",1,breed,cvcol403
+Manong Yeng,27.41666667,-22.66666667,210,90,"Botswana - Moremi Gorge,Moremi Gorge,Manong Yeng",1,breed,cvcol404
+Manoutsa,30.66666667,-24.43333333,988,425,"Manutsa,Manoutsa",1,breed,cvcol405
+Mlambonya Buttress,29.08333333,-28.93333333,32,14,Mlambonja Buttress,1,roost,cvcol406
+Moletjie,29.32382,-23.74423,29,12,"Molejie,Moletjie",1,breed,cvcol407
+Morotoaneng,28.38682,-29.04945,10,4,Morotoaneng,1,breed,cvcol408
+Mount Alyiff (Ndakeni),29.1,-30.76666667,60,26,Mount Ayliff,1,breed,cvcol409
+Mount Cleopatra,29.66084,-29.333801,15,6,"Cleopatra,Mount Cleopatra",1,roost,cvcol410
+Mount Erskine,29.65,-29.36666667,42,18,Mount Erskine,1,roost,cvcol411
+Mount Lebanon,29.68333333,-29.3,16,7,"Mount Lebanon,Mount lebanon",1,roost,cvcol412
+Mphosong,28.38803,-29.07087,24,10,Mphosong,1,breed,cvcol413
+Msikaba,29.91667,-31.3,292,126,"Misikaba,Msikaba,Msikaba / Mkambati",1,breed,cvcol414
+Mtentu,30,-31.23333333,52,22,Mkhambathi Nature Reserve,1,breed,cvcol415
+"Mweni Needle, Inner",29.03333333,-28.88333333,5,2,Mweni Needle,1,breed,cvcol416
+"Mweni Pinnacles, Cntr",28.98333333,-28.88333333,1,0,Mweeni Pinnacles,1,roost,cvcol417
+Mzimkulu,30.24744,-30.66008,81,35,"Mzimkhulu Colony,Mzimkulu/Oribi",1,breed,cvcol418
+Ndakeni,29.16667,-30.75,66,28,Ndakeni,1,breed,cvcol419
+Ndedema,29.23333333,-29.06666667,16,7,"Ndedema Buttress,Ndedema Twin Peak A&B,Ndedema Dome",1,breed,cvcol420
+Nelson's Kop,29.4356,-28.2317,105,45,Nelson's Kop,1,roost,cvcol421
+Ngozi,29.26667,-31.21667,120,52,Ngozi,1,breed,cvcol422
+Nguza,29.06477,-28.9125,14,6,Nguza Pass,1,breed,cvcol423
+Ngwavu,29.23333333,-28.86666667,32,14,Ngwavu,1,breed,cvcol424
+Nooitgedacht,27.54219,-25.85319,234,101,"Magaliesberg (Nooitgedacht),Nooitgedacht",1,breed,cvcol425
+Ntabamhlope,29.65937,-29.13054,41,18,"Ntabamhlope E facing cliff,Ntabamhlope East,Ntabamhlope",1,breed,cvcol426
+Ntsizwa,29.26667,-30.78333,60,26,Ntsizwa,1,breed,cvcol427
+Organ Pipes,29.2,-29.01666667,2,1,Organ Pipes,1,roost,cvcol428
+PamperingA,29.26932,-29.0651,14,6,Cathedral Peak (Pampering),1,breed,cvcol429
+Patiseng,29.04779,-29.05567,36,15,Patiseng,1,breed,cvcol430
+Pitso e Moena,28.49376,-28.85986,27,12,Selomo se Putsoa,1,breed,cvcol431
+Popple Peak,29.41666667,-29.23333333,4,2,"Popple Peak A,Popple Peak B",1,roost,cvcol432
+Port St Johns,29.15,-31.9,248,107,Port St Johns,1,breed,cvcol433
+Potberg,20.55908333,-34.38069444,162,70,Potberg,1,breed,cvcol434
+Red Wall,29.368543,-29.188185,43,18,Red Wall,1,breed,cvcol435
+Robert's Farm,27.307515,-25.832808,10,4,"Magaliesberg (Robert's Farm),Robert's Farm",1,breed,cvcol436
+Rockeries,29.05,-28.88333333,78,34,"Rockeries B,Rockeries",1,roost,cvcol437
+Saddle,29.064758,-28.912617,8,3,Saddle,1,breed,cvcol438
+Selomong-se-Sepotsoa,29.06546,-29.0981,2,1,Selomong-se-Sepotsoa,1,breed,cvcol439
+Skeerpoort,27.75,-25.75,454,195,"Magaliesberg (Skeerpoort),Skeerpoort",1,breed,cvcol440
+Snowdon,27.516685,-30.695596,25,11,Snowdon,1,breed,cvcol441
+South Peak,29.07661,-28.91771,32,14,South Peak,1,breed,cvcol442
+Soutpansberg,29.55477,-23.02288,387,166,Soutpansberg,1,breed,cvcol443
+Stimela,28.946972,-28.826248,2,1,Stimela,1,breed,cvcol444
+Stonehenge,27.26666667,-32.36666667,31,13,Thomas River,1,roost,cvcol445
+Tembukazi,29.23333,-31.35,240,103,Tembukazi,1,breed,cvcol446
+Thaba Moea,29.05393,-29.05425,10,4,Thaba Moea,1,breed,cvcol447
+Thaba Phatsoa,29.18333333,-29.46666667,3,1,Black Mountain,1,breed,cvcol448
+The Sphinx,29.23333333,-29.05,12,5,"Sphinx's nest (Sugar Loaf Kop),The Sphinx B,The Sphinx",1,roost,cvcol449
+The Twelve Apostles,29.31666667,-29.58333333,2,1,Twelve Apostles,1,roost,cvcol450
+Topia Waterfall,28.081365,-30.344861,26,11,Topia Waterfall,1,breed,cvcol451
+Trogon Wall,29.4,-29.2,20,9,"Trojan Wall,Trojon Wall",1,roost,cvcol452
+Trojan Wall,29.41867,-29.19955,7,3,Trojan Wall B,1,breed,cvcol453
+Vulture's Peak,28.26666667,-29.11666667,5,2,Thaba Phatsoa,1,breed,cvcol454
+Vulture's Retreat,29.31666667,-29.06666667,58,25,Vultures Retreat (Culfargie/Monks Cowl),1,breed,cvcol455
+Waterberg,17.2,-20.36666667,10,4,Waterberg,1,breed,cvcol456
+unnamed,28.61667,-32,NA,NA,NA,0,breed,cvcol457
+unnamed,27.23333,-30.83333,NA,NA,NA,0,breed,cvcol458
+unnamed,30.66847,-24.43949,NA,NA,NA,0,breed,cvcol459
+unnamed,29.190473,-29.478369,NA,NA,NA,0,breed,cvcol460
+unnamed,29.05937,-23.04431,NA,NA,NA,0,breed,cvcol461
+unnamed,28.69085,-28.63784,NA,NA,NA,0,breed,cvcol462
+unnamed,28.70843,-28.65366,NA,NA,NA,0,breed,cvcol463
+unnamed,28.94223,-28.80918,NA,NA,NA,0,breed,cvcol464
+unnamed,28.96508,-28.876830000000002,NA,NA,NA,0,breed,cvcol465
+unnamed,29.00375,-28.88737,NA,NA,NA,0,breed,cvcol466
+unnamed,29.00727,-28.89441,NA,NA,NA,0,breed,cvcol467
+unnamed,29.0934,-28.93307,NA,NA,NA,0,breed,cvcol468
+unnamed,29.22085,-29.03938,NA,NA,NA,0,breed,cvcol469
+unnamed,29.25513,-29.07804,NA,NA,NA,0,breed,cvcol470
+unnamed,29.3439,-29.09473,NA,NA,NA,0,breed,cvcol471
+unnamed,29.34917,-29.1167,NA,NA,NA,0,breed,cvcol472
+unnamed,29.35533,-29.14921,NA,NA,NA,0,breed,cvcol473
+unnamed,29.35181,-29.16678,NA,NA,NA,0,breed,cvcol474
+unnamed,29.46432,-29.34866,NA,NA,NA,0,breed,cvcol475
+unnamed,29.44322,-29.38205,NA,NA,NA,0,breed,cvcol476
+unnamed,29.49508,-29.44707,NA,NA,NA,0,breed,cvcol477
+unnamed,29.64977,-29.49803,NA,NA,NA,0,breed,cvcol478
+unnamed,29.38082,-29.462,NA,NA,NA,0,breed,cvcol479
+unnamed,29.32544,-29.49275,NA,NA,NA,0,breed,cvcol480
+unnamed,29.29996,-29.5279,NA,NA,NA,0,breed,cvcol481
+unnamed,29.33687,-29.5894,NA,NA,NA,0,breed,cvcol482
+unnamed,29.32367,-29.59555,NA,NA,NA,0,breed,cvcol483
+unnamed,29.31226,-29.6061,NA,NA,NA,0,breed,cvcol484
+unnamed,29.3105,-29.61928,NA,NA,NA,0,breed,cvcol485
+unnamed,29.29029,-29.6307,NA,NA,NA,0,breed,cvcol486
+unnamed,29.26919,-29.64827,NA,NA,NA,0,breed,cvcol487
+unnamed,28.79633,-28.69935,NA,NA,NA,0,breed,cvcol488
+unnamed,28.87279,-28.74504,NA,NA,NA,0,breed,cvcol489
+unnamed,28.89916,-28.74767,NA,NA,NA,0,breed,cvcol490
+unnamed,28.82797,-28.76173,NA,NA,NA,0,breed,cvcol491
+unnamed,29.20133,-29.89283,NA,NA,NA,0,breed,cvcol492
+unnamed,28.70722,-28.64697,NA,NA,NA,0,breed,cvcol493
+unnamed,29.4254,-29.2335,NA,NA,NA,0,breed,cvcol494
+unnamed,29.25277,-29.06095,NA,NA,NA,0,breed,cvcol495
+unnamed,29.24645,-29.06133,NA,NA,NA,0,breed,cvcol496
+unnamed,29.19394,-29.79676,NA,NA,NA,0,breed,cvcol497
+unnamed,29.27938,-29.06357,NA,NA,NA,0,breed,cvcol498
+unnamed,29.32759,-29.07319,NA,NA,NA,0,breed,cvcol499
+unnamed,29.4625,-29.34205,NA,NA,NA,0,breed,cvcol500
+unnamed,29.46035,-29.34105,NA,NA,NA,0,breed,cvcol501
+unnamed,29.45567,-29.33092,NA,NA,NA,0,breed,cvcol502
+unnamed,29.45558,-29.32692,NA,NA,NA,0,breed,cvcol503
+unnamed,29.44428,-29.30653,NA,NA,NA,0,breed,cvcol504
+unnamed,29.44218,-29.2667,NA,NA,NA,0,breed,cvcol505
+unnamed,29.40957,-29.21122,NA,NA,NA,0,breed,cvcol506
+unnamed,29.40062,-29.20558,NA,NA,NA,0,breed,cvcol507
+unnamed,29.38803,-29.20285,NA,NA,NA,0,breed,cvcol508
+unnamed,29.35553,-29.14833,NA,NA,NA,0,breed,cvcol509
+unnamed,29.35587,-29.1457,NA,NA,NA,0,breed,cvcol510
+unnamed,29.34045,-29.106,NA,NA,NA,0,breed,cvcol511
+unnamed,29.34045,-29.106,NA,NA,NA,0,breed,cvcol512
+unnamed,29.29417,-29.06285,NA,NA,NA,0,breed,cvcol513
+unnamed,29.22158,-29.03403,NA,NA,NA,0,breed,cvcol514
+unnamed,29.12712,-28.9627,NA,NA,NA,0,breed,cvcol515
+unnamed,28.68912,-28.6506,NA,NA,NA,0,breed,cvcol516
+unnamed,28.73595,-28.66808,NA,NA,NA,0,breed,cvcol517
+unnamed,28.74027,-28.66808,NA,NA,NA,0,breed,cvcol518
+unnamed,28.74947,-28.67957,NA,NA,NA,0,breed,cvcol519
+unnamed,28.78315,-28.69893,NA,NA,NA,0,breed,cvcol520
+unnamed,28.7886,-28.69775,NA,NA,NA,0,breed,cvcol521
+unnamed,28.79567,-28.69778,NA,NA,NA,0,breed,cvcol522
+unnamed,28.80778,-28.7454,NA,NA,NA,0,breed,cvcol523
+unnamed,28.82143,-28.7616,NA,NA,NA,0,breed,cvcol524
+unnamed,28.85818,-28.7529,NA,NA,NA,0,breed,cvcol525
+unnamed,28.86332,-28.75088,NA,NA,NA,0,breed,cvcol526
+unnamed,28.87223,-28.74517,NA,NA,NA,0,breed,cvcol527
+unnamed,28.87223,-28.74517,NA,NA,NA,0,breed,cvcol528
+unnamed,28.93523,-28.7603,NA,NA,NA,0,breed,cvcol529
+unnamed,28.9321,-28.76208,NA,NA,NA,0,breed,cvcol530
+unnamed,28.94617,-28.78507,NA,NA,NA,0,breed,cvcol531
+unnamed,28.94483,-28.79122,NA,NA,NA,0,breed,cvcol532
+unnamed,28.94622,-28.79332,NA,NA,NA,0,breed,cvcol533
+unnamed,28.94832,-28.79477,NA,NA,NA,0,breed,cvcol534
+unnamed,28.95035,-28.80722,NA,NA,NA,0,breed,cvcol535
+unnamed,28.93635,-28.81095,NA,NA,NA,0,breed,cvcol536
+unnamed,28.94782,-28.83835,NA,NA,NA,0,breed,cvcol537
+unnamed,28.95045,-28.84257,NA,NA,NA,0,breed,cvcol538
+unnamed,28.96905,-28.88502,NA,NA,NA,0,breed,cvcol539
+unnamed,28.9883,-28.89252,NA,NA,NA,0,breed,cvcol540
+unnamed,29.00937,-28.88333,NA,NA,NA,0,breed,cvcol541
+unnamed,29.05817,-28.91332,NA,NA,NA,0,breed,cvcol542
+unnamed,29.1317,-28.92378,NA,NA,NA,0,breed,cvcol543
+unnamed,29.13373,-28.92378,NA,NA,NA,0,breed,cvcol544
+unnamed,29.34838,-29.08585,NA,NA,NA,0,breed,cvcol545
+unnamed,29.34033,-29.10832,NA,NA,NA,0,breed,cvcol546
+unnamed,29.35248,-29.12065,NA,NA,NA,0,breed,cvcol547
+unnamed,29.35637,-29.1423,NA,NA,NA,0,breed,cvcol548
+unnamed,29.3478,-29.17228,NA,NA,NA,0,breed,cvcol549
+unnamed,29.3617,-29.18067,NA,NA,NA,0,breed,cvcol550
+unnamed,29.37612,-29.19307,NA,NA,NA,0,breed,cvcol551
+unnamed,29.40502,-29.20927,NA,NA,NA,0,breed,cvcol552
+unnamed,29.41508,-29.21993,NA,NA,NA,0,breed,cvcol553
+unnamed,29.42513,-29.23755,NA,NA,NA,0,breed,cvcol554
+unnamed,29.42645,-29.24715,NA,NA,NA,0,breed,cvcol555
+unnamed,29.42412,-29.25353,NA,NA,NA,0,breed,cvcol556
+unnamed,29.44043,-29.26458,NA,NA,NA,0,breed,cvcol557
+unnamed,29.44355,-29.29013,NA,NA,NA,0,breed,cvcol558
+unnamed,29.44387,-29.29782,NA,NA,NA,0,breed,cvcol559
+unnamed,29.45968,-29.33953,NA,NA,NA,0,breed,cvcol560
+unnamed,29.46418,-29.34663,NA,NA,NA,0,breed,cvcol561
+unnamed,29.48383,-29.34412,NA,NA,NA,0,breed,cvcol562
+unnamed,28.95298,-28.85485,NA,NA,NA,0,breed,cvcol563
+unnamed,28.95298,-28.85485,NA,NA,NA,0,breed,cvcol564
+unnamed,26.03958,-32.56603,NA,NA,NA,0,breed,cvcol565
+unnamed,29.4648,-29.63927,NA,NA,NA,0,breed,cvcol566
+unnamed,29.34772,-29.74213,NA,NA,NA,0,breed,cvcol567
+unnamed,29.35432,-29.7412,NA,NA,NA,0,breed,cvcol568
+unnamed,29.43543,-29.2603,NA,NA,NA,0,breed,cvcol569
+unnamed,29.43452,-29.26145,NA,NA,NA,0,breed,cvcol570
+unnamed,29.43493,-29.26177,NA,NA,NA,0,breed,cvcol571
+unnamed,29.44086,-29.2671,NA,NA,NA,0,breed,cvcol572
+unnamed,29.44176,-29.26781,NA,NA,NA,0,breed,cvcol573
+unnamed,29.13392,-28.92127,NA,NA,NA,0,breed,cvcol574
+unnamed,29.057598,-23.043974,NA,NA,NA,0,breed,cvcol575
+unnamed,29.65907,-29.32283,NA,NA,NA,0,breed,cvcol576
+unnamed,29.35385,-29.09203,NA,NA,NA,0,breed,cvcol577
+unnamed,29.35158,-29.10874,NA,NA,NA,0,breed,cvcol578
+unnamed,29.45919,-29.63813,NA,NA,NA,0,breed,cvcol579
+unnamed,29.16597,-28.99895,NA,NA,NA,0,breed,cvcol580
+unnamed,29.17425,-29.00109,NA,NA,NA,0,breed,cvcol581
+unnamed,29.12498,-28.96141,NA,NA,NA,0,breed,cvcol582
+unnamed,29.13153,-28.9678,NA,NA,NA,0,breed,cvcol583
+unnamed,29.13647,-28.97348,NA,NA,NA,0,breed,cvcol584
+unnamed,29.1526,-28.98767,NA,NA,NA,0,breed,cvcol586
+unnamed,29.15525,-28.99245,NA,NA,NA,0,breed,cvcol587
+unnamed,29.40806,-29.20544,NA,NA,NA,0,breed,cvcol588
+unnamed,29.18884,-29.79373,NA,NA,NA,0,breed,cvcol589
+unnamed,28.92201,-28.76349,NA,NA,NA,0,breed,cvcol590
+unnamed,26.54309,-31.13123,NA,NA,NA,0,breed,cvcol591
+unnamed,29.46556,-29.61382,NA,NA,NA,0,breed,cvcol592
+unnamed,28.93378,-28.7571,NA,NA,NA,0,breed,cvcol593
+unnamed,29.4773,-29.34467,NA,NA,NA,0,breed,cvcol594
+unnamed,29.29264,-29.04412,NA,NA,NA,0,breed,cvcol595
+unnamed,29.38305,-29.66639,NA,NA,NA,0,breed,cvcol596
+unnamed,29.368,-29.6564,NA,NA,NA,0,breed,cvcol597
+unnamed,29.48306,-29.12944,NA,NA,NA,0,breed,cvcol598
+unnamed,29.21111,-28.90255,NA,NA,NA,0,breed,cvcol599
+unnamed,29.21262,-28.91535,NA,NA,NA,0,breed,cvcol600
+unnamed,29.48956,-29.34373,NA,NA,NA,0,breed,cvcol601
+unnamed,29.47801,-29.34402,NA,NA,NA,0,breed,cvcol602
+unnamed,29.49955,-29.34831,NA,NA,NA,0,breed,cvcol603
+unnamed,29.50097,-29.34903,NA,NA,NA,0,breed,cvcol604
+unnamed,29.49484,-29.35181,NA,NA,NA,0,breed,cvcol605
+unnamed,29.47544,-29.35497,NA,NA,NA,0,breed,cvcol606
+unnamed,29.69607,-29.39633,NA,NA,NA,0,breed,cvcol607
+unnamed,27.411094,-22.67403,NA,NA,NA,0,breed,cvcol608
+unnamed,29.32897,-29.07309,NA,NA,NA,0,breed,cvcol609
+unnamed,29.32852,-29.07414,NA,NA,NA,0,breed,cvcol610
+unnamed,29.34389,-29.31389,NA,NA,NA,0,breed,cvcol611
+unnamed,29.35905,-29.16808,NA,NA,NA,0,breed,cvcol612
+unnamed,29.35077,-29.1725,NA,NA,NA,0,breed,cvcol613
+unnamed,29.42227,-29.23553,NA,NA,NA,0,breed,cvcol614
+unnamed,29.42687,-29.2481,NA,NA,NA,0,breed,cvcol615
+unnamed,29.43809,-29.39497,NA,NA,NA,0,breed,cvcol616
+unnamed,29.3606,-29.1826,NA,NA,NA,0,breed,cvcol617
+unnamed,26.02479,-31.485,NA,NA,NA,0,breed,cvcol618
+unnamed,28.94743,-28.80683,NA,NA,NA,0,breed,cvcol619
+unnamed,28.95015,-28.80221,NA,NA,NA,0,breed,cvcol620
+unnamed,28.94721,-28.79495,NA,NA,NA,0,breed,cvcol621
+unnamed,29.0249,-28.57224,NA,NA,NA,0,breed,cvcol622
+unnamed,29.36808,-29.66574,NA,NA,NA,0,breed,cvcol623
+unnamed,29.38305,-29.66639,NA,NA,NA,0,breed,cvcol624
+unnamed,29.42645,-29.39651,NA,NA,NA,0,breed,cvcol625
+unnamed,29.42577,-29.40376,NA,NA,NA,0,breed,cvcol626
+unnamed,29.44596,-29.31255,NA,NA,NA,0,breed,cvcol627
+unnamed,29.29948,-29.52217,NA,NA,NA,0,breed,cvcol628
+unnamed,29.30455,-29.52812,NA,NA,NA,0,breed,cvcol629
+unnamed,29.30575,-29.52988,NA,NA,NA,0,breed,cvcol630
+unnamed,29.30933,-29.53318,NA,NA,NA,0,breed,cvcol631
+unnamed,27.237834,-30.829245,NA,NA,NA,0,breed,cvcol632
+unnamed,27.76937,-32.42011,NA,NA,NA,0,breed,cvcol633
+unnamed,29.44322,-29.2854,NA,NA,NA,0,breed,cvcol634
+unnamed,29.35853,-29.1485,NA,NA,NA,0,breed,cvcol635
+unnamed,29.35675,-29.15363,NA,NA,NA,0,breed,cvcol636
+unnamed,29.36095,-29.17743,NA,NA,NA,0,breed,cvcol637
+unnamed,29.366,-29.17652,NA,NA,NA,0,breed,cvcol638
+unnamed,29.30586,-29.7054,NA,NA,NA,0,breed,cvcol639
+unnamed,29.21807,-29.02787,NA,NA,NA,0,breed,cvcol640
+unnamed,27.125377,-31.86504,NA,NA,NA,0,breed,cvcol641
+unnamed,29.4552,-29.32538,NA,NA,NA,0,breed,cvcol642
+unnamed,29.45457,-29.32917,NA,NA,NA,0,breed,cvcol643
+unnamed,29.4558,-29.32923,NA,NA,NA,0,breed,cvcol644
+unnamed,29.4561,-29.33311,NA,NA,NA,0,breed,cvcol645
+unnamed,29.45695,-29.33485,NA,NA,NA,0,breed,cvcol646
+unnamed,29.45876,-29.33759,NA,NA,NA,0,breed,cvcol647
+unnamed,29.17437,-31.55543,NA,NA,NA,0,breed,cvcol648
+unnamed,29.3108,-29.55285,NA,NA,NA,0,breed,cvcol649
+unnamed,29.31753,-29.54635,NA,NA,NA,0,breed,cvcol650
+unnamed,30.754614,-24.46341,NA,NA,NA,0,breed,cvcol651
+unnamed,25.760073,-25.060653,NA,NA,NA,0,breed,cvcol652
+unnamed,28.015663,-30.677916,NA,NA,NA,0,breed,cvcol653
+unnamed,27.168015,-31.778474,NA,NA,NA,0,breed,cvcol654
+unnamed,28.95418,-28.84459,NA,NA,NA,0,breed,cvcol655
+unnamed,28.9541,-28.84556,NA,NA,NA,0,breed,cvcol656
+unnamed,29.26949,-29.64346,NA,NA,NA,0,breed,cvcol657
+unnamed,29.26616,-29.64523,NA,NA,NA,0,breed,cvcol658
+unnamed,29.40521,-29.44426,NA,NA,NA,0,breed,cvcol659
+unnamed,29.39831,-29.45049,NA,NA,NA,0,breed,cvcol660
+unnamed,29.39831,-29.45049,NA,NA,NA,0,breed,cvcol661
+unnamed,29.20712,-29.65239,NA,NA,NA,0,breed,cvcol662
+unnamed,29.07652,-28.92695,NA,NA,NA,0,breed,cvcol663
+unnamed,29.10082,-28.94145,NA,NA,NA,0,breed,cvcol664
+unnamed,28.81171,-28.72451,NA,NA,NA,0,breed,cvcol665
+unnamed,29.29644,-29.5954,NA,NA,NA,0,breed,cvcol666
+unnamed,28.93349,-28.77127,NA,NA,NA,0,breed,cvcol667
+unnamed,28.95608,-28.78872,NA,NA,NA,0,breed,cvcol668
+unnamed,29.44335,-29.3059,NA,NA,NA,0,breed,cvcol669
+unnamed,29.44489,-29.28756,NA,NA,NA,0,breed,cvcol670
+unnamed,29.4443,-29.28847,NA,NA,NA,0,breed,cvcol671
+unnamed,29.68175,-29.34938,NA,NA,NA,0,breed,cvcol672
+unnamed,28.94577,-28.78522,NA,NA,NA,0,breed,cvcol673
+unnamed,28.95608,-28.78872,NA,NA,NA,0,breed,cvcol674
+unnamed,29.92633,-31.301431,NA,NA,NA,0,breed,cvcol675
+unnamed,29.03504,-28.87796,NA,NA,NA,0,breed,cvcol676
+unnamed,29.03504,-28.87796,NA,NA,NA,0,breed,cvcol677
+unnamed,29.04228,-28.86941,NA,NA,NA,0,breed,cvcol678
+unnamed,29.01616,-28.84263,NA,NA,NA,0,breed,cvcol679
+unnamed,28.99231,-28.88648,NA,NA,NA,0,breed,cvcol680
+unnamed,28.98895,-28.88467,NA,NA,NA,0,breed,cvcol681
+unnamed,28.99231,-28.88648,NA,NA,NA,0,breed,cvcol682
+unnamed,28.98702,-28.89003,NA,NA,NA,0,breed,cvcol683
+unnamed,28.85782,-28.7544,NA,NA,NA,0,breed,cvcol684
+unnamed,29.02403,-28.88371,NA,NA,NA,0,breed,cvcol685
+unnamed,29.23042,-29.05597,NA,NA,NA,0,breed,cvcol686
+unnamed,29.23063,-29.06172,NA,NA,NA,0,breed,cvcol687
+unnamed,29.23063,-29.06172,NA,NA,NA,0,breed,cvcol688
+unnamed,29.40683,-29.66951,NA,NA,NA,0,breed,cvcol689
+unnamed,29.41887,-29.67314,NA,NA,NA,0,breed,cvcol690
+unnamed,29.29517,-29.49312,NA,NA,NA,0,breed,cvcol691
+unnamed,29.29173,-29.06892,NA,NA,NA,0,breed,cvcol692
+unnamed,29.35921,-29.47073,NA,NA,NA,0,breed,cvcol693
+unnamed,29.3609,-29.12284,NA,NA,NA,0,breed,cvcol694
+unnamed,29.19097,-29.01038,NA,NA,NA,0,breed,cvcol695
+unnamed,30.193798,-30.722615,NA,NA,NA,0,breed,cvcol696
+unnamed,29.35414,-29.65335,NA,NA,NA,0,breed,cvcol697
+unnamed,29.28373,-29.64591,NA,NA,NA,0,breed,cvcol698
+unnamed,29.41659,-29.22305,NA,NA,NA,0,breed,cvcol699
+unnamed,29.46229,-29.30347,NA,NA,NA,0,breed,cvcol700
+unnamed,28.75678,-28.67787,NA,NA,NA,0,breed,cvcol701
+unnamed,28.74205,-28.66813,NA,NA,NA,0,breed,cvcol702
+unnamed,29.41861,-29.42246,NA,NA,NA,0,breed,cvcol703
+unnamed,29.43692,-29.42337,NA,NA,NA,0,breed,cvcol704
+unnamed,29.43145,-29.4321,NA,NA,NA,0,breed,cvcol705
+unnamed,29.43543,-29.42331,NA,NA,NA,0,breed,cvcol706
+unnamed,29.16208,-29.69477,NA,NA,NA,0,breed,cvcol707
+unnamed,29.16525,-29.69835,NA,NA,NA,0,breed,cvcol708
+unnamed,29.16529,-29.70185,NA,NA,NA,0,breed,cvcol709
+unnamed,28.9094,-28.75825,NA,NA,NA,0,breed,cvcol710
+unnamed,28.91641,-28.75962,NA,NA,NA,0,breed,cvcol711
+unnamed,28.9227,-28.76265,NA,NA,NA,0,breed,cvcol712
+unnamed,29.03161,-28.89814,NA,NA,NA,0,breed,cvcol713
+unnamed,29.0518,-28.8991,NA,NA,NA,0,breed,cvcol714
+unnamed,29.03372,-28.90025,NA,NA,NA,0,breed,cvcol715
+unnamed,29.04418,-28.90632,NA,NA,NA,0,breed,cvcol716
+unnamed,29.0395,-28.90663,NA,NA,NA,0,breed,cvcol717
+unnamed,29.0395,-28.90663,NA,NA,NA,0,breed,cvcol718
+unnamed,29.03487,-28.8917,NA,NA,NA,0,breed,cvcol719
+unnamed,29.03928,-28.9046,NA,NA,NA,0,breed,cvcol720
+unnamed,29.4644,-30.08369,NA,NA,NA,0,breed,cvcol721
+unnamed,29.3744,-29.17009,NA,NA,NA,0,breed,cvcol722
+unnamed,29.3744,-29.17009,NA,NA,NA,0,breed,cvcol723
+unnamed,27.765654,-25.746662,NA,NA,NA,0,breed,cvcol724
+unnamed,29.30744,-29.51004,NA,NA,NA,0,breed,cvcol725
+unnamed,28.88962,-28.73778,NA,NA,NA,0,breed,cvcol726
+unnamed,28.88205,-28.74543,NA,NA,NA,0,breed,cvcol727
+unnamed,29.3984,-29.60729,NA,NA,NA,0,breed,cvcol728
+unnamed,29.46867,-29.62354,NA,NA,NA,0,breed,cvcol729
+unnamed,29.37306,-29.69194,NA,NA,NA,0,breed,cvcol730
+unnamed,28.94802,-28.83636,NA,NA,NA,0,breed,cvcol731
+unnamed,29.587573,-23.018725,NA,NA,NA,0,breed,cvcol732
+unnamed,29.20712,-29.66403,NA,NA,NA,0,breed,cvcol733
+unnamed,29.2147,-29.66584,NA,NA,NA,0,breed,cvcol734
+unnamed,29.13388,-29.77434,NA,NA,NA,0,breed,cvcol735
+unnamed,29.13672,-29.77675,NA,NA,NA,0,breed,cvcol736
+unnamed,29.4384,-29.38559,NA,NA,NA,0,breed,cvcol737
+unnamed,29.43804,-29.39091,NA,NA,NA,0,breed,cvcol738
+unnamed,29.4373,-29.3914,NA,NA,NA,0,breed,cvcol739
+unnamed,29.23177,-29.04448,NA,NA,NA,0,breed,cvcol740
+unnamed,29.44883,-29.37722,NA,NA,NA,0,breed,cvcol741
+unnamed,29.4463,-29.3782,NA,NA,NA,0,breed,cvcol742
+unnamed,29.44724,-29.27178,NA,NA,NA,0,breed,cvcol743
+unnamed,29.32771,-29.57192,NA,NA,NA,0,breed,cvcol744
+unnamed,29.33282,-29.58198,NA,NA,NA,0,breed,cvcol745
+unnamed,29.32288,-29.58377,NA,NA,NA,0,breed,cvcol746
+unnamed,29.1,-29.96666,NA,NA,NA,0,breed,cvcol747
+unnamed,29.37402,-29.18333,NA,NA,NA,0,breed,cvcol748
+unnamed,29.37402,-29.18378,NA,NA,NA,0,breed,cvcol749
+unnamed,29.38433,-29.20193,NA,NA,NA,0,breed,cvcol750
+unnamed,29.39994,-29.20596,NA,NA,NA,0,breed,cvcol751
+unnamed,29.40076,-29.20605,NA,NA,NA,0,breed,cvcol752
+unnamed,29.41072,-29.20852,NA,NA,NA,0,breed,cvcol753
+unnamed,29.1749,-29.6784,NA,NA,NA,0,breed,cvcol754
+unnamed,27.914665,-24.450367,NA,NA,NA,0,breed,cvcol755
+unnamed,29.379270000000002,-29.19632,NA,NA,NA,0,breed,cvcol756
+unnamed,29.38095,-29.19927,NA,NA,NA,0,breed,cvcol757
+unnamed,29.38735,-29.20322,NA,NA,NA,0,breed,cvcol758
+unnamed,29.3231,-29.06218,NA,NA,NA,0,breed,cvcol759
+unnamed,27.877352,-32.377569,NA,NA,NA,0,breed,cvcol760
+unnamed,17.234483,-20.356737,NA,NA,NA,0,breed,cvcol761
+unnamed,29.20703,-29.01753,NA,NA,NA,0,breed,cvcol762
+unnamed,29.26271,-29.06182,NA,NA,NA,0,breed,cvcol763
+unnamed,26.54309,-31.13123,NA,NA,NA,0,breed,cvcol764
+unnamed,27.048922,-30.394599,NA,NA,NA,0,breed,cvcol765
+unnamed,30.06368485372614,-30.54500482907403,NA,NA,NA,0,roost,cvcol766
+unnamed,28.82568092367128,-23.38646520185939,NA,NA,NA,0,roost,cvcol767
+unnamed,29.75290470594557,-30.29786805888528,NA,NA,NA,0,roost,cvcol768
+unnamed,29.46568366339678,-30.08169525530201,NA,NA,NA,0,roost,cvcol769
+unnamed,29.46440189852042,-30.08368575172914,NA,NA,NA,0,roost,cvcol770
+unnamed,26.45892658184604,-31.21835989039676,NA,NA,NA,0,roost,cvcol771
+unnamed,29.21142205338566,-30.05373586694352,NA,NA,NA,0,roost,cvcol772
+unnamed,29.22277792791446,-30.01976766543319,NA,NA,NA,0,roost,cvcol773
+unnamed,29.20884183732847,-29.88948604803758,NA,NA,NA,0,roost,cvcol774
+unnamed,26.82389053999929,-32.34844396962178,NA,NA,NA,0,roost,cvcol775
+unnamed,26.03410632497915,-31.758588458672,NA,NA,NA,0,roost,cvcol776
+unnamed,27.93982840162526,-31.4887174707558,NA,NA,NA,0,roost,cvcol777
+unnamed,27.87751200129598,-31.46547899826211,NA,NA,NA,0,roost,cvcol778
+unnamed,29.67954589247172,-29.35290265205521,NA,NA,NA,0,roost,cvcol779
+unnamed,29.84623965789671,-28.32395800419874,NA,NA,NA,0,roost,cvcol780
+unnamed,29.67657078062357,-29.72688561176352,NA,NA,NA,0,roost,cvcol781
+unnamed,29.11742533695094,-28.50090635960269,NA,NA,NA,0,roost,cvcol782
+unnamed,29.26648309979972,-28.5052432673571,NA,NA,NA,0,roost,cvcol783
+unnamed,29.30454803960622,-29.77558602568529,NA,NA,NA,0,roost,cvcol784
+unnamed,29.191508807799,-29.79743015709429,NA,NA,NA,0,roost,cvcol785
+unnamed,29.32298268898929,-30.31964901160287,NA,NA,NA,0,roost,cvcol786
+unnamed,30.72940967235491,-28.84142008163106,NA,NA,NA,0,roost,cvcol787
+Aasvoelkop (Indwe),27.516666666666666,-30.383333333333333,0,0,NA,1,breed,da_3
+"Aasvoelkop, Tierhoek Farm, Somerset East District",25.666666666666668,-32.61666666666667,0,0,NA,1,breed,da_4
+Aasvoelkrans,28.016666666666666,-30.85,10,4,NA,1,breed,da_5
+Aasvogelkop,27.4,-31.116666666666667,0,0,NA,1,breed,da_6
+Andriesberg,26.733333333333334,-31.65,0,0,NA,1,breed,da_9
+Bacela,27.483333333333334,-32.2,0,0,NA,1,breed,da_10
+Blouberg - Liepsig,28.9,-23.133333333333333,4,2,NA,1,breed,da_18
+Blouberg - Millbank,28.916666666666668,-23.25,24,10,NA,1,breed,da_19
+Clifton/Fenella Falls,26.4,-32.483333333333334,0,0,NA,1,breed,da_27
+Dreunberg/Waterfall,26.416666666666668,-30.983333333333334,0,0,NA,1,breed,da_32
+Eagle's Nest - Kei Bridge,27.966666666666665,-32.516666666666666,0,0,NA,1,breed,da_35
+Elandsrivier valley - Elandsberg & Donkergat,26.85,-32.483333333333334,0,0,NA,1,breed,da_38
+Hotfire Farm,27.35,-32.18333333333333,0,0,NA,1,breed,da_56
+Isiwa Samanqe/Iphowa (Greytown),30.85,-28.833333333333332,7.111111111111111,3,NA,1,breed,da_60
+Kees se Berg,26.116666666666667,-31.133333333333333,0,0,NA,1,breed,da_65
+Mosuko-oa-Pere,28.283333333333335,-29.9,24,10,NA,1,breed,da_120
+Ntabamhlope,29.65,-29.216666666666665,51,22,NA,1,breed,da_142
+Ntabamhlope A,29.65,-29.216666666666665,6,3,NA,1,breed,da_143
+Ntabamhlope B,29.65,-29.216666666666665,5,2,NA,1,breed,da_144
+Ntabamhlope E-facing cliff,29.65,-29.216666666666665,16,7,NA,1,breed,da_145
+Ntabamhlope W-facing cliff,29.65,-29.216666666666665,12,5,NA,1,breed,da_146
+Ntabamhlope: south,29.65,-29.216666666666665,24,10,NA,1,breed,da_147
+Ntabamhlope: south-east,29.65,-29.216666666666665,42,18,NA,1,breed,da_148
+Ntabamhlope: west-facing cliff,29.65,-29.216666666666665,30,13,NA,1,breed,da_149
+Penge (Mmankgogile),30.266666666666666,-24.416666666666668,18.666666666666668,8,NA,1,breed,da_153
+Potberg + Little Karoo - Langeberg,21.633333333333333,-33.86666666666667,2.7142857142857144,1,NA,1,breed,da_164
+Qoasing Falls,27.766666666666666,-29.966666666666665,0,0,NA,1,breed,da_170
+Segunduanine/Goba,32.13333333333333,-26.333333333333332,118.5,51,NA,1,breed,da_184
+Sihota,27.966666666666665,-32.516666666666666,0,0,NA,1,breed,da_190
+Stromness,27.8,-32.516666666666666,0,0,NA,1,breed,da_199
+Teebus,25.633333333333333,-31.4,0,0,NA,1,breed,da_201
+Thaba Khubelu,28.216666666666665,-29.183333333333334,8,3,NA,1,breed,da_205
+Thaba Putsoa,27.95,-29.733333333333334,0,0,NA,1,breed,da_206
+Thaba Telle,27.7,-29.6,0,0,NA,1,breed,da_207
+Tswapong Hills - Makoote-Sefhare,27.497222222222224,-22.994722222222222,58,25,NA,1,breed,da_225
+Tswapong Hills -Sebale,27.619444444444444,-22.625,16,7,NA,1,breed,da_227
+Utrecht,30.316666666666666,-27.666666666666668,16,7,NA,1,breed,da_233
+Van Zylsberg,27.85,-31.25,26,11,NA,1,breed,da_234
+Wabai Hill,29.583333333333332,-20.083333333333332,5.192982456140351,2,NA,1,breed,da_238
+Waldeck,25.966666666666665,-32.56666666666667,0,0,NA,1,breed,da_239
+Waterberg,17.25,-20.516666666666666,9.65,4,NA,1,breed,da_240
+Wilge River - Tweefontein,29.266666666666666,-25.516666666666666,24,10,NA,1,breed,da_242
+Witkransnek,25.183333333333334,-31.683333333333334,6.666666666666667,3,NA,1,breed,da_244
+Kugqebenya/Nonesi Nek,26.966666666666665,-31.783333333333335,60,26,NA,1,breed,da_73
+Liwalimdaka,27.083333333333332,-31.883333333333333,10,4,NA,1,breed,da_76
+"Forest Range Farm, Cathcart District",27.316666666666666,-32.11666666666667,22,9,NA,1,breed,da_44
+Ntlonze,27.45,-31.916666666666668,14,6,NA,1,breed,da_150
+Maxalanga Peak,27.166666666666668,-31.766666666666666,16,7,NA,1,breed,da_111
+Rooiberg,26.816666666666666,-31.366666666666667,6,3,NA,1,breed,da_179
+Phoqoane/Sinxondo,27.85,-30.55,32,14,NA,1,breed,da_154
+Ha Frans,28,-30.533333333333335,14,6,NA,1,breed,da_47
+Dudumashe/Ntabatsolo,27.366666666666667,-31.883333333333333,8.5,4,NA,1,breed,da_33
+"Aasvoelberg, Zastron",27.066666666666666,-30.283333333333335,57.76190476190476,25,NA,1,breed,da_2
+Jozana's Hoek,27.433333333333334,-30.666666666666668,80,34,NA,1,breed,da_62
+Balloch,27.716666666666665,-30.733333333333334,25.713513513513515,11,NA,1,breed,da_11
+Seforong,28.1,-30.35,43,18,NA,1,breed,da_183
+Sebapala waterfall,28.033333333333335,-30.583333333333332,32.5,14,NA,1,breed,da_182
+Colon Koppe,28.35,-30.816666666666666,25.6,11,NA,1,breed,da_30
+Mtamvuna,30.133333333333333,-31,66.11111111111111,28,NA,1,breed,da_129
+Magusheni,29.55,-30.866666666666667,6.453333333333333,3,NA,1,breed,da_92
+Mzwakazi,29.25,-31.033333333333335,16,7,NA,1,breed,da_132
+Pitseng - Lehaha-la-Molapo,28.35,-29.133333333333333,37,16,NA,1,breed,da_158
+Pitseng - Khora-ea-Mokhooa,28.316666666666666,-29.083333333333332,35,15,NA,1,breed,da_157
+Pitseng - Bolahla,28.3,-29.1,10,4,NA,1,breed,da_156
+Moteng Pass,28.566666666666666,-28.8,10,4,NA,1,breed,da_121
+Metebong-ea-Lelingoa,28.933333333333334,-28.966666666666665,13.6,6,NA,1,breed,da_114
+Upper Senqu,29.033333333333335,-29.083333333333332,21,9,NA,1,breed,da_232
+Monyetleng,28.866666666666667,-29.683333333333334,72,31,NA,1,breed,da_119
+Mohlokohloko,28.9,-29.683333333333334,56.666666666666664,24,NA,1,breed,da_118
+Macacaceng,29.033333333333335,-29.7,20,9,NA,1,breed,da_87
+Ha Ramaepho,28.95,-29.8,74,32,NA,1,breed,da_48
+Matebeng Pass,28.916666666666668,-29.883333333333333,40,17,NA,1,breed,da_99
+Fangs North,28.983333333333334,-29.866666666666667,8,3,NA,1,breed,da_40
+iTsolwane,29.216666666666665,-29.933333333333334,20,9,NA,1,breed,da_61
+Maqukhu Breeding,28.583333333333332,-29.933333333333334,14,6,NA,1,breed,da_96
+Maseepho,28.583333333333332,-30.016666666666666,18.5,8,NA,1,breed,da_98
+Thaba-Maseka,28.5,-30.016666666666666,27.5,12,NA,1,breed,da_203
+Semonkong,28.066666666666666,-29.883333333333333,19.1974358974359,8,NA,1,breed,da_188
+MaraKabei Manong,28.05,-29.683333333333334,8.666666666666666,4,NA,1,breed,da_97

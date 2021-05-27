@@ -18,6 +18,7 @@ Imports:
     dplyr,
     magrittr,
     Rcpp,
+    rgdal,
     sp
 Depends: 
     R (>= 2.10)
