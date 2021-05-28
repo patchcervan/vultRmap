@@ -11,6 +11,10 @@ prepColHab(col_cc, max_range, col_all = NULL, sfs = NULL)
 
 \item{max_range}{The maximum distance from the colony the vultures will be allowed to travel in kilometers.
 Note that increasing the range will increase computation time and memory use}
+
+\item{col_all}{A data frame containing at least two columns (lon, lat) with the coordinates of all colonies}
+
+\item{sfs}{A data frame containing at least two columns (lon, lat) with the coordinates of all supplementary feeding sites}
 }
 \value{
 A data frame with variables needed for activity simulation such as: distance to colony, distance to other colonies

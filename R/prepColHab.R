@@ -3,6 +3,8 @@
 #' @param col_cc A numeric vector with the coordinates of the colony to simulate around (lon, lat)
 #' @param max_range The maximum distance from the colony the vultures will be allowed to travel in kilometers.
 #'     Note that increasing the range will increase computation time and memory use
+#' @param col_all A data frame containing at least two columns (lon, lat) with the coordinates of all colonies
+#' @param sfs A data frame containing at least two columns (lon, lat) with the coordinates of all supplementary feeding sites
 #'
 #' @return A data frame with variables needed for activity simulation such as: distance to colony, distance to other colonies
 #'     or distance to supplementary feeding sites.
