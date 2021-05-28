@@ -46,6 +46,23 @@ use_package("rgdal")
 document()
 
 
+# Data movement kernel -------------------------------------------------------------
+
+# Load movement kernel from the main project and save as data
+# source("data_prep/mov_kernel_prep.R")
+
+# Create an ROxygen2 file and document
+document()
+
+
+# Data SSF fit summary -------------------------------------------------------------
+
+# Load SSF fit summary from the main project and save as data
+# source("data_prep/ssf_summary_prep.R")
+
+# Create an ROxygen2 file and document
+document()
+
 # Rcpp function calcMinDist_cpp --------------------------------------------------
 
 # Add function
