@@ -65,7 +65,8 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL){
                   dist_col = dist_col / attr(hab, "mod_scale")["dist_col"],
                   dist_col_any = dist_col_any / attr(hab, "mod_scale")["dist_col_any"],
                   dist_col = ifelse(dist_col < 0.015, 0.015, dist_col), # This is the minimum distance greater than zero. Otherwise log is not finite
-                  log_dist_col = log(dist_col_sc))
+                  log_dist_col = log(dist_col_sc),
+                  dist_sfs = dist_sfs / attr(hab, "mod_scale")["dist_sfs"])
 
   return(hab)
 
