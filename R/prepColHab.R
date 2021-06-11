@@ -68,6 +68,24 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL){
                   log_dist_col = log(dist_col_sc),
                   dist_sfs = dist_sfs / attr(hab, "mod_scale")["dist_sfs"])
 
+
+  # Add projected coordinates -----------------------------------------------
+
+  # Define projection
+  tmerproj <- paste0("+proj=tmerc +lat_0=", col_cc[2], " +lon_0=", col_cc[1],
+                     " +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0")
+
+  # Create spatial objects and transform
+  hab_sp <- sp::SpatialPointsDataFrame(coords = hab[,c("lon", "lat")], data = hab,
+                                    proj4string = sp::CRS("+proj=longlat +datum=WGS84"))
+  hab_sp <- sp::spTransform(hab_sp, tmerproj)
+
+  hab_cc <- sp::coordinates(hab_sp)
+
+  hab <- hab %>%
+    dplyr::mutate(x = hab_cc[,1],
+                  y = hab_cc[,2])
+
   return(hab)
 
 }
