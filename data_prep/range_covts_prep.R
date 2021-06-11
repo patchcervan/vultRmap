@@ -11,14 +11,14 @@ range_covts <- readRDS("../vultRmap_data_aux/df_hab_general.rds")
 
 range_covts <- range_covts %>%
   dplyr::select(!dplyr::contains("dist")) %>%
-  dplyr::select(!dplyr::contains("sl")) %>%
+  dplyr::select(!dplyr::contains("sl_")) %>%
   dplyr::select(!dplyr::all_of(c("x", "y")))
 
 
 # Prepare scaling factors -------------------------------------------------
 
 # Model fit
-ssf_fit <- readRDS("../cape_vulture_cr/output/ssf_fit_dist_tnoon.rds")
+ssf_fit <- readRDS("../vultRmap_data_aux/ssf_fit_dist_tnoon.rds")
 
 sds <- unlist(sapply(ssf_fit$frame, attr, "scaled:scale"))
 
