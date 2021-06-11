@@ -209,6 +209,30 @@ test()
 document()
 
 
+# Function completeDataFrame --------------------------------------------------
+
+# Add function
+use_r("completeDataFrame")
+
+# test locally
+load_all()
+
+vultRmap::completeDataFrame(range_covts, c("disturbed", "dist_col:ttnoon"), 0)
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
+
 # Install -----------------------------------------------------------------
 
 devtools::install()
