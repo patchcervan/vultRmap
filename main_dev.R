@@ -35,6 +35,7 @@ use_rcpp()
 use_package("dplyr")
 use_package("sp")
 use_package("rgdal")
+use_package("stats")
 
 
 # Data general covariates -------------------------------------------------------------
@@ -172,6 +173,41 @@ use_testthat()
 use_test()
 
 test()
+
+
+# Function sampleSsfCoef --------------------------------------------------
+
+# Add function
+use_r("sampleSsfCoef")
+
+# test locally
+load_all()
+
+vultRmap::sampleSsfCoef(nind = 2)
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
+
+
+# Data nbinom_dur -------------------------------------------------------------
+
+# Load tracking data, calculate trip duration, find their distribution and save as data
+# source("data_prep/rbinom_dur_prep.R")
+
+# Create an ROxygen2 file and document
+document()
+
 
 # Install -----------------------------------------------------------------
 
