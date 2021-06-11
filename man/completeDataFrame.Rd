@@ -14,8 +14,10 @@ completeDataFrame(df, allvars, value)
 \item{value}{The value that should have the missing variables by default}
 }
 \value{
-A data frame with all the variables contained in 'df' and 'allvars'. Those variables originally contained in 'allvars' and not in 'df' will be added to 'df' and given a value
-specified in the 'value' field. One would tipically fill in those variable with some desired values.
+A data frame with all the variables contained in 'df' and 'allvars'. Those variables originally contained in 'allvars' and not in 'df'
+will be added to 'df' and given a value specified in the 'value' field. One would tipically fill in those variable with some desired values.
+The function looks for interactions by trying to detect names in 'df' separated by ":". If one is found, the new variable is given the values
+of the matching variable in 'df'.
 }
 \description{
 Takes a data frame and adds a number of missing variables filling them with NA or other value provided

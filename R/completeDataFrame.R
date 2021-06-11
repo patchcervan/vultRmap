@@ -5,8 +5,10 @@
 #' @param allvars A character vector with the names of all the variables the data frame should have
 #' @param value The value that should have the missing variables by default
 #'
-#' @return A data frame with all the variables contained in 'df' and 'allvars'. Those variables originally contained in 'allvars' and not in 'df' will be added to 'df' and given a value
-#' specified in the 'value' field. One would tipically fill in those variable with some desired values.
+#' @return A data frame with all the variables contained in 'df' and 'allvars'. Those variables originally contained in 'allvars' and not in 'df'
+#' will be added to 'df' and given a value specified in the 'value' field. One would tipically fill in those variable with some desired values.
+#' The function looks for interactions by trying to detect names in 'df' separated by ":". If one is found, the new variable is given the values
+#' of the matching variable in 'df'.
 #' @export
 #'
 #' @examples
@@ -22,8 +24,14 @@ completeDataFrame <- function(df, allvars, value){
   # Create a list of new variables and add to the original data frame
   newvars <- vector("list", length = length(missvars))
   for(i in seq_along(newvars)){
-    newvars[[i]] <- rep(value, nrow(df))
+    vv <- unlist(strsplit(missvars[[i]], ":"))
+    if(any(vv %in% names(df))){
+      newvars[[i]] <- df[,vv[vv %in% names(df)]]
+    } else {
+      newvars[[i]] <- rep(value, nrow(df))
+    }
   }
+
   names(newvars) <- missvars
 
   df <- df %>%
