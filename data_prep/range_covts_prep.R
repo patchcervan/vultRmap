@@ -3,7 +3,7 @@
 # Prepare covariates ------------------------------------------------------
 
 # Load covariates
-range_covts <- readRDS("../cape_vulture_cr/output/pred_raster_sims/temp_covts/df_hab_general.rds")
+range_covts <- readRDS("../vultRmap_data_aux/df_hab_general.rds")
 
 # Clean useless columns
 # identical(range_covts$y, range_covts$lat)

@@ -1,6 +1,6 @@
 
 # Tracking data
-vults <- readRDS("data_aux/data_ssf_ready.rds")
+vults <- readRDS("../vultRmap_data_aux/data_ssf_ready.rds")
 
 # Find a parametric distribution for trip duration (neg binomial) for each
 # age class
