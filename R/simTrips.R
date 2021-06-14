@@ -9,6 +9,8 @@
 #' of step-lengths, and iii) 'model_sc', the scaling factor used for step-length when fitting the model.
 #' @param .ssf_coef A vector of step-selection coefficients.
 #' @param .col_sel A named vector with the coordinates (lon,lat) of the colony we want to simulate for.
+#' @param .maxdist The maximum distance (in meters) a vulture is allowed to travel before coming back to the colony.
+#' This prevents activity to accumulate at the borders of the simulation space.
 #'
 #' @return A data frame with the location of steps (lon, lat), distance from the central colony,
 #' time of day (time-to-noon), trip number and duration of the trip (time away from colony).
@@ -16,7 +18,7 @@
 #' @export
 #'
 #' @examples
-simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel){
+simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel, .maxdist){
 
   # Create a data frame to store simulations
   sims <- data.frame(lon = numeric(length = .nsteps),
@@ -26,7 +28,7 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel){
                      trip = integer(length = .nsteps),
                      dur = integer(length = .nsteps))
 
-    # Correct age related predictors
+  # Correct age related predictors
   if(.age != "juv"){
     .hab <- .hab %>%
       dplyr::mutate(dplyr::across(dplyr::contains("juv"), ~.x*0))
@@ -70,7 +72,9 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel){
                           size = vultRmap::nbinom_dur[[.age]]["size"],
                           mu = vultRmap::nbinom_dur[[.age]]["mu"])
 
-  require(dplyr) # Attach to speed up computation
+  suppressPackageStartupMessages(
+    require(dplyr) # Attach to speed up computation
+  )
   require(stats)
 
   for(j in 1:.nsteps){
@@ -103,21 +107,33 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel){
     step <- slice_sample(stephab, n = 1, weight_by = w)
 
     # Update state and time
-    state <- c(step$lon, step$lat)
-    state_proj <- c(step$x, step$y) # Note that we need a state in projected coordinates
-    dist_col <- step$dist_col_sc
-    ttnoon <- ttnoon + 1
+    if(step$dist_col_sc > .maxdist){
 
-    if(dist_col > 10000){
-      dur <- dur + 1
+      state <- c(.col_sel["lon"], .col_sel["lat"])
+      state_proj <- c(0,0)
+      dur <- 0
+      dist_col <- 0
+      atcol <- TRUE
 
     } else {
-      dur <- 0
-      atcol <- TRUE
-    }
 
-    if(dur == 1){
-      trip <- trip + 1
+      state <- c(step$lon, step$lat)
+      state_proj <- c(step$x, step$y) # Note that we need a state in projected coordinates
+      dist_col <- step$dist_col_sc
+      ttnoon <- ttnoon + 1
+
+      if(dist_col > 10000){
+        dur <- dur + 1
+
+      } else {
+        dur <- 0
+        atcol <- TRUE
+      }
+
+      if(dur == 1){
+        trip <- trip + 1
+      }
+
     }
 
     if(ttnoon > 7){
@@ -125,7 +141,7 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel){
       ttnoon <- -7
 
       if(!atcol && rbinom(1, 1, pback[floor(dur/15)])){
-        state <- c(.col_sel$lon, .col_sel$lat)
+        state <- c(.col_sel["lon"], .col_sel["lat"])
         state_proj <- c(0,0)
         dur <- 0
         dist_col <- 0
@@ -143,7 +159,7 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel){
 
   }
 
-  detach("package:dplyr", unload=TRUE)
+  detach("package:dplyr", unload = TRUE)
 
   return(sims)
 }
