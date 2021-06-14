@@ -48,27 +48,6 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL){
   col_cc <- c(hab$lon[which.min(dists)], hab$lat[which.min(dists)])
 
 
-  # Calculate distances for this colony -------------------------------------
-
-  hab <- hab %>%
-    dplyr::mutate(dist_col = vultRmap::calcHabMinDist(., col_cc, data.frame(lon = col_cc[1], lat = col_cc[2])),
-                  dist_col_any = vultRmap::calcHabMinDist(., col_cc, col_all, buffer = 5000),
-                  dist_sfs = vultRmap::calcHabMinDist(., col_cc, sfs))
-
-
-  # Prepare other variables -------------------------------------------------
-
-  hab <- hab %>%
-    as.data.frame() %>%
-    dplyr::mutate(cell_id = 1:nrow(.),
-                  dist_col = dist_col / attr(hab, "mod_scale")["dist_col"],
-                  dist_col_any = dist_col_any / attr(hab, "mod_scale")["dist_col_any"],
-                  dist_col = ifelse(dist_col < 0.015, 0.015, dist_col), # This is the minimum distance greater than zero. Otherwise log is not finite
-                  dist_col_sc = dist_col / attr(hab, "mod_scale")["dist_col"], # Store distance in original scale
-                  log_dist_col = log(dist_col_sc),
-                  dist_sfs = dist_sfs / attr(hab, "mod_scale")["dist_sfs"])
-
-
   # Add projected coordinates -----------------------------------------------
 
   # Define projection
@@ -77,7 +56,7 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL){
 
   # Create spatial objects and transform
   hab_sp <- sp::SpatialPointsDataFrame(coords = hab[,c("lon", "lat")], data = hab,
-                                    proj4string = sp::CRS("+proj=longlat +datum=WGS84"))
+                                       proj4string = sp::CRS("+proj=longlat +datum=WGS84"))
   hab_sp <- sp::spTransform(hab_sp, tmerproj)
 
   hab_cc <- sp::coordinates(hab_sp)
@@ -85,6 +64,31 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL){
   hab <- hab %>%
     dplyr::mutate(x = hab_cc[,1],
                   y = hab_cc[,2])
+
+
+  # Calculate distances for this colony -------------------------------------
+
+  hab <- hab %>%
+    dplyr::mutate(dist_col = vultRmap::calcDist(c(0,0), x, y),
+                  dist_col_any = vultRmap::calcHabMinDist(hab_cc, tmerproj, col_all, buffer = 10000),
+                  dist_sfs = vultRmap::calcHabMinDist(hab_cc, tmerproj, sfs))
+
+
+  # Prepare other variables -------------------------------------------------
+
+  hab <- hab %>%
+    as.data.frame() %>%
+    dplyr::arrange(lon, lat) %>%
+    dplyr::mutate(cell_id = dplyr::row_number(),
+                  dist_col = dist_col / attr(hab, "mod_scale")["dist_col"],
+                  dist_col_any = dist_col_any / attr(hab, "mod_scale")["dist_col_any"],
+                  dist_col = ifelse(dist_col < 0.015, 0.015, dist_col), # This is the minimum distance greater than zero. Otherwise log is not finite
+                  dist_col_sc = dist_col * attr(hab, "mod_scale")["dist_col"], # Store distance in original scale
+                  log_dist_col = log(dist_col_sc),
+                  dist_sfs = dist_sfs / attr(hab, "mod_scale")["dist_sfs"])
+
+
+
 
   return(hab)
 
