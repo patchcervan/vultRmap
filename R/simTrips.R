@@ -140,7 +140,7 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel, .maxdi
 
       ttnoon <- -7
 
-      if(!atcol && rbinom(1, 1, pback[floor(dur/15)])){
+      if(!atcol && stats::rbinom(1, 1, pback[floor(dur/15)])){
         state <- c(.col_sel["lon"], .col_sel["lat"])
         state_proj <- c(0,0)
         dur <- 0
