@@ -18,7 +18,8 @@
 #' @export
 #'
 #' @examples
-simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel, .maxdist){
+simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
+                     .maxdist){
 
   # Create a data frame to store simulations
   sims <- data.frame(lon = numeric(length = .nsteps),

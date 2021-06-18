@@ -259,6 +259,39 @@ use_test()
 test()
 
 
+# Function simOneColony --------------------------------------------------
+
+# Add function
+use_r("simOneColony")
+
+# test locally
+load_all()
+
+# Load colony data to find a colony
+col_all <- read.csv("../vultRmap_data_aux/colony_data.csv")
+
+vultRmap::simOneColony(age = "juv",
+                       totalsteps = 1000,
+                       ncores = 1,
+                       col_sel = unlist(col_all[303, c("lon", "lat")]),
+                       set_seed = round(runif(1, 1, 1e5)),
+                       dist_lim = 500,
+                       sample_coefs = NULL)
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
+
 # Install -----------------------------------------------------------------
 
 devtools::install()
