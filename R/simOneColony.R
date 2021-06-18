@@ -62,6 +62,8 @@ simOneColony <- function(col_sel, totalsteps, dist_lim, age,
 
   # Simulate activity -------------------------------------------------------
 
+  gc()
+
   # Configure multicore
   if(ncores > 1){
     future::plan("multisession", workers = ncores)

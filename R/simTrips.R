@@ -47,8 +47,6 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
       as.matrix() %*% .ssf_coef
   }
 
-  gc()
-
   # Set initial point at colony in the morning
   state <- c(.col_sel["lon"], .col_sel["lat"])
   ttnoon <- -7
@@ -77,6 +75,8 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
     require(dplyr) # Attach to speed up computation
   )
   require(stats)
+
+  gc()
 
   for(j in 1:.nsteps){
 
