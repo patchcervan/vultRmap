@@ -11,7 +11,8 @@
 #' @export
 #'
 #' @examples
-#' prepColHab(c(27.7, -31.2), 100)
+#' # This will fail because you need aux data:
+#' # prepColHab(c(27.7, -31.2), 100)
 prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL){
 
   if(is.null(col_all) || is.null(sfs)){

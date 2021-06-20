@@ -1,20 +1,22 @@
 #' Calculate minimum distances to habitat cells
 #'
-#' @param hab A dataframe with at least two columns containing the coordinates (lon, lat) of a set of locations. Potentially a lattice of habitat cells.
+#' @param hab A matrix with two columns containing the coordinates (lon, lat) of a set of locations. Potentially a lattice of habitat cells.
 #' @param tmerproj The Mercator projected coordinate system used for distance calculations.
-#' @param features A dataframe with at least two columns containg the coordinates (lon, lat) of the locations we want to calculate minimum distances to.
+#' @param features A dataframe with at least two columns containing the coordinates (lon, lat) of the locations we want to calculate minimum distances to.
 #' @param buffer A number indicating a distance from origin. If set, features within this distance to origin will be ignored.
 #'
 #' @return A vector with the minimum distance from each of the hab locations to any of the feature locations.
 #' @export
 #'
 #' @examples
-#' hab <- expand.grid(-10:10, -10:10)
-#' names(hab) <- c("lon", "lat")
+#' hab <- as.matrix(expand.grid(-10:10, -10:10))
+#' colnames(hab) <- c("lon", "lat")
 #' origin <- c(2, 1)
+#' tmerproj <- paste0("+proj=tmerc +lat_0=", origin[2], " +lon_0=", origin[1],
+#' " +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0")
 #' features <- data.frame(lon = c(-5, 5),
 #'                        lat = c(-5, 5))
-#' calcHabMinDist(hab, origin, features)
+#' calcHabMinDist(hab, tmerproj, features)
 calcHabMinDist <- function(hab_cc, tmerproj, features, buffer = NULL){
 
   features <- sp::SpatialPointsDataFrame(coords = features[,c("lon", "lat")], data = features,

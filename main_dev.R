@@ -36,6 +36,7 @@ use_package("dplyr")
 use_package("sp")
 use_package("rgdal")
 use_package("stats")
+use_package("furrr")
 
 
 # Data general covariates -------------------------------------------------------------

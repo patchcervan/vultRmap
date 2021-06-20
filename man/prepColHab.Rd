@@ -24,5 +24,6 @@ or distance to supplementary feeding sites.
 Prepare habitat around a colony
 }
 \examples{
-prepColHab(c(27.7, -31.2), 100)
+# This will fail because you need aux data:
+# prepColHab(c(27.7, -31.2), 100)
 }
