@@ -72,9 +72,9 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
                           mu = vultRmap::nbinom_dur[[.age]]["mu"])
 
   suppressPackageStartupMessages(
-    requireNamespace(dplyr) # Attach to speed up computation
+    require("dplyr") # Attach to speed up computation
   )
-  requireNamespace(stats)
+  require("stats")
 
   gc()
 
