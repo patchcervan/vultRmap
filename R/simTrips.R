@@ -83,7 +83,12 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
     t <- ttnoon + 8
 
     # Populate simulations
-    sims[j, ] <- c(state[1], state[2], dist_col, ttnoon, trip, dur)
+    sims[j, 1] <- state[1]
+    sims[j, 2] <- state[2]
+    sims[j, 3] <- dist_col
+    sims[j, 4] <- ttnoon
+    sims[j, 5] <- trip
+    sims[j, 6] <- dur
 
     # Calculate movement kernel weights (round step lengths to the nearest km)
     sls <- round(calcDist(state_proj, .hab$x, .hab$y),-3)
@@ -110,7 +115,8 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
     # Update state and time
     if(step$dist_col_sc > .maxdist){
 
-      state <- c(.col_sel["lon"], .col_sel["lat"])
+      state[1] <- .col_sel["lon"]
+      state[2] <- .col_sel["lat"]
       state_proj <- c(0,0)
       dur <- 0
       dist_col <- 0
@@ -118,8 +124,10 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
 
     } else {
 
-      state <- c(step$lon, step$lat)
-      state_proj <- c(step$x, step$y) # Note that we need a state in projected coordinates
+      state[1] <- step$lon
+      state[2] <- step$lat
+      state_proj[1] <- step$x
+      state_proj[2] <- step$y # Note that we need a state in projected coordinates
       dist_col <- step$dist_col_sc
       ttnoon <- ttnoon + 1
 
@@ -142,7 +150,8 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
       ttnoon <- -7
 
       if(!atcol && stats::rbinom(1, 1, pback[floor(dur/15)])){
-        state <- c(.col_sel["lon"], .col_sel["lat"])
+        state[1] <- .col_sel["lon"]
+        state[2] <- .col_sel["lat"]
         state_proj <- c(0,0)
         dur <- 0
         dist_col <- 0
