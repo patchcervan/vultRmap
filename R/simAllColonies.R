@@ -26,7 +26,7 @@ simAllColonies <- function(age, min_size_col = 1, min_size_roost = 50,
   # Read in necessary data --------------------------------------------------
 
   # We will need to calculate distance to other colonies
-  col_all <- read.csv(paste0(data_dir, "/colony_data.csv"))
+  col_all <- utils::read.csv(paste0(data_dir, "/colony_data.csv"))
 
   # Subset colonies to we have counts for
   col_to_pred <- col_all %>%

@@ -48,10 +48,10 @@ simOneColony <- function(col_sel, totalsteps, dist_lim, age,
   # Read in necessary data --------------------------------------------------
 
   # We will need to calculate distance to other colonies
-  col_all <- read.csv(paste0(data_dir, "/colony_data.csv"))
+  col_all <- utils::read.csv(paste0(data_dir, "/colony_data.csv"))
 
   # And to supplementary feeding sites
-  sfs <- read.csv(paste0(data_dir, "/sup_feeding_data.csv"))
+  sfs <- utils::read.csv(paste0(data_dir, "/sup_feeding_data.csv"))
 
 
   # Prepare habitat for simulations -----------------------------------------
