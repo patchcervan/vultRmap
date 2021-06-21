@@ -25,8 +25,8 @@
 #'
 #' @examples
 simOneColony <- function(col_sel, totalsteps, dist_lim, age,
-                         sample_coefs = NULL, set_seed = NULL, ncores = 1,
-                         data_dir = "../vultRmap_data_aux"){
+                         sample_coefs, set_seed, ncores,
+                         data_dir){
 
   # Define simulation parameters --------------------------------------------
 

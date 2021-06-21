@@ -4,49 +4,22 @@
 \alias{simAllColonies}
 \title{Simulate activity for all colonies}
 \usage{
-simAllColonies(
-  totalsteps,
-  dist_lim,
-  age,
-  sample_coefs = NULL,
-  min_size_col = 1,
-  min_size_roost = 50,
-  set_seed = NULL,
-  ncores = 1,
-  out_dir,
-  data_dir = "../vultRmap_data_aux"
-)
+simAllColonies(min_size_col = 1, min_size_roost = 50, out_dir, data_dir, ...)
 }
 \arguments{
-\item{totalsteps}{Total number of steps we want to simulate for each colony}
-
-\item{dist_lim}{Maximum distance vultures are allowed to travel away from
-its central colony.}
-
-\item{age}{Age of the vultures: "ad" for adult, "juv" for juveniles}
-
-\item{sample_coefs}{Whether step-selection coefficients should be sampled
-from the distribution of random effects. Either NULL in which case the mean
-of the distribution of effects will be used, or a number specifying the
-number of coefficients to sample.}
-
 \item{min_size_col}{Simulations will only be produced for colonies with number of
 adults greater or equal to min_size_col.}
 
 \item{min_size_roost}{Simulations will only be produced for roosts with number of
 birds (adults + juveniles) greater or equal to min_size_roost.}
 
-\item{set_seed}{Specifies whether a random seed should be specified. Either
-NULL for no random seed or a number specifying the seed to use.}
-
-\item{ncores}{Specifies the number of cores that should be used for the
-simulations.}
-
 \item{out_dir}{Specifies the directory where the simulation results should
 be saved to.}
 
 \item{data_dir}{A character string with the path to the directory containing
 the auxiliary data needed for the simulations.}
+
+\item{...}{Other arguments passed on to simOneColony.}
 }
 \value{
 A data frame with at least the desired number of steps (the same
@@ -55,6 +28,6 @@ to potentially large output an output directory must be specified where a data
 frame for each colony will be saved.
 }
 \description{
-This is a wrapper around simTrips that does all necessary
-computation for simulating activity around all colony.
+This is a wrapper around simOneColony that does all necessary
+computation for simulating activity around all colonies.
 }
