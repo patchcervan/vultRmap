@@ -28,6 +28,9 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL){
   # Load habitat data
   hab <- vultRmap::range_covts
 
+  # Save attributes
+  ats <- attr(hab, "mod_scale")
+
   # Fix variable names for later
   sfs$lon <- sfs$longitude
   sfs$lat <- sfs$latitude
@@ -89,6 +92,9 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL){
 
 
   # Prepare other variables -------------------------------------------------
+
+  # Restore attributes
+  attr(hab, "mod_scale") <- ats
 
   hab <- hab %>%
     as.data.frame() %>%
