@@ -19,8 +19,9 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL){
     stop("Need colony and supplementary feeding sites data. Contact package maintainer.")
   }
 
-  # Change range from kilometers to degrees
-  max_range <- max_range/111
+  # Change range from kilometers to degrees for a pre-subset (more later)
+  max_range_p <- max_range/111 + 2
+
 
   # Prepare whole range data ------------------------------------------------
 
@@ -37,7 +38,7 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL){
 
   # Keep only cells within max range
   hab <- hab %>%
-    dplyr::filter(distp < max_range) %>%
+    dplyr::filter(distp < max_range_p) %>%
     dplyr::select(-distp)
 
   if(nrow(hab) == 0){
@@ -69,9 +70,21 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL){
 
   # Calculate distances for this colony -------------------------------------
 
+  # Calculate distance to colony
   hab <- hab %>%
-    dplyr::mutate(dist_col = vultRmap::calcDist(c(0,0), x, y),
-                  dist_col_any = vultRmap::calcHabMinDist(hab_cc, tmerproj, col_all, buffer = 10000),
+    dplyr::mutate(dist_col = vultRmap::calcDist(c(0,0), x, y))
+
+  # Subset distance in project coordinates kilometers
+  max_range <- max_range*1000
+
+  hab <- hab %>%
+    dplyr::filter(dist_col < max_range)
+
+  hab_cc <- as.matrix(hab[, c("x", "y")])
+
+  # Calculate distance to other colonies and supplementary feeding sites
+  hab <- hab %>%
+    dplyr::mutate(dist_col_any = vultRmap::calcHabMinDist(hab_cc, tmerproj, col_all, buffer = 10000),
                   dist_sfs = vultRmap::calcHabMinDist(hab_cc, tmerproj, sfs))
 
 
@@ -87,9 +100,6 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL){
                   dist_col_sc = dist_col * attr(hab, "mod_scale")["dist_col"], # Store distance in original scale
                   log_dist_col = log(dist_col_sc),
                   dist_sfs = dist_sfs / attr(hab, "mod_scale")["dist_sfs"])
-
-
-
 
   return(hab)
 
