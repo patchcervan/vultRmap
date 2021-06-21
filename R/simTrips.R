@@ -28,6 +28,7 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
   sims <- data.frame(lon = numeric(length = .nsteps),
                      lat = numeric(length = .nsteps),
                      dist_col = numeric(length = .nsteps),
+                     sl = numeric(length = .nsteps),
                      ttnoon = integer(length = .nsteps),
                      trip = integer(length = .nsteps),
                      dur = integer(length = .nsteps))
@@ -55,6 +56,7 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
   ttnoon <- -7
   ttnoon_sq <- ttnoon^2
   dist_col <- 0
+  sl <- NA_real_
   dur <- 0
   trip <- 0
   atcol <- TRUE
@@ -89,9 +91,10 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
     sims[j, 1] <- state[1]
     sims[j, 2] <- state[2]
     sims[j, 3] <- dist_col
-    sims[j, 4] <- ttnoon
-    sims[j, 5] <- trip
-    sims[j, 6] <- dur
+    sims[j, 4] <- sl
+    sims[j, 5] <- ttnoon
+    sims[j, 6] <- trip
+    sims[j, 7] <- dur
 
     # Calculate movement kernel weights (round step lengths to the nearest km)
     sls <- round(calcDist(state_proj, .hab$x, .hab$y),-3)
@@ -121,6 +124,7 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
       state[1] <- .col_sel["lon"]
       state[2] <- .col_sel["lat"]
       state_proj <- c(0,0)
+      sl <- NA_real_
       dur <- 0
       dist_col <- 0
       atcol <- TRUE
@@ -132,6 +136,7 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
       state_proj[1] <- step$x
       state_proj[2] <- step$y # Note that we need a state in projected coordinates
       dist_col <- step$dist_col_sc
+      sl <- step$.sls
       ttnoon <- ttnoon + 1
 
       if(dist_col > 10000){
@@ -158,6 +163,7 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
         state_proj <- c(0,0)
         dur <- 0
         dist_col <- 0
+        sl <- NA_real_
       }
 
       atcol <- FALSE
