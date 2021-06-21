@@ -22,7 +22,7 @@ of step-lengths, and iii) 'model_sc', the scaling factor used for step-length wh
 
 \item{.col_sel}{A named vector with the coordinates (lon,lat) of the colony we want to simulate for.}
 
-\item{.maxdist}{The maximum distance (in meters) a vulture is allowed to travel before coming back to the colony.
+\item{.maxdist}{The maximum distance (in kilometers) a vulture is allowed to travel before coming back to the colony.
 This prevents activity to accumulate at the borders of the simulation space.}
 }
 \value{
