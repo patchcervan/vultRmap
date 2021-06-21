@@ -10,9 +10,9 @@
 #' from the distribution of random effects. Either NULL in which case the mean
 #' of the distribution of effects will be used, or a number specifying the
 #' number of coefficients to sample.
-#' @min_size_col Simulations will only be produced for colonies with number of
+#' @param min_size_col Simulations will only be produced for colonies with number of
 #' adults greater or equal to min_size_col.
-#' @min_size_roost Simulations will only be produced for roosts with number of
+#' @param min_size_roost Simulations will only be produced for roosts with number of
 #' birds (adults + juveniles) greater or equal to min_size_roost.
 #' @param set_seed Specifies whether a random seed should be specified. Either
 #' NULL for no random seed or a number specifying the seed to use.
@@ -105,7 +105,7 @@ simAllColonies <- function(totalsteps, dist_lim, age, sample_coefs = NULL,
 
     saveRDS(sims, paste0(out_dir, "/", col_sel$id, ".rds"))
 
-    rm(sims)
+    rm(sims, hab)
 
     gc()
 
