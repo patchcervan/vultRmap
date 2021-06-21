@@ -68,7 +68,7 @@ simAllColonies <- function(totalsteps, dist_lim, age, sample_coefs = NULL,
   # Subset colonies to we have counts for
   col_to_pred <- col_all %>%
     dplyr::filter(!is.na(avg_ad)) %>%
-    dplyr::filter((type == "breed" & avg_ad >= min_size) |
+    dplyr::filter((type == "breed" & avg_ad >= min_size_col) |
                     (type == "roost" & (avg_ad + avg_juv) >= min_size_roost))
 
   # this is just for testing (remove)
