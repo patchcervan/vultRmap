@@ -75,7 +75,7 @@ simOneColony <- function(col_sel, totalsteps, dist_lim, age,
                                                      .age = age, .hab = hab,
                                                      .mov_ker = vultRmap::mov_kernel,
                                                      .col_sel = col_sel,
-                                                     .maxdist = (dist_lim - dist_lim * 5/100)*1000),
+                                                     .maxdist = (dist_lim - dist_lim * 10/100)),
                                  .options = furrr::furrr_options(seed = set_seed))
   if(ncores > 1){
     future::plan("sequential")

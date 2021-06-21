@@ -9,7 +9,7 @@
 #' of step-lengths, and iii) 'model_sc', the scaling factor used for step-length when fitting the model.
 #' @param .ssf_coef A vector of step-selection coefficients.
 #' @param .col_sel A named vector with the coordinates (lon,lat) of the colony we want to simulate for.
-#' @param .maxdist The maximum distance (in meters) a vulture is allowed to travel before coming back to the colony.
+#' @param .maxdist The maximum distance (in kilometers) a vulture is allowed to travel before coming back to the colony.
 #' This prevents activity to accumulate at the borders of the simulation space.
 #'
 #' @return A data frame with the location of steps (lon, lat), distance from the central colony,
@@ -20,6 +20,9 @@
 #' @examples
 simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
                      .maxdist){
+
+  # Transform maxdist to meters
+  .maxdist <- .maxdist * 1000
 
   # Create a data frame to store simulations
   sims <- data.frame(lon = numeric(length = .nsteps),
