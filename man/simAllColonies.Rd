@@ -4,9 +4,18 @@
 \alias{simAllColonies}
 \title{Simulate activity for all colonies}
 \usage{
-simAllColonies(min_size_col = 1, min_size_roost = 50, out_dir, data_dir, ...)
+simAllColonies(
+  age,
+  min_size_col = 1,
+  min_size_roost = 50,
+  out_dir,
+  data_dir,
+  ...
+)
 }
 \arguments{
+\item{age}{Age of the vultures: "ad" for adult, "juv" for juveniles.}
+
 \item{min_size_col}{Simulations will only be produced for colonies with number of
 adults greater or equal to min_size_col.}
 

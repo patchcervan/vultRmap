@@ -2,6 +2,7 @@
 #'
 #' @description This is a wrapper around simOneColony that does all necessary
 #' computation for simulating activity around all colonies.
+#' @param age Age of the vultures: "ad" for adult, "juv" for juveniles.
 #' @param min_size_col Simulations will only be produced for colonies with number of
 #' adults greater or equal to min_size_col.
 #' @param min_size_roost Simulations will only be produced for roosts with number of
@@ -19,7 +20,7 @@
 #' @export
 #'
 #' @examples
-simAllColonies <- function(min_size_col = 1, min_size_roost = 50,
+simAllColonies <- function(age, min_size_col = 1, min_size_roost = 50,
                            out_dir, data_dir, ...){
 
   # Read in necessary data --------------------------------------------------
@@ -46,9 +47,9 @@ simAllColonies <- function(min_size_col = 1, min_size_roost = 50,
 
     # Simulate
     sims <- vultRmap::simOneColony(col_sel = unlist(col_sel[ , c("lon", "lat")]),
-                                   data_dir = data_dir, ...)
+                                   data_dir = data_dir, age = age, ...)
 
-    saveRDS(sims, paste0(out_dir, "/", col_sel$id, ".rds"))
+    saveRDS(sims, paste0(out_dir, "/", col_sel$id, "_", age, "_sims.rds"))
 
     rm(sims)
 
