@@ -326,6 +326,6 @@ test()
 
 # Install -----------------------------------------------------------------
 
-devtools::install()
+devtools::install(type = "source")
 
 
