@@ -9,9 +9,12 @@ simAllColonies(
   dist_lim,
   age,
   sample_coefs = NULL,
+  min_size_col = 1,
+  min_size_roost = 50,
   set_seed = NULL,
   ncores = 1,
-  out_dir
+  out_dir,
+  data_dir = "../vultRmap_data_aux"
 )
 }
 \arguments{
@@ -35,6 +38,9 @@ simulations.}
 
 \item{out_dir}{Specifies the directory where the simulation results should
 be saved to.}
+
+\item{data_dir}{A character string with the path to the directory containing
+the auxiliary data needed for the simulations.}
 }
 \value{
 A data frame with at least the desired number of steps (the same

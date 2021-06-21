@@ -11,7 +11,8 @@ simOneColony(
   age,
   sample_coefs = NULL,
   set_seed = NULL,
-  ncores = 1
+  ncores = 1,
+  data_dir = "../vultRmap_data_aux"
 )
 }
 \arguments{
@@ -35,6 +36,9 @@ NULL for no random seed or a number specifying the seed to use.}
 
 \item{ncores}{Specifies the number of cores that should be used for the
 simulations.}
+
+\item{data_dir}{A character string with the path to the directory containing
+the auxiliary data needed for the simulations.}
 }
 \value{
 A data frame with at least the desired number of steps (the same

@@ -16,6 +16,8 @@
 #' NULL for no random seed or a number specifying the seed to use.
 #' @param ncores Specifies the number of cores that should be used for the
 #' simulations.
+#' @param data_dir A character string with the path to the directory containing
+#' the auxiliary data needed for the simulations.
 #'
 #' @return A data frame with at least the desired number of steps (the same
 #' number of steps are allocated to cores and rounded up).
@@ -23,7 +25,8 @@
 #'
 #' @examples
 simOneColony <- function(col_sel, totalsteps, dist_lim, age,
-                         sample_coefs = NULL, set_seed = NULL, ncores = 1){
+                         sample_coefs = NULL, set_seed = NULL, ncores = 1,
+                         data_dir = "../vultRmap_data_aux"){
 
   # Define simulation parameters --------------------------------------------
 
@@ -45,10 +48,10 @@ simOneColony <- function(col_sel, totalsteps, dist_lim, age,
   # Read in necessary data --------------------------------------------------
 
   # We will need to calculate distance to other colonies
-  col_all <- read.csv("../vultRmap_data_aux/colony_data.csv")
+  col_all <- read.csv(paste0(data_dir, "/colony_data.csv"))
 
   # And to supplementary feeding sites
-  sfs <- read.csv("../vultRmap_data_aux/sup_feeding_data.csv")
+  sfs <- read.csv(paste0(data_dir, "/sup_feeding_data.csv"))
 
 
   # Prepare habitat for simulations -----------------------------------------
