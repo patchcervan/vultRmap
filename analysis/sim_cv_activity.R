@@ -46,14 +46,28 @@ ggplot(sims) +
 
 # Simulate for all colonies -----------------------------------------------
 
+# Set min size for colonies and roost (adults for colonies and total for roosts)
+min_size_col = 2000; min_size_roost = 100
+
+# Read in necessary data
+
+# We will need to calculate distance to other colonies
+col_all <- utils::read.csv("../vultRmap_data_aux/colony_data.csv")
+
+# Subset colonies to we have counts for
+col_to_pred <- col_all %>%
+  dplyr::filter(!is.na(avg_ad)) %>%
+  dplyr::filter((type == "breed" & avg_ad >= min_size_col) |
+                  (type == "roost" & (avg_ad + avg_juv) >= min_size_roost))
+
 system.time(
-  vultRmap::simAllColonies(min_size_col = 2000, min_size_roost = 100,
-                           age = "juv",
+  vultRmap::simAllColonies(age = "juv",
                            totalsteps = 1000,
                            ncores = 5,
                            set_seed = round(runif(1, 1, 1e5)),
                            dist_lim = 1000,
                            sample_coefs = 5,
+                           col_to_pred = col_to_pred,
                            out_dir = "analysis/output",
                            data_dir = "../vultRmap_data_aux")
 )
@@ -72,10 +86,10 @@ ssf_coef <- vultRmap::sampleSsfCoef(nind = 1)
 ff <- list.files("analysis/output")
 ids <- sub(".rds", "", ff)
 
-i <- 4
+i <- 7
 
 # What colony
-col_sel <- col_all[col_all$id == ids[i],]
+col_sel <- col_all[col_all$id == stringr::str_remove(ids[i], "_ad_sims"),]
 
 # Load sims
 sims <- readRDS(paste0("analysis/output/", ff[i]))

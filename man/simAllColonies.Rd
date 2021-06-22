@@ -5,30 +5,45 @@
 \title{Simulate activity for all colonies}
 \usage{
 simAllColonies(
+  col_to_pred,
+  totalsteps,
+  dist_lim,
   age,
-  min_size_col = 1,
-  min_size_roost = 50,
-  out_dir,
+  sample_coefs,
+  set_seed,
+  ncores,
   data_dir,
-  ...
+  out_dir
 )
 }
 \arguments{
-\item{age}{Age of the vultures: "ad" for adult, "juv" for juveniles.}
+\item{col_to_pred}{A data frame with the colonies to predict from. These
+should generally come from the auxiliary data coming with the package or at
+least have a similar structure.}
 
-\item{min_size_col}{Simulations will only be produced for colonies with number of
-adults greater or equal to min_size_col.}
+\item{totalsteps}{Total number of steps we want to simulate}
 
-\item{min_size_roost}{Simulations will only be produced for roosts with number of
-birds (adults + juveniles) greater or equal to min_size_roost.}
+\item{dist_lim}{Maximum distance vultures are allowed to travel away from
+its central colony (col_sel).}
 
-\item{out_dir}{Specifies the directory where the simulation results should
-be saved to.}
+\item{age}{Age of the vultures: "ad" for adult, "juv" for juveniles}
+
+\item{sample_coefs}{Whether step-selection coefficients should be sampled
+from the distribution of random effects. Either NULL in which case the mean
+of the distribution of effects will be used, or a number specifying the
+number of coefficients to sample.}
+
+\item{set_seed}{Specifies whether a random seed should be specified. Either
+NULL for no random seed or a number specifying the seed to use.}
+
+\item{ncores}{Specifies the number of cores that should be used for the
+simulations.}
 
 \item{data_dir}{A character string with the path to the directory containing
 the auxiliary data needed for the simulations.}
 
-\item{...}{Other arguments passed on to simOneColony.}
+\item{out_dir}{Specifies the directory where the simulation results should
+be saved to.}
 }
 \value{
 A data frame with at least the desired number of steps (the same
@@ -37,6 +52,6 @@ to potentially large output an output directory must be specified where a data
 frame for each colony will be saved.
 }
 \description{
-This is a wrapper around simOneColony that does all necessary
+This is a wrapper around simTrips that does all necessary
 computation for simulating activity around all colonies.
 }
