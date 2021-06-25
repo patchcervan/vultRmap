@@ -11,17 +11,20 @@
 #' @param .countsdir A character string with the directory where the smoothed
 #' counts are stored.
 #' @param .outputdir A character string with the directory to store the results.
+#' If NULL (default) the output is not saved to disk.
 #'
 #' @return A dataframe with the counts and smoothed counts computed for each
 #' grid cell in .hab.
 #' @export
 #'
 #' @examples
-calcUdCol <- function(.col_sel, .age, .hab = NULL, .scale = FALSE, .countsdir, .outputdir){
+calcUdColony <- function(.col_sel, .age, .hab = NULL, .scale = FALSE,
+                         .countsdir, .outputdir = NULL){
 
   if(is.null(.hab)){
     # Load habitat grid
     .hab <- vultRmap::range_covts
+    attr(.hab, "mod_scale") <- NULL
   }
 
   .hab <- .hab %>%
