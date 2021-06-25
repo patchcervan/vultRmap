@@ -324,6 +324,15 @@ use_test()
 test()
 
 
+# Data map_codes -------------------------------------------------------------
+
+# Map codes are obtained from the maps used for fitting the SSF model
+# source("data_prep/map_codes_prep.R")
+
+# Create an ROxygen2 file and document
+document()
+
+
 # Install -----------------------------------------------------------------
 
 devtools::install(type = "source")
