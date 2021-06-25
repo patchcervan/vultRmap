@@ -333,6 +333,36 @@ test()
 document()
 
 
+# Function calcUdColony --------------------------------------------------
+
+# Add function
+use_r("calcUdColony")
+
+# test locally
+load_all()
+
+vultRmap::simAllColonies(age = "juv",
+                         totalsteps = 1000,
+                         ncores = 1,
+                         set_seed = round(runif(1, 1, 1e5)),
+                         dist_lim = 500,
+                         sample_coefs = NULL)
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
+
+
 # Install -----------------------------------------------------------------
 
 devtools::install(type = "source")
