@@ -33,33 +33,41 @@ age <- "ad"
 
 # Calculate UD for single colony ------------------------------------------
 
+ud <- calcUdCol(.col_sel = col_to_pred[1,], .age = age, .scale = FALSE,
+                .countsdir = countsdir, .outputdir = NULL)
 
 
-.countsdir <- countsdir
-.col_id <- "cvcol373"
-.age <- age
-.col_sel <- col_to_pred[col_to_pred$id == "cvcol373",]
+# Calculate UD for all colonies -------------------------------------------
 
-source("R/functions/calcUDFromSims.R")
+hab <- vultRmap::range_covts %>%
+   dplyr::select(lon, lat)
 
-# # Run these for single maps
-# calcUD(.mapcode = map_codes, .rasterdir = rasterdir,
-#        .outputdir = paste0(rasterdir, "2_pred_map_ud/"))
-#
-# calcUD(.mapcode = map_codes[9], .col_to_pred = col_to_pred, .age = age, .rasterdir = rasterdir,
-#        scale = T, .outputdir = paste0(rasterdir, "2_pred_map_ud/"))
+attr(hab, "mod_scale") <- NULL
 
-# Estimate UD without scaling
-map(map_codes, ~calcUD(.mapcode = .x, .col_to_pred = col_to_pred, .age = age, scale = F,
-                       .rasterdir = rasterdir, .outputdir = paste0(rasterdir, "2_pred_map_ud/")))
+ud <- calcUdCol(.col_sel = col_to_pred[1,], .hab = hab, .age = age,
+                .scale = FALSE, .countsdir = countsdir, .outputdir = NULL)
 
-# Estimate UD with scaling
-map(map_codes, ~calcUD(.mapcode = .x, .col_to_pred = col_to_pred, .age = age, scale = T,
-                       .rasterdir = rasterdir, .outputdir = paste0(rasterdir, "2_pred_map_ud/")))
+for(i in seq_len(nrow(col_to_pred[2:5,]))){
 
+   newud <- calcUdCol(.col_sel = col_to_pred[i,], .hab = hab, .age = age,
+                   .scale = FALSE, .countsdir = countsdir, .outputdir = NULL)
+
+   ud$count <- ud$count + newud$count
+   ud$gamfit <- ud$gamfit + newud$gamfit
+
+}
 
 
 # Explore -----------------------------------------------------------------
+
+library(ggplot2)
+
+ud %>%
+   dplyr::filter(gamfit > 1e-5) %>%
+   ggplot() +
+   geom_raster(aes(x = lon, y = lat, fill = gamfit)) +
+   coord_equal()
+
 
 library(leaflet)
 
