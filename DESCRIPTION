@@ -18,6 +18,7 @@ ByteCompile: true
 Imports: 
     dplyr,
     furrr,
+    future,
     magrittr,
     Rcpp,
     rgdal,

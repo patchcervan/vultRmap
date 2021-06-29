@@ -37,6 +37,7 @@ use_package("sp")
 use_package("rgdal")
 use_package("stats")
 use_package("furrr")
+use_package("future")
 
 
 # Data general covariates -------------------------------------------------------------
@@ -375,6 +376,28 @@ test()
 
 # Add function
 use_r("calcUdquantile")
+
+# test locally
+load_all()
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
+
+# Function estHgtRisk --------------------------------------------------
+
+# Add function
+use_r("estHgtRisk")
 
 # test locally
 load_all()

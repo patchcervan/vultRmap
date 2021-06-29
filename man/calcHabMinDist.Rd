@@ -7,13 +7,13 @@
 calcHabMinDist(hab_cc, tmerproj, features, buffer = NULL)
 }
 \arguments{
+\item{hab_cc}{A matrix with two columns containing the coordinates (lon, lat) of a set of locations. Potentially a lattice of habitat cells.}
+
 \item{tmerproj}{The Mercator projected coordinate system used for distance calculations.}
 
 \item{features}{A dataframe with at least two columns containing the coordinates (lon, lat) of the locations we want to calculate minimum distances to.}
 
 \item{buffer}{A number indicating a distance from origin. If set, features within this distance to origin will be ignored.}
-
-\item{hab}{A matrix with two columns containing the coordinates (lon, lat) of a set of locations. Potentially a lattice of habitat cells.}
 }
 \value{
 A vector with the minimum distance from each of the hab locations to any of the feature locations.

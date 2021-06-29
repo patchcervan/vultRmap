@@ -4,7 +4,7 @@
 \alias{prepColHab}
 \title{Prepare habitat around a colony}
 \usage{
-prepColHab(col_cc, max_range, col_all = NULL, sfs = NULL, scale = "ssf")
+prepColHab(col_cc, max_range, col_all = NULL, sfs = NULL, scale = "none")
 }
 \arguments{
 \item{col_cc}{A numeric vector with the coordinates of the colony to simulate
