@@ -5,7 +5,7 @@ library(vultRmap)
 rm(list = ls())
 
 # Define raster output directory
-rasterdir <- "output"
+rasterdir <- "../vultRmap_data_aux/"
 
 
 # Read in data ------------------------------------------------------------
@@ -36,7 +36,7 @@ for(i in seq_len(nrow(col_to_pred))){
    col_sel <- col_to_pred[i,]
 
    # Load simulations
-   sims <- readRDS(paste0(rasterdir, "/sims/", col_sel$id, "_", age, "_sims.rds"))
+   sims <- readRDS(paste0(rasterdir, "col_sims/", col_sel$id, "_", age, "_sims.rds"))
 
    # Prepare covariates
    hab <- vultRmap::prepColHab(col_cc = unlist(col_sel[, c("lon", "lat")]),
@@ -64,7 +64,7 @@ for(i in seq_len(nrow(col_to_pred))){
                     closed, crops, urban, water, prot_area)
 
    # Fit GAM
-   fit <- mgcv::bam(count ~ s(lon, lat) + s(dist_col) + s(log_dist_col) + dist_sfs + dist_col_any + elev + slope + rugg +
+   fit <- mgcv::bam(count ~ te(lon, lat) + s(dist_col) + s(log_dist_col) + dist_sfs + dist_col_any + elev + slope + rugg +
                        closed+ crops+ urban+ water+ prot_area, family = poisson(link = "log"), data = hab,
                     discrete = TRUE, nthreads = 10)
 
@@ -75,9 +75,66 @@ for(i in seq_len(nrow(col_to_pred))){
    # Save habitat grid with fitted values
    hab %>%
       dplyr::select(lon, lat, count, gamfit) %>%
-      saveRDS(file = paste0(rasterdir, "/ssf_gam/", "gam_", col_sel$id, "_", age, ".rds"))
+      saveRDS(file = paste0(rasterdir, "col_gam/", "gam_", col_sel$id, "_", age, ".rds"))
 
 }
+
+# Save explained deviance
+saveRDS(expl_dev, paste0("analysis/output/expl_dev_gam_", age, ".rds"))
+
+
+
+# Fit GAM to one colony ---------------------------------------------------
+
+# Define age
+age <- "ad"
+
+# Select a colony to process
+col_sel <- col_to_pred %>%
+   filter(id == "cvcol379")
+
+# Load simulations
+sims <- readRDS(paste0(rasterdir, "col_sims/", col_sel$id, "_", age, "_sims.rds"))
+
+# Prepare covariates
+hab <- vultRmap::prepColHab(col_cc = unlist(col_sel[, c("lon", "lat")]),
+                            max_range = max(sims$dist_col)/1000 + 10,
+                            col_all = col_all, sfs = sfs)
+
+# Count the number of visits to each cell
+counts <- sims %>%
+   mutate(lon = round(lon, 3),
+          lat = round(lat, 3)) %>%
+   group_by(lon, lat) %>%
+   summarize(count = n())
+
+# Associate counts with covariates
+hab <- hab %>%
+   mutate(lon = round(lon, 3),
+          lat = round(lat, 3)) %>%
+   left_join(counts, by = c("lon", "lat"))
+
+# Make NA counts = 0 and reduce the size of the data frame
+hab <- hab %>%
+   mutate(count = if_else(is.na(count), 0L, count)) %>%
+   filter(dist_col < (max(.$dist_col[.$count > 0]))) %>%
+   dplyr::select(count, lon, lat, dist_col, log_dist_col, dist_sfs, dist_col_any, elev, slope, rugg,
+                 closed, crops, urban, water, prot_area)
+
+# Fit GAM
+fit <- mgcv::bam(count ~ te(lon, lat) + s(dist_col) + s(log_dist_col) + dist_sfs + dist_col_any + elev + slope + rugg +
+                    closed+ crops+ urban+ water+ prot_area, family = poisson(link = "log"), data = hab,
+                 discrete = TRUE, nthreads = 10)
+
+expl_dev[[i]] <- 1 - fit$deviance/fit$null.deviance
+
+hab$gamfit <- fit$fitted.values
+
+# Save habitat grid with fitted values
+hab %>%
+   dplyr::select(lon, lat, count, gamfit) %>%
+   saveRDS(file = paste0(rasterdir, "col_gam/", "gam_", col_sel$id, "_", age, ".rds"))
+
 
 # Save explained deviance
 saveRDS(expl_dev, paste0("output/expl_dev_gam_", age, ".rds"))

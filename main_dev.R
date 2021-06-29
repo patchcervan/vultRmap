@@ -65,6 +65,14 @@ document()
 # Create an ROxygen2 file and document
 document()
 
+# Data height model fit summary -------------------------------------------------------------
+
+# Load height fit summary from the main project and save as data
+# source("data_prep/hgt_summary_prep.R")
+
+# Create an ROxygen2 file and document
+document()
+
 # Rcpp function calcMinDist_cpp --------------------------------------------------
 
 # Add function
@@ -362,6 +370,28 @@ use_test()
 
 test()
 
+
+# Function calcUdquantile --------------------------------------------------
+
+# Add function
+use_r("calcUdquantile")
+
+# test locally
+load_all()
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
 
 # Install -----------------------------------------------------------------
 
