@@ -22,7 +22,7 @@
 #' # This will fail because you need aux data:
 #' # prepColHab(c(27.7, -31.2), 100)
 prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL,
-                       scale = "ssf"){
+                       scale = "none"){
 
   if(is.null(col_all) || is.null(sfs)){
     stop("Need colony and supplementary feeding sites data. Contact package maintainer.")
