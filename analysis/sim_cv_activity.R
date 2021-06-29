@@ -27,7 +27,7 @@ ssf_coef <- vultRmap::sampleSsfCoef(nind = 1)
 
 # This may take some minutes if max_range is large (>500)
 hab <- vultRmap::prepColHab(col_cc = unlist(col_all[303, c("lon", "lat")]), max_range = 1000,
-                            col_all = col_all, sfs = sfs)
+                            col_all = col_all, sfs = sfs, scale = "ssf")
 
 hab <- vultRmap::completeDataFrame(hab, names(ssf_coef[[1]]), 0)
 

@@ -1,19 +1,28 @@
 #' Prepare habitat around a colony
 #'
-#' @param col_cc A numeric vector with the coordinates of the colony to simulate around (lon, lat)
-#' @param max_range The maximum distance from the colony the vultures will be allowed to travel in kilometers.
-#'     Note that increasing the range will increase computation time and memory use
-#' @param col_all A data frame containing at least two columns (lon, lat) with the coordinates of all colonies
-#' @param sfs A data frame containing at least two columns (lon, lat) with the coordinates of all supplementary feeding sites
+#' @param col_cc A numeric vector with the coordinates of the colony to simulate
+#' around (lon, lat).
+#' @param max_range The maximum distance from the colony the vultures will be
+#' allowed to travel in kilometers. Note that increasing the range will increase
+#' computation time and memory use.
+#' @param col_all A data frame containing at least two columns (lon, lat) with
+#' the coordinates of all colonies.
+#' @param sfs A data frame containing at least two columns (lon, lat) with the
+#' coordinates of all supplementary feeding sites.
+#' @param scale A character string with one of three options: "ssf" to scale
+#' variables for the SSF model, "hgt" to scale for the height model or "none" for
+#' no scaling.
 #'
-#' @return A data frame with variables needed for activity simulation such as: distance to colony, distance to other colonies
-#'     or distance to supplementary feeding sites.
+#' @return A data frame with variables needed for activity simulation such as:
+#' distance to colony, distance to other colonies or distance to supplementary
+#' feeding sites.
 #' @export
 #'
 #' @examples
 #' # This will fail because you need aux data:
 #' # prepColHab(c(27.7, -31.2), 100)
-prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL){
+prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL,
+                       scale = "none"){
 
   if(is.null(col_all) || is.null(sfs)){
     stop("Need colony and supplementary feeding sites data. Contact package maintainer.")
@@ -28,8 +37,17 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL){
   # Load habitat data
   hab <- vultRmap::range_covts
 
-  # Save attributes
-  ats <- attr(hab, "mod_scale")
+  # Prepare scaling factors
+  if(!scale %in% c("ssf", "hgt", "none")){
+    stop("scale must be either ssf, hgt or none")
+  }
+  sds <- NULL
+  if(scale == "ssf"){
+    sds <- attr(hab, "ssf_mod_scale")
+  } else if(scale == "hgt"){
+    sds <- attr(hab, "ssf_mod_scale")
+  }
+
 
   # Fix variable names for later
   sfs$lon <- sfs$longitude
@@ -93,19 +111,35 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL){
 
   # Prepare other variables -------------------------------------------------
 
-  # Restore attributes
-  attr(hab, "mod_scale") <- ats
+  # We define min distance to colony as being 5km which is the buffer we defined
+  # around colonies for removing "other" colonies.
+  mindist <- 5000
 
-  hab <- hab %>%
-    as.data.frame() %>%
-    dplyr::arrange(lon, lat) %>%
-    dplyr::mutate(cell_id = dplyr::row_number(),
-                  dist_col = dist_col / attr(hab, "mod_scale")["dist_col"],
-                  dist_col_any = dist_col_any / attr(hab, "mod_scale")["dist_col_any"],
-                  dist_col = ifelse(dist_col < 0.015, 0.015, dist_col), # This is the minimum distance greater than zero. Otherwise log is not finite
-                  dist_col_sc = dist_col * attr(hab, "mod_scale")["dist_col"], # Store distance in original scale
-                  log_dist_col = log(dist_col_sc),
-                  dist_sfs = dist_sfs / attr(hab, "mod_scale")["dist_sfs"])
+  if(scale != "none"){
+    hab <- hab %>%
+      as.data.frame() %>%
+      dplyr::arrange(lon, lat) %>%
+      dplyr::mutate(cell_id = dplyr::row_number(),
+                    elev = elev / sds["elev"],
+                    slope = slope / sds["slope"],
+                    rugg = rugg / sds["rugg"],
+                    dist_col_any = dist_col_any / sds["dist_col_any"],
+                    dist_col = ifelse(dist_col < mindist, mindist, dist_col), # This is the minimum distance greater than zero. Otherwise log is not finite
+                    log_dist_col = log(dist_col),
+                    dist_col_sc = dist_col,
+                    dist_col = dist_col / sds["dist_col"],
+                    dist_sfs = dist_sfs / sds["dist_sfs"])
+  } else {
+    hab <- hab %>%
+      as.data.frame() %>%
+      dplyr::arrange(lon, lat) %>%
+      dplyr::mutate(cell_id = dplyr::row_number(),
+                    dist_col = ifelse(dist_col < mindist, mindist, dist_col), # This is the minimum distance greater than zero. Otherwise log is not finite
+                    log_dist_col = log(dist_col))
+  }
+
+  # Restore attributes
+  attr(hab, "mod_scale") <- sds
 
   return(hab)
 

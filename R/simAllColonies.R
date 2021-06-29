@@ -73,7 +73,7 @@ simAllColonies <- function(col_to_pred, totalsteps, dist_lim, age,
 
     # This may take some minutes if max_range is large (>500)
     hab <- vultRmap::prepColHab(col_cc = unlist(col_sel[, c("lon","lat")]), max_range = dist_lim,
-                                col_all = col_all, sfs = sfs)
+                                col_all = col_all, sfs = sfs, scale = "ssf")
 
     hab <- vultRmap::completeDataFrame(hab, names(ssf_coef[[1]]), 0)
 
