@@ -4,24 +4,24 @@
 \alias{estHgtRisk}
 \title{Estimate height risk}
 \usage{
-estHgtRisk(.col_sel, .coefs, .datadir, .simsdir, .outdir)
+estHgtRisk(.col_sel, .coefs, .age, .datadir, .simsdir, .outdir)
 }
 \arguments{
-\item{.col_sel}{A named vector with the coordinates of the colony we want to
-simulate around c("lon", "lat").}
+\item{.col_sel}{A data frame with the coordinates and id of the colony we want to
+simulate around c("lon", "lat", "id").}
 
 \item{.coefs}{A list with samples of random coefficients. Each element in the
 list corresponds to a set of coefficients for a different individual.}
+
+\item{.datadir}{A character string with the path to the directory containing
+the auxiliary data needed for the estimation (i.e. colony and supplementary
+feeding sites data).}
 
 \item{.simsdir}{A character string with the path to the directory containing
 the points for which height risk wants to be estimated.}
 
 \item{.outdir}{A character string with the path to the directory where the
 results are to be stored at in disk. If NULL the results are not stored.}
-
-\item{data_dir}{A character string with the path to the directory containing
-the auxiliary data needed for the estimation (i.e. colony and supplementary
-feeding sites data).}
 }
 \value{
 
