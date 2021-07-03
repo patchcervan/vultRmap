@@ -1,7 +1,7 @@
 # 22-02-2021
 
-# In this script we estimate an utilization distribution within a defined area
-# based on selection values estimated using an SSF model
+# In this script we estimate the utilization distribution either for a single
+# colony or for the whole range using all colonies
 
 rm(list = ls())
 
