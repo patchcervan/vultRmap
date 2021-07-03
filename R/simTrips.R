@@ -139,7 +139,7 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
       sl <- step$.sls
       ttnoon <- ttnoon + 1
 
-      if(dist_col > 10000){
+      if(dist_col > 5000){
         dur <- dur + 1
 
       } else {
