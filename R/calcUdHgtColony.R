@@ -1,4 +1,4 @@
-#' Calculate utilization distribution around a colony
+#' Calculate utilization distribution at rotor height around a colony
 #'
 #' @param .col_sel A named vector (data frame row) with at least three elements:
 #' c("lon", "lat", "id", "avg_ad", "avg_juv")
@@ -9,17 +9,17 @@
 #' @param .scale TRUE/FALSE whether the UD should be scaled by the number of
 #' individuals expected to use the colony.
 #' @param .countsdir A character string with the directory where the smoothed
-#' counts are stored.
+#' counts(expected counts, in this case) are stored.
 #' @param .outputdir A character string with the directory to store the results.
 #' If NULL (default) the output is not saved to disk.
 #'
-#' @return A dataframe with the counts and smoothed counts computed for each
-#' grid cell in .hab.
+#' @return A dataframe with the expected counts and smoothed expected counts
+#' computed for each grid cell in .hab.
 #' @export
 #'
 #' @examples
-calcUdColony <- function(.col_sel, .age, .hab = NULL, .scale = FALSE,
-                         .countsdir, .outputdir = NULL){
+calcUdHgtColony <- function(.col_sel, .age, .hab = NULL, .scale = FALSE,
+                            .countsdir, .outputdir = NULL){
 
   if(is.null(.hab)){
     # Load habitat grid
@@ -32,7 +32,7 @@ calcUdColony <- function(.col_sel, .age, .hab = NULL, .scale = FALSE,
                   lat = round(lat, 3))
 
   # Load counts/GAM dataframe
-  ud_col <- readRDS(paste0(.countsdir, "gam_", .col_sel$id, "_", .age, ".rds" ))
+  ud_col <- readRDS(paste0(.countsdir, "gam_hgt_", .col_sel$id, "_", .age, ".rds" ))
 
   ud_col <- ud_col %>%
     dplyr::mutate(lon = round(lon, 3),
@@ -56,7 +56,7 @@ calcUdColony <- function(.col_sel, .age, .hab = NULL, .scale = FALSE,
   .hab$gamfit <- .hab$gamfit/total_gamfit
 
   # Create temporary name for output file
-  udfile <- paste0(.outputdir, "ud_", .col_sel$id, "_", .age, "_nosc", ".rds")
+  udfile <- paste0(.outputdir, "ud_hgt_", .col_sel$id, "_", .age, "_nosc", ".rds")
 
   # Scale if necessary
   if(.scale){
@@ -70,7 +70,7 @@ calcUdColony <- function(.col_sel, .age, .hab = NULL, .scale = FALSE,
     .hab$gamfit <- .hab$gamfit*size
 
     # Change name of output file if necessary
-    udfile <- paste0(.outputdir, "ud_", .col_sel$id, "_", .age, ".rds")
+    udfile <- paste0(.outputdir, "ud_hgt_", .col_sel$id, "_", .age, ".rds")
 
   }
 
