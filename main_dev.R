@@ -38,6 +38,7 @@ use_package("rgdal")
 use_package("stats")
 use_package("furrr")
 use_package("future")
+use_package("raster")
 
 
 # Data general covariates -------------------------------------------------------------
