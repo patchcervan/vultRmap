@@ -4,6 +4,7 @@
 #' simulate around c("lon", "lat", "id").
 #' @param .coefs A list with samples of random coefficients. Each element in the
 #' list corresponds to a set of coefficients for a different individual.
+#' @param .age Age of the vultures a height probabilities are calculated for.
 #' @param .datadir A character string with the path to the directory containing
 #' the auxiliary data needed for the estimation (i.e. colony and supplementary
 #' feeding sites data).
@@ -32,6 +33,7 @@ estHgtRisk <- function(.col_sel, .coefs, .age, .datadir, .simsdir, .outdir){
    trip <- .sims$trip
    ind_id[1] <- 1
 
+   # There is a change in individual when trip is equal to zero
    for(i in seq_len(nrow(.sims) - 1)){
       if(trip[i+1] == 0 && trip[i] != 0){
          ind_id[i+1] <- ind_id[i] + 1
@@ -50,15 +52,9 @@ estHgtRisk <- function(.col_sel, .coefs, .age, .datadir, .simsdir, .outdir){
 
    # Fix locations at colony, as it may not correspond to any cell centroid.
    # Move to closest location
-   col_grid <- .sims %>%
-      dplyr::filter(dist_col > 0) %>%
-      dplyr::filter(dist_col == min(dist_col)) %>%
-      dplyr::mutate(dist = calcDist(unlist(.col_sel[,c("lon", "lat")]), lon, lat)) %>%
-      dplyr::filter(dist == min(dist)) %>%
-      dplyr::summarize(lon = unique(lon),
-                       lat = unique(lat)) %>%
+   col_grid <- hab_col %>%
+      dplyr::filter(x == 0, y == 0) %>%
       unlist()
-
 
    .sims <- .sims %>%
       dplyr::mutate(lon = ifelse(dist_col == 0, col_grid[1], lon),

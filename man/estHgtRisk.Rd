@@ -13,6 +13,8 @@ simulate around c("lon", "lat", "id").}
 \item{.coefs}{A list with samples of random coefficients. Each element in the
 list corresponds to a set of coefficients for a different individual.}
 
+\item{.age}{Age of the vultures a height probabilities are calculated for.}
+
 \item{.datadir}{A character string with the path to the directory containing
 the auxiliary data needed for the estimation (i.e. colony and supplementary
 feeding sites data).}
