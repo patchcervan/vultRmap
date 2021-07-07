@@ -1,4 +1,4 @@
-#' Make Risk Map
+#' Make 2D Risk Map
 #'
 #' @description Takes all files with smoothed counts present in a directory
 #' and creates a risk map.
@@ -20,10 +20,10 @@
 #' @export
 #'
 #' @examples
-makeRiskMap <- function(col_to_pred, age, map_type = "risk", countsdir,
-                        outdir = NULL){
+make2DRiskMap <- function(col_to_pred, age, map_type = "risk", countsdir,
+                          outdir = NULL){
 
-  if(!dir.exists(outdir)){
+  if(!dir.exists(dirname(outdir))){
     stop("outdir doesn't exist")
   }
 
@@ -40,35 +40,35 @@ makeRiskMap <- function(col_to_pred, age, map_type = "risk", countsdir,
 
   attr(hab, "mod_scale") <- NULL
 
-    ud <- calcUdColony(.col_sel = col_to_pred[1,], .hab = hab, .age = age,
-                       .scale = scale, .countsdir = countsdir, .outputdir = NULL)
+  ud <- calcUdColony(.col_sel = col_to_pred[1,], .hab = hab, .age = age,
+                     .scale = scale, .countsdir = countsdir, .outputdir = NULL)
 
-    if(map_type == "hazard"){
+  if(map_type == "hazard"){
 
-      for(i in seq_len(nrow(col_to_pred[-1,]))){
+    for(i in seq_len(nrow(col_to_pred[-1,]))){
 
-        newud <- calcUdColony(.col_sel = col_to_pred[i,], .hab = hab, .age = age,
-                              .scale = scale, .countsdir = countsdir, .outputdir = NULL)
+      newud <- calcUdColony(.col_sel = col_to_pred[i,], .hab = hab, .age = age,
+                            .scale = scale, .countsdir = countsdir, .outputdir = NULL)
 
-        # Pairwise max
-        ud$count <- pmax(ud$count, newud$count)
-        ud$gamfit <- pmax(ud$gamfit, newud$gamfit)
-
-      }
-
-    } else {
-
-      for(i in seq_len(nrow(col_to_pred[-1,]))){
-
-        newud <- calcUdColony(.col_sel = col_to_pred[i,], .hab = hab, .age = age,
-                              .scale = scale, .countsdir = countsdir, .outputdir = NULL)
-
-        ud$count <- ud$count + newud$count
-        ud$gamfit <- ud$gamfit + newud$gamfit
-
-      }
+      # Pairwise max
+      ud$count <- pmax(ud$count, newud$count)
+      ud$gamfit <- pmax(ud$gamfit, newud$gamfit)
 
     }
+
+  } else {
+
+    for(i in seq_len(nrow(col_to_pred[-1,]))){
+
+      newud <- calcUdColony(.col_sel = col_to_pred[i,], .hab = hab, .age = age,
+                            .scale = scale, .countsdir = countsdir, .outputdir = NULL)
+
+      ud$count <- ud$count + newud$count
+      ud$gamfit <- ud$gamfit + newud$gamfit
+
+    }
+
+  }
 
   r_gamfit <- ud %>%
     dplyr::select(x = lon, y = lat, z = gamfit) %>%
@@ -78,7 +78,7 @@ makeRiskMap <- function(col_to_pred, age, map_type = "risk", countsdir,
   if(!is.null(outdir)){
 
     outfile <- paste0(outdir, map_type, "_", age, ".tif")
-      raster::writeRaster(r_gamfit, outfile, overwrite = TRUE)
+    raster::writeRaster(r_gamfit, outfile, overwrite = TRUE)
 
   } else {
 
