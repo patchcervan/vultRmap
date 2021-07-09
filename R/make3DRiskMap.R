@@ -47,7 +47,7 @@ make3DRiskMap <- function(col_to_pred, age, map_type = "risk", countsdir,
 
     for(i in seq_len(nrow(col_to_pred[-1,]))){
 
-      newud <- calcUdHgtColony(.col_sel = col_to_pred[i,], .hab = hab, .age = age,
+      newud <- calcUdHgtColony(.col_sel = col_to_pred[i+1,], .hab = hab, .age = age,
                                .scale = scale, .countsdir = countsdir, .outputdir = NULL)
 
       # Pairwise max
@@ -60,7 +60,7 @@ make3DRiskMap <- function(col_to_pred, age, map_type = "risk", countsdir,
 
     for(i in seq_len(nrow(col_to_pred[-1,]))){
 
-      newud <- calcUdHgtColony(.col_sel = col_to_pred[i,], .hab = hab, .age = age,
+      newud <- calcUdHgtColony(.col_sel = col_to_pred[i+1,], .hab = hab, .age = age,
                             .scale = scale, .countsdir = countsdir, .outputdir = NULL)
 
       ud$count <- ud$count + newud$count
