@@ -68,6 +68,11 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL,
 
   # Take colony to the centre of the grid
   dists <- vultRmap::calcDist(col_cc, hab$lon, hab$lat)
+
+  if(length(which.min(dists)) > 1){
+    stop("Multiple grid cells at same distance from colony")
+  }
+
   col_cc <- c(hab$lon[which.min(dists)], hab$lat[which.min(dists)])
 
 
@@ -85,8 +90,8 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL,
   hab_cc <- sp::coordinates(hab_sp)
 
   hab <- hab %>%
-    dplyr::mutate(x = hab_cc[,1],
-                  y = hab_cc[,2])
+    dplyr::mutate(x = round(hab_cc[,1]),
+                  y = round(hab_cc[,2]))
 
 
   # Calculate distances for this colony -------------------------------------
