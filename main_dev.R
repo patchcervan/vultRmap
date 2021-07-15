@@ -39,6 +39,7 @@ use_package("stats")
 use_package("furrr")
 use_package("future")
 use_package("raster")
+use_package("mgcv")
 
 
 # Data general covariates -------------------------------------------------------------
@@ -416,6 +417,31 @@ use_testthat()
 use_test()
 
 test()
+
+
+# Function updateColonyCount --------------------------------------------------
+
+# Add function
+use_r("updateColonyCount")
+
+# test locally
+load_all()
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
+
+
 
 # Install -----------------------------------------------------------------
 

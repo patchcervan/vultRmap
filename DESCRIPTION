@@ -20,6 +20,7 @@ Imports:
     furrr,
     future,
     magrittr,
+    mgcv,
     raster,
     Rcpp,
     rgdal,
