@@ -4,7 +4,14 @@
 \alias{make3DRiskMap}
 \title{Make 3D Risk Map}
 \usage{
-make3DRiskMap(col_to_pred, age, map_type = "risk", countsdir, outdir = NULL)
+make3DRiskMap(
+  col_to_pred,
+  age,
+  map_type = "risk",
+  countsdir,
+  suffix,
+  outdir = NULL
+)
 }
 \arguments{
 \item{col_to_pred}{A dataframe with the coordinates and sizes of all colonies
@@ -24,6 +31,9 @@ where the smoothed counts are found.}
 \item{outdir}{A character string. If not NULL (default) the output map is
 saved to disk in the desired location. The map type and the age will be
 recorded in the name of the output file.}
+
+\item{.suffix}{A character string containing the part the name of the file
+that appears after the colony code (e.g. "_ad_hgt_gam.rds)}
 }
 \value{
 

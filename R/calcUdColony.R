@@ -10,6 +10,8 @@
 #' individuals expected to use the colony.
 #' @param .countsdir A character string with the directory where the smoothed
 #' counts are stored.
+#' @param .suffix A character string containing the part the name of the file
+#' that appears after the colony code (e.g. "_ad_gam.rds)
 #' @param .outputdir A character string with the directory to store the results.
 #' If NULL (default) the output is not saved to disk.
 #'
@@ -19,7 +21,7 @@
 #'
 #' @examples
 calcUdColony <- function(.col_sel, .age, .hab = NULL, .scale = FALSE,
-                         .countsdir, .outputdir = NULL){
+                         .countsdir, .suffix, .outputdir = NULL){
 
   if(is.null(.hab)){
     # Load habitat grid
@@ -32,7 +34,7 @@ calcUdColony <- function(.col_sel, .age, .hab = NULL, .scale = FALSE,
                   lat = round(lat, 3))
 
   # Load counts/GAM dataframe
-  ud_col <- readRDS(paste0(.countsdir, "gam_", .col_sel$id, "_", .age, ".rds" ))
+  ud_col <- readRDS(paste0(.countsdir, .col_sel$id, .suffix))
 
   ud_col <- ud_col %>%
     dplyr::mutate(lon = round(lon, 3),
@@ -56,7 +58,7 @@ calcUdColony <- function(.col_sel, .age, .hab = NULL, .scale = FALSE,
   .hab$gamfit <- .hab$gamfit/total_gamfit
 
   # Create temporary name for output file
-  udfile <- paste0(.outputdir, "ud_", .col_sel$id, "_", .age, "_nosc", ".rds")
+  udfile <- paste0(.outputdir, .col_sel$id, "_", .age, "_hazard.rds")
 
   # Scale if necessary
   if(.scale){
@@ -70,7 +72,7 @@ calcUdColony <- function(.col_sel, .age, .hab = NULL, .scale = FALSE,
     .hab$gamfit <- .hab$gamfit*size
 
     # Change name of output file if necessary
-    udfile <- paste0(.outputdir, "ud_", .col_sel$id, "_", .age, ".rds")
+    udfile <- paste0(.outputdir, .col_sel$id, "_", .age, "_risk.rds")
 
   }
 

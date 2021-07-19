@@ -10,6 +10,7 @@ calcUdColony(
   .hab = NULL,
   .scale = FALSE,
   .countsdir,
+  .suffix,
   .outputdir = NULL
 )
 }
@@ -28,6 +29,9 @@ individuals expected to use the colony.}
 
 \item{.countsdir}{A character string with the directory where the smoothed
 counts are stored.}
+
+\item{.suffix}{A character string containing the part the name of the file
+that appears after the colony code (e.g. "_ad_gam.rds)}
 
 \item{.outputdir}{A character string with the directory to store the results.
 If NULL (default) the output is not saved to disk.}
