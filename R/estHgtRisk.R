@@ -22,6 +22,12 @@ estHgtRisk <- function(.col_sel, .coefs, .age, .datadir, .simsdir, .outdir){
    # Load sims and data
    .sims <- readRDS(paste0(.simsdir, .col_sel$id, "_", .age, "_sims.rds"))
 
+   try({
+      .sims <- rbind(readRDS(paste0(.simsdir, .col_sel$id, "_", .age, "_sims.rds")),
+                     readRDS(paste0(.simsdir, .col_sel$id, "_", .age, "_sims_v2.rds")))
+   })
+
+
    # We will need to calculate distance to other colonies
    .col_all <- utils::read.csv(paste0(.datadir, "/colony_data.csv"))
 
@@ -111,7 +117,7 @@ estHgtRisk <- function(.col_sel, .coefs, .age, .datadir, .simsdir, .outdir){
       dplyr::mutate(hgt_risk = pred)
 
    if(!is.null(.outdir)){
-      saveRDS(out, file = paste0(.outdir, .col_sel$id,"_", .age, "_hgt_risk.rds"))
+      saveRDS(out, file = paste0(.outdir, .col_sel$id,"_", .age, "_hgt_sims.rds"))
    }
 
    return(out)
