@@ -47,7 +47,7 @@ ggplot(sims) +
 # Simulate for all colonies -----------------------------------------------
 
 # Set min size for colonies and roost (adults for colonies and total for roosts)
-min_size_col = 2000; min_size_roost = 100
+min_size_col = 0; min_size_roost = 50
 
 # Read in necessary data
 

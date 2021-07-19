@@ -1,10 +1,21 @@
 library(leaflet)
 library(raster)
+library(sf)
 library(vultRmap)
 
 mapdir <- "../vultRmap_data_aux/risk_maps/"
 
+# Area to predict
+SA <- readRDS("../cape_vulture_cr/data/working/gadm36_ZAF_1_sp.rds")
+
+ec <- SA %>%
+  st_as_sf() %>%
+  dplyr::filter(NAME_1 == "Eastern Cape")
+
 r <- raster::raster(paste0(mapdir, "risk_total.tif"))
+
+r <- crop(r, ec)
+r <- mask(r, ec)
 
 # Remove 0.1% of activity to reduce mapping
 cutoff <- 0.99
@@ -31,20 +42,3 @@ leaflet() %>%
               paste0(labels)
             })
 
-
-# Save a categorized map -------------------------------------------------
-
-ext <- raster::extent(rbind(c(27, 31),
-                            c(-33, -29)))
-
-r1 <- raster::raster("analysis/output/risk_maps/hazard_cvcol379_ad.tif")
-r1 <- crop(r1, ext)
-r2 <- raster::raster("analysis/output/risk_maps/hazard_cvcol395_ad.tif")
-r2 <- crop(r2, ext)
-
-plot(log(r1))
-plot(log(r2))
-
-plot(max(log(r1),log(r2)))
-
-hist(r[r<0.00001])
