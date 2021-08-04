@@ -5,7 +5,12 @@
 #' proceeding with any updates!
 #' @param id_colony A character string corresponding to the colony that needs to
 #' be updated.
-#' @param ad_new The updated number of adults the site.
+#' @param ad_new The updated number of adults the site. The function NOT
+#' calculate the average over the years, so if the average is wanted, it must
+#' be calculated before passing it to the function.
+#' @param ncounts_new The updated number of times the site was counted over the
+#' years. This number is used to keep track of how many times the site was
+#' counted. It is NOT used by the function to calculate the average.
 #' @param prop_juv Proportion of juveniles to adults. By default this is 0.43
 #' which is a rough estimate based on the literature.
 #' @param remove_col If TRUE the colony with id_colony will be completely removed.
@@ -15,7 +20,7 @@
 #' @param add_col If TRUE a new record will be added to the database instead of
 #' updated. Additional fields must be passed on to info_col.
 #' @param info_col A named list with the following fields: "name", "lon", "lat",
-#' "avg_ad", "avg_juv", "counted" (1 if it has been counted, 0 if not), "type"
+#' "counted" (1 if it has been counted, 0 if not), "type"
 #' (either "breed" or "roost"), "id" new id (if NULL an id will be assigned
 #' automatically).
 #' @param dir_colony The directory where the colony data is stored. The name and
@@ -28,9 +33,9 @@
 #' @export
 #'
 #' @examples
-updateColonyCount <- function(id_colony = NULL, ad_new = NULL, prop_juv = 0.43,
-                              remove_col = FALSE, add_col = FALSE,
-                              info_col = NULL, dir_colony,
+updateColonyCount <- function(id_colony = NULL, ad_new = NULL, ncounts_new = NULL,
+                              prop_juv = 0.43, remove_col = FALSE,
+                              add_col = FALSE, info_col = NULL, dir_colony,
                               overwrite){
 
   col_old <- utils::read.csv(dir_colony)
@@ -53,6 +58,7 @@ updateColonyCount <- function(id_colony = NULL, ad_new = NULL, prop_juv = 0.43,
                              lat = info_col["lat"],
                              avg_ad = ad_new,
                              avg_juv = ad_new*prop_juv,
+                             ncounts = ncounts_new,
                              names_old = NA,
                              counted = info_col["counted"],
                              type = info_col["type"],
@@ -70,6 +76,7 @@ updateColonyCount <- function(id_colony = NULL, ad_new = NULL, prop_juv = 0.43,
     col_new <- col_old %>%
       dplyr::mutate(avg_ad = ifelse(id == id_colony, round(ad_new), avg_ad),
                     avg_juv = ifelse(id == id_colony, round(prop_juv*avg_ad), avg_juv),
+                    ncounts = ifelse(id == id_colony, ncounts_new, ncounts),
                     counted = ifelse(is.na(ad_new), 0, 1))
   }
 

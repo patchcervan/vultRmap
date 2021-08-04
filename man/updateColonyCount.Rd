@@ -7,6 +7,7 @@
 updateColonyCount(
   id_colony = NULL,
   ad_new = NULL,
+  ncounts_new = NULL,
   prop_juv = 0.43,
   remove_col = FALSE,
   add_col = FALSE,
@@ -19,7 +20,13 @@ updateColonyCount(
 \item{id_colony}{A character string corresponding to the colony that needs to
 be updated.}
 
-\item{ad_new}{The updated number of adults the site.}
+\item{ad_new}{The updated number of adults the site. The function NOT
+calculate the average over the years, so if the average is wanted, it must
+be calculated before passing it to the function.}
+
+\item{ncounts_new}{The updated number of times the site was counted over the
+years. This number is used to keep track of how many times the site was
+counted. It is NOT used by the function to calculate the average.}
 
 \item{prop_juv}{Proportion of juveniles to adults. By default this is 0.43
 which is a rough estimate based on the literature.}
@@ -33,7 +40,7 @@ Unless we know that a colony doesn't exist, we don't want to remove them.}
 updated. Additional fields must be passed on to info_col.}
 
 \item{info_col}{A named list with the following fields: "name", "lon", "lat",
-"avg_ad", "avg_juv", "counted" (1 if it has been counted, 0 if not), "type"
+"counted" (1 if it has been counted, 0 if not), "type"
 (either "breed" or "roost"), "id" new id (if NULL an id will be assigned
 automatically).}
 
