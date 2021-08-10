@@ -46,32 +46,24 @@ make3DRiskMap <- function(col_to_pred, age, map_type = "risk", countsdir,
                         .scale = scale, .countsdir = countsdir,
                         .suffix = suffix, .outputdir = NULL)
 
+  for(i in seq_len(nrow(col_to_pred[-1,]))){
+
+    newud <- calcUdHgtColony(.col_sel = col_to_pred[i+1,], .hab = hab, .age = age,
+                             .scale = scale, .countsdir = countsdir,
+                             .suffix = suffix, .outputdir = NULL)
+
+    ud$count <- ud$count + newud$count
+    ud$gamfit <- ud$gamfit + newud$gamfit
+
+  }
+
+  # If calculating a hazard map, we want the mean hazard across colonies
   if(map_type == "hazard"){
 
-    for(i in seq_len(nrow(col_to_pred[-1,]))){
+    ncols <- nrow(col_to_pred)
 
-      newud <- calcUdHgtColony(.col_sel = col_to_pred[i+1,], .hab = hab, .age = age,
-                               .scale = scale, .countsdir = countsdir,
-                               .suffix = suffix, .outputdir = NULL)
-
-      # Pairwise max
-      ud$count <- pmax(ud$count, newud$count)
-      ud$gamfit <- pmax(ud$gamfit, newud$gamfit)
-
-    }
-
-  } else {
-
-    for(i in seq_len(nrow(col_to_pred[-1,]))){
-
-      newud <- calcUdHgtColony(.col_sel = col_to_pred[i+1,], .hab = hab, .age = age,
-                            .scale = scale, .countsdir = countsdir,
-                            .suffix = suffix, .outputdir = NULL)
-
-      ud$count <- ud$count + newud$count
-      ud$gamfit <- ud$gamfit + newud$gamfit
-
-    }
+    ud$count <- (ud$count + newud$count) / ncols
+    ud$gamfit <- (ud$gamfit + newud$gamfit) / ncols
 
   }
 
