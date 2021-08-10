@@ -468,4 +468,6 @@ test()
 remove.packages("vultRmap")
 devtools::install(type = "source")
 
+# build?
+# devtools::build()
 
