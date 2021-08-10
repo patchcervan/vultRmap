@@ -21,6 +21,9 @@
 #' the auxiliary data needed for the simulations.
 #' @param out_dir Specifies the directory where the simulation results should
 #' be saved to.
+#' @param out_suffix Suffix to pass on to the name of the output file. This is
+#' useful when we need to produce several files sequentially with different
+#' names.
 #'
 #' @return A data frame with at least the desired number of steps (the same
 #' number of steps are allocated to cores and rounded up) for each colony. Due
@@ -31,7 +34,7 @@
 #' @examples
 simAllColonies <- function(col_to_pred, totalsteps, dist_lim, age,
                            sample_coefs, set_seed, ncores,
-                           data_dir, out_dir){
+                           data_dir, out_dir, out_suffix = ""){
 
   # Configure multicore
   if(ncores > 1){
@@ -91,7 +94,7 @@ simAllColonies <- function(col_to_pred, totalsteps, dist_lim, age,
                                                        .maxdist = (dist_lim - dist_lim * 10/100)),
                                    .options = furrr::furrr_options(seed = set_seed))
 
-    saveRDS(sims, paste0(out_dir, "/", col_sel$id, "_", age, "_sims.rds"))
+    saveRDS(sims, paste0(out_dir, "/", col_sel$id, "_", age, "_sims", out_suffix, ".rds"))
 
     rm(sims, hab)
 

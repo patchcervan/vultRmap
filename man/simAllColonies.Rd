@@ -13,7 +13,8 @@ simAllColonies(
   set_seed,
   ncores,
   data_dir,
-  out_dir
+  out_dir,
+  out_suffix = ""
 )
 }
 \arguments{
@@ -44,6 +45,10 @@ the auxiliary data needed for the simulations.}
 
 \item{out_dir}{Specifies the directory where the simulation results should
 be saved to.}
+
+\item{out_suffix}{Suffix to pass on to the name of the output file. This is
+useful when we need to produce several files sequentially with different
+names.}
 }
 \value{
 A data frame with at least the desired number of steps (the same
