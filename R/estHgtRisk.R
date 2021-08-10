@@ -112,9 +112,11 @@ estHgtRisk <- function(.col_sel, .coefs, .age, .datadir, .simsdir, .outdir){
       pred[i] <- p_t1 <- p1+p2
    }
 
-   # Add coordinates and risk to the sims data frame and save
+   # Add coordinates, risk and total sim locations to the dataframe and save
    out <- cc %>%
       dplyr::mutate(hgt_risk = pred)
+
+   attr(out, "total") <- nrow(.sims)
 
    if(!is.null(.outdir)){
       saveRDS(out, file = paste0(.outdir, .col_sel$id,"_", .age, "_hgt_sims.rds"))
