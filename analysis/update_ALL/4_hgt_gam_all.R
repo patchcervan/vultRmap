@@ -46,10 +46,24 @@ for(j in 1:2){
       # Load simulations
       sims <- readRDS(paste0(rasterdir, "col_hgt_sims/", col_sel$id,"_", age, "_hgt_sims.rds"))
 
+      # Save the total number of simulated locations
+      n_total <- nrow(sims)
+
       # Prepare covariates
       hab <- vultRmap::prepColHab(col_cc = unlist(col_sel[, c("lon", "lat")]),
                                   max_range = 1200,
                                   col_all = col_all, sfs = sfs)
+
+      # Fix locations at colony, as it may not correspond to any cell centroid.
+      # Move to closest location
+      col_grid <- hab %>%
+         dplyr::filter(x == 0 & y == 0) %>%
+         dplyr::select(lon, lat) %>%
+         unlist()
+
+      sims <- sims %>%
+         dplyr::mutate(lon = ifelse(lon == col_sel$lon, col_grid[1], lon),
+                       lat = ifelse(lat == col_sel$lat, col_grid[2], lat))
 
       # Count the number of visits to each cell
       counts <- sims %>%
@@ -86,6 +100,9 @@ for(j in 1:2){
       expl_dev[[i]] <- 1 - fit$deviance/fit$null.deviance
 
       hab$gamfit <- fit$fitted.values
+
+      # Add total number of simulated locations as an attribute
+      attr(hab, "n_total") <- n_total
 
       # Save habitat grid with fitted values
       hab %>%

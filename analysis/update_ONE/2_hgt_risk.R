@@ -7,6 +7,9 @@ library(vultRmap)
 
 rm(list = ls())
 
+# DEFINE IDS OF THE COLONIES TO PROCESS
+ids <- c("cvcol190", "cvcol115")
+
 # Load colony data
 col_all <- read.csv("../vultRmap_data_aux/colony_data.csv")
 
@@ -15,13 +18,17 @@ col_to_pred <- col_all %>%
    filter(!is.na(avg_ad)) %>%
    filter((type == "breed" & avg_ad > 0) | (type == "roost" & (avg_ad + avg_juv) > 50))
 
+# Filter those colonies that we need to process
+col_to_pred <- col_to_pred %>%
+  filter(id %in% ids)
+
 # Extract model coefficients (40 for each simulation file. Typically two)
 hgt_coef <- sampleHgtCoef(hgt_fit_summary, 40 + 40, seed = 87634)
 
 
 # Predict for all colonies ------------------------------------------------
 
-future::plan("multisession", workers = 8)
+future::plan("multisession", workers = 4)
 
 f <- function(x){
   estHgtRisk(.col_sel = x,

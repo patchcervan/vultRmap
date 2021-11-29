@@ -11,6 +11,9 @@ rm(list = ls())
 # Define raster output directory
 rasterdir <- "../vultRmap_data_aux/"
 
+# DEFINE IDS OF THE COLONIES TO PROCESS
+ids <- c("cvcol190", "cvcol115")
+
 
 # Read in data ------------------------------------------------------------
 
@@ -24,6 +27,10 @@ sfs <- read_csv("../vultRmap_data_aux/sup_feeding_data.csv")
 col_to_pred <- col_all %>%
    filter(!is.na(avg_ad)) %>%
    filter((type == "breed" & avg_ad > 0) | (type == "roost" & (avg_ad + avg_juv) > 50))
+
+# Filter those colonies that we need to process
+col_to_pred <- col_to_pred %>%
+   filter(id %in% ids)
 
 
 # Loop through colonies and fit GAM ---------------------------------------
@@ -56,17 +63,6 @@ for(j in 1:2){
       hab <- vultRmap::prepColHab(col_cc = unlist(col_sel[, c("lon", "lat")]),
                                   max_range = max(sims$dist_col)/1000 + 10,
                                   col_all = col_all, sfs = sfs)
-
-      # Fix locations at colony, as it may not correspond to any cell centroid.
-      # Move to closest location
-      col_grid <- hab %>%
-         dplyr::filter(x == 0 & y == 0) %>%
-         dplyr::select(lon, lat) %>%
-         unlist()
-
-      sims <- sims %>%
-         dplyr::mutate(lon = ifelse(lon == col_sel$lon, col_grid[1], lon),
-                       lat = ifelse(lat == col_sel$lat, col_grid[2], lat))
 
       # Count the number of visits to each cell
       counts <- sims %>%
@@ -114,7 +110,7 @@ for(j in 1:2){
    }
 
    # Save explained deviance
-   saveRDS(expl_dev, paste0("analysis/output/expl_dev_gam_", age, ".rds"))
+   print(expl_dev)
 
    gc()
 

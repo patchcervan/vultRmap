@@ -1,6 +1,6 @@
 
-# In this script we fit a GAM model to the simulated activity to smooth out
-# the long-term distribution
+# In this script we fit a GAM model to the simulated activity at height risk
+# for ALL colonies to smooth out the long-term distribution
 
 library(tidyverse)
 library(mgcv)
@@ -10,6 +10,9 @@ rm(list = ls())
 
 # Define raster output directory
 rasterdir <- "../vultRmap_data_aux/"
+
+# DEFINE IDS OF THE COLONIES TO PROCESS
+ids <- c("cvcol190", "cvcol115")
 
 
 # Read in data ------------------------------------------------------------
@@ -24,6 +27,10 @@ sfs <- read_csv("../vultRmap_data_aux/sup_feeding_data.csv")
 col_to_pred <- col_all %>%
    filter(!is.na(avg_ad)) %>%
    filter((type == "breed" & avg_ad > 0) | (type == "roost" & (avg_ad + avg_juv) > 50))
+
+# Filter those colonies that we need to process
+col_to_pred <- col_to_pred %>%
+   filter(id %in% ids)
 
 
 # Loop through colonies and fit GAM ---------------------------------------
@@ -44,36 +51,19 @@ for(j in 1:2){
       col_sel <- col_to_pred[i,]
 
       # Load simulations
-      sims <- readRDS(paste0(rasterdir, "col_sims/", col_sel$id, "_", age, "_sims.rds"))
-
-      # If we have two different simulation files that we want to join
-      try({
-         sims <- rbind(sims,
-                       readRDS(paste0(rasterdir, "col_sims/", col_sel$id, "_", age, "_sims_v2.rds")))
-      })
+      sims <- readRDS(paste0(rasterdir, "col_hgt_sims/", col_sel$id,"_", age, "_hgt_sims.rds"))
 
       # Prepare covariates
       hab <- vultRmap::prepColHab(col_cc = unlist(col_sel[, c("lon", "lat")]),
-                                  max_range = max(sims$dist_col)/1000 + 10,
+                                  max_range = 1200,
                                   col_all = col_all, sfs = sfs)
-
-      # Fix locations at colony, as it may not correspond to any cell centroid.
-      # Move to closest location
-      col_grid <- hab %>%
-         dplyr::filter(x == 0 & y == 0) %>%
-         dplyr::select(lon, lat) %>%
-         unlist()
-
-      sims <- sims %>%
-         dplyr::mutate(lon = ifelse(lon == col_sel$lon, col_grid[1], lon),
-                       lat = ifelse(lat == col_sel$lat, col_grid[2], lat))
 
       # Count the number of visits to each cell
       counts <- sims %>%
          mutate(lon = round(lon, 3),
                 lat = round(lat, 3)) %>%
          group_by(lon, lat) %>%
-         summarize(count = n())
+         summarize(count = sum(hgt_risk))
 
       # Associate counts with covariates
       hab <- hab %>%
@@ -83,7 +73,7 @@ for(j in 1:2){
 
       # Make NA counts = 0 and reduce the size of the data frame
       hab <- hab %>%
-         mutate(count = if_else(is.na(count), 0L, count),
+         mutate(count = if_else(is.na(count), 0, count),
                 ang = calcAng(lat - col_sel$lat, lon - col_sel$lon)) %>%
          filter(dist_col < (max(.$dist_col[.$count > 0]))) %>%
          dplyr::select(count, lon, lat, ang, dist_col, log_dist_col, dist_sfs,
@@ -107,14 +97,14 @@ for(j in 1:2){
       # Save habitat grid with fitted values
       hab %>%
          dplyr::select(lon, lat, count, gamfit) %>%
-         saveRDS(file = paste0(rasterdir, "col_gam/", col_sel$id, "_", age, "_gam.rds"))
+         saveRDS(file = paste0(rasterdir, "col_hgt_gam/", col_sel$id, "_", age, "_hgt_gam.rds"))
 
       gc()
 
    }
 
    # Save explained deviance
-   saveRDS(expl_dev, paste0("analysis/output/expl_dev_gam_", age, ".rds"))
+   print(expl_dev)
 
    gc()
 
