@@ -5,3 +5,4 @@ main_dev.R
 data_prep/*
 data_aux/*
 analysis/*
+maps_html/*
