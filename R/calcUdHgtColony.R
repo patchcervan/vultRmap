@@ -41,8 +41,8 @@ calcUdHgtColony <- function(.col_sel, .age, .hab = NULL, .scale = FALSE,
                   lat = round(lat, 3))
 
   # Calculate total count
-  total_count <- sum(ud_col$count, na.rm = T)
-  total_gamfit <- sum(ud_col$gamfit, na.rm = T)
+  # total_count <- sum(ud_col$count, na.rm = T)
+  # total_gamfit <- sum(ud_col$gamfit, na.rm = T)
 
   # Join counts and grid cells
   .hab <- .hab %>%
@@ -53,9 +53,9 @@ calcUdHgtColony <- function(.col_sel, .age, .hab = NULL, .scale = FALSE,
   .hab$count[is.na(.hab$count)] <- 0
   .hab$gamfit[is.na(.hab$gamfit)] <- 0
 
-  # Standardize counts
-  .hab$count <- .hab$count/total_count
-  .hab$gamfit <- .hab$gamfit/total_gamfit
+  # Standardize counts (divide by n_total)
+  .hab$count <- .hab$count/attr(ud_col, "n_total")
+  .hab$gamfit <- .hab$gamfit/attr(ud_col, "n_total")
 
   # Create temporary name for output file
   udfile <- paste0(.outputdir, .col_sel$id, "_", .age, "_hgt_hazard.rds")
