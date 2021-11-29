@@ -464,6 +464,49 @@ use_test()
 
 test()
 
+# Function make2DSEmap --------------------------------------------------
+
+# Add function
+use_r("make2DSEmap")
+
+# test locally
+load_all()
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
+
+# Function calcRegionRisk --------------------------------------------------
+
+# Add function
+use_r("calcRegionRisk")
+
+# test locally
+load_all()
+
+# Add documentation
+# Add ROxygen skeleton manually
+document()
+
+check()
+
+# Add tests
+
+use_testthat()
+
+use_test()
+
+test()
 # Install -----------------------------------------------------------------
 remove.packages("vultRmap")
 devtools::install(type = "source")
