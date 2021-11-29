@@ -1,6 +1,7 @@
 library(htmlwidgets)
 library(leaflet)
 library(raster)
+library(sf)
 library(vultRmap)
 
 rm(list = ls())
@@ -17,7 +18,34 @@ maps <- c(paste0("hazard_", c("ad", "juv", "total")),
 # Define directory to save the html maps to
 savedir <- "../vultRmap_data_aux/risk_maps/html/"
 
-# Iterate through maps and save
+
+# Prepare buffer around EC colonies ---------------------------------------
+
+# Load colony data
+colony_all <- read.csv("../vultRmap_data_aux/colony_data.csv")
+
+# Filter those colonies we are interested in
+col_sel <- colony_all %>%
+  dplyr::filter(id %in% c("da_32", "da_65", "da_201", "da_75", "da_24",
+                          "da_9", "da_200", "da_38", "da_27", "da_239",
+                          "da_4", "cvcol669", "cvco719", "cvcol687", "cvcol589")) %>%
+  st_as_sf(coords = c("lon", "lat"), crs = 4326)
+
+# Create a 50 kilometer buffer
+sf_use_s2(FALSE)
+col_sel_buff <- col_sel %>%
+  st_combine() %>%
+  st_convex_hull() %>%
+  st_sf() %>%
+  st_buffer(dist = 0.4)
+
+col_sel_buff <- col_sel_buff %>%
+  st_union() %>%
+  st_sf()
+
+
+# Iterate through maps and save -------------------------------------------
+
 for(i in seq_along(maps)){
 
   r <- raster::raster(paste0(mapdir, maps[i], ".tif"))
@@ -39,6 +67,8 @@ for(i in seq_along(maps)){
   lm <- leaflet() %>%
     addTiles() %>%
     addRasterImage(r, colors = qpal, opacity = 0.8) %>%
+    addPolygons(data = col_sel_buff, color = "#444444", weight = 1.2,
+                opacity = 1.0, fillOpacity = 0.2) %>%
     addLegend(pal = qpal, title = "UD", values = udlevels,
               labFormat = function(type, cuts, p) {
                 paste0(labels)
