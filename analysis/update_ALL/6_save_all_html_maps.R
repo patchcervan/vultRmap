@@ -43,6 +43,9 @@ col_sel_buff <- col_sel_buff %>%
   st_union() %>%
   st_sf()
 
+# Save buffer
+write_sf(col_sel_buff, "../vultRmap_data_aux/ec_col_buff.shp")
+
 
 # Iterate through maps and save -------------------------------------------
 
