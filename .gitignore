@@ -41,3 +41,5 @@ vignettes/*.pdf
 
 # output files
 analysis/output/*
+
+old_files/*
