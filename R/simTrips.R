@@ -11,6 +11,8 @@
 #' @param .col_sel A named vector with the coordinates (lon,lat) of the colony we want to simulate for.
 #' @param .maxdist The maximum distance (in kilometers) a vulture is allowed to travel before coming back to the colony.
 #' This prevents activity to accumulate at the borders of the simulation space.
+#' @param .mindist The minimum distance from the central colony (in kilometers) a vulture is allowed to travel before
+#' being on a trip. Once on trip, when the vultures comes closer than `.mindist`, the trip is over.
 #'
 #' @return A data frame with the location of steps (lon, lat), distance from the central colony,
 #' time of day (time-to-noon), trip number and duration of the trip (time away from colony).
@@ -19,7 +21,7 @@
 #'
 #' @examples
 simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
-                     .maxdist){
+                     .maxdist, .mindist = 5){
 
   # Transform maxdist to meters
   .maxdist <- .maxdist * 1000
@@ -139,7 +141,7 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
       sl <- step$.sls
       ttnoon <- ttnoon + 1
 
-      if(dist_col > 5000){
+      if(dist_col > .mindist*1000){
         dur <- dur + 1
 
       } else {

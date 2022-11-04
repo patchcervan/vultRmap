@@ -4,7 +4,16 @@
 \alias{simTrips}
 \title{Simulate trips from colony}
 \usage{
-simTrips(.nsteps, .age, .hab, .mov_ker, .ssf_coef, .col_sel, .maxdist)
+simTrips(
+  .nsteps,
+  .age,
+  .hab,
+  .mov_ker,
+  .ssf_coef,
+  .col_sel,
+  .maxdist,
+  .mindist = 5
+)
 }
 \arguments{
 \item{.nsteps}{Total number of steps to simulate}
@@ -24,6 +33,9 @@ of step-lengths, and iii) 'model_sc', the scaling factor used for step-length wh
 
 \item{.maxdist}{The maximum distance (in kilometers) a vulture is allowed to travel before coming back to the colony.
 This prevents activity to accumulate at the borders of the simulation space.}
+
+\item{.mindist}{The minimum distance from the central colony (in kilometers) a vulture is allowed to travel before
+being on a trip. Once on trip, when the vultures comes closer than \code{.mindist}, the trip is over.}
 }
 \value{
 A data frame with the location of steps (lon, lat), distance from the central colony,
