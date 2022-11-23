@@ -53,29 +53,31 @@ for(i in seq_along(maps)){
 
   r <- raster::raster(paste0(mapdir, maps[i], ".tif"))
 
-  # Remove 0.1% of activity to reduce mapping
-  cutoff <- 0.99
-  r[r < calcUDquantile(raster::values(r), cutoff)] <- NA
+  # Make a binned raster with 10 categories discarding the top 1%
+  # r <- focal(r, w = matrix(1, 5, 5), mean, na.rm = T)
+  y <- makeBinnedRasterMap(r, nlevels = 10, cutoff = 0.99)
+  y <- as.factor(y)
 
-  nlevels <- 10
-  udlevels <- seq(0, 1, length.out = nlevels + 1)
+  # Crop map
+  frame <- extent(c(15, 40, -37, -17))
+  y <- crop(y, frame)
 
+  # Prepare colour palette
   clr <- ifelse(length(grep("risk", maps[i])) == 1, "inferno", "magma")
 
-  qpal <- colorBin(clr, raster::values(r), bins = calcUDquantile(raster::values(r), udlevels),
-                   na.color = "transparent", reverse = TRUE)
-
-  labels = paste0(udlevels*100, "-", dplyr::lead(udlevels*100), " %")
+  qpal <- colorFactor(clr, levels(y)[[1]][,1,drop = TRUE], #bins = bins,
+                      na.color = "#00000000", reverse = FALSE)
 
   lm <- leaflet() %>%
     addTiles() %>%
-    addRasterImage(r, colors = qpal, opacity = 0.8) %>%
+    addRasterImage(y, colors = qpal, opacity = 0.8) %>%
     addPolygons(data = col_sel_buff, color = "#444444", weight = 1.2,
                 opacity = 1.0, fillOpacity = 0.2) %>%
-    addLegend(pal = qpal, title = "UD", values = udlevels,
-              labFormat = function(type, cuts, p) {
-                paste0(labels)
-              })
+    addLegend("topright", pal = qpal, values = round(unique(getValues(y)), 1),
+              title = "UD",
+              labFormat = labelFormat(suffix = "%",
+                                      transform = function(x) 100 * x),
+              opacity = 0.8)
 
   saveWidget(lm, file = paste0(savedir, maps[i], ".html"))
 

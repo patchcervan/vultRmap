@@ -12,7 +12,7 @@ simTrips(
   .ssf_coef,
   .col_sel,
   .maxdist,
-  .mindist = 5
+  .mindist = c(5, 2, 10)
 )
 }
 \arguments{
@@ -35,7 +35,8 @@ of step-lengths, and iii) 'model_sc', the scaling factor used for step-length wh
 This prevents activity to accumulate at the borders of the simulation space.}
 
 \item{.mindist}{The minimum distance from the central colony (in kilometers) a vulture is allowed to travel before
-being on a trip. Once on trip, when the vultures comes closer than \code{.mindist}, the trip is over.}
+being on a trip. Once on trip, when the vultures comes closer than \code{.mindist}, the trip is over.
+Currently, the only accepted values are 2, 5 and 10. Defaults to 5.}
 }
 \value{
 A data frame with the location of steps (lon, lat), distance from the central colony,

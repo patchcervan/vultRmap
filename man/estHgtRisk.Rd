@@ -25,9 +25,6 @@ the points for which height risk wants to be estimated.}
 \item{.outdir}{A character string with the path to the directory where the
 results are to be stored at in disk. If NULL the results are not stored.}
 }
-\value{
-
-}
 \description{
 Estimate height risk
 }

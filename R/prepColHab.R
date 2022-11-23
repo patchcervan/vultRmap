@@ -50,8 +50,13 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL,
 
 
   # Fix variable names for later
-  sfs$lon <- sfs$longitude
-  sfs$lat <- sfs$latitude
+  if(!"lon" %in% names(sfs)){
+    sfs$lon <- sfs$longitude
+  }
+
+  if(!"lat" %in% names(sfs)){
+    sfs$lat <- sfs$latitude
+  }
 
   # Calculate approximate distances to colony
   hab <- hab %>%
@@ -110,7 +115,7 @@ prepColHab <- function(col_cc, max_range, col_all = NULL, sfs = NULL,
 
   # Calculate distance to other colonies and supplementary feeding sites
   hab <- hab %>%
-    dplyr::mutate(dist_col_any = vultRmap::calcHabMinDist(hab_cc, tmerproj, col_all, buffer = 10000),
+    dplyr::mutate(dist_col_any = vultRmap::calcHabMinDist(hab_cc, tmerproj, col_all, buffer = 5000),
                   dist_sfs = vultRmap::calcHabMinDist(hab_cc, tmerproj, sfs))
 
 

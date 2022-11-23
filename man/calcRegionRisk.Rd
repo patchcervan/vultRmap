@@ -17,9 +17,6 @@ individuals at risk.}
 \item{risk_map}{A \link[raster]{raster} object with from which risk values
 are extracted from.}
 }
-\value{
-
-}
 \description{
 Calculate region risk
 }

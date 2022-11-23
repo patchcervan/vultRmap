@@ -20,9 +20,6 @@ for which there are counts of more than 50 birds.}
 
 \item{...}{Other parameters to be passed on to \href{simAllColonies}{vultRmap}}
 }
-\value{
-
-}
 \description{
 Simulate activity from step-selection
 }

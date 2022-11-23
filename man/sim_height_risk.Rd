@@ -23,9 +23,6 @@ model.}
 
 \item{seed}{A random seed that will be used to sample random model coefficients}
 }
-\value{
-
-}
 \description{
 Simulate risk height from step-selection activity simulations
 }

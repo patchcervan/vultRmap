@@ -1,6 +1,6 @@
-#' @title Negative binomial trip-duration distribution 5 km
+#' @title Negative binomial trip-duration distribution 10 km
 #' @description Parameters of the negative binomial distribution that describes the duration of the trips vultures make away from the colony
-#' considering that a trip starts when the vulture is 5 km away from its central colony
+#' considering that a trip starts when the vulture is 10 km away from its central colony
 #' @format A list with two elements, one for adults and one for juveniles, each containing:
 #' \describe{
 #'   \item{\code{size}}{The size parameter of the negative binomial distribution}

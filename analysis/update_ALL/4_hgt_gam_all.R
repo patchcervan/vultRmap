@@ -38,8 +38,8 @@ for(j in 1:2){
    # Define age
    age <- ages[j]
 
-   for(i in seq_len(nrow(col_to_pred))){
-
+   # for(i in 1:nrow(col_to_pred)){
+     for(i in 28:91){
       # Select a colony to process
       col_sel <- col_to_pred[i,]
 
@@ -90,8 +90,8 @@ for(j in 1:2){
       # Fit GAM
       print(paste("Fitting", age, i, "of", nrow(col_to_pred)))
 
-      fit <- mgcv::bam(count ~ te(dist_col, ang, bs = c("cr", "cc")) +
-                          log_dist_col + s(dist_sfs, bs = "ts", k = 4) + s(dist_col_any, bs = "ts", k = 4) +
+      fit <- mgcv::bam(count ~ te(log_dist_col, ang, bs = c("cr", "cc")) +
+                          dist_sfs + dist_col_any +
                           s(elev, bs = "ts", k = 4) + s(slope, bs = "ts", k = 4) + s(rugg, bs = "ts", k = 4) +
                           closed+ crops+ urban+ water+ prot_area,
                        family = poisson(link = "log"), data = hab,

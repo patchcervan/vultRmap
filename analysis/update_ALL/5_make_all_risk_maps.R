@@ -55,11 +55,6 @@ for(j in 1:2){
 
 ages <- c("ad", "juv")
 
-hab <- vultRmap::range_covts %>%
-  dplyr::select(lon, lat)
-
-attr(hab, "mod_scale") <- NULL
-
 for(j in 1:2){
 
   age <- ages[j]

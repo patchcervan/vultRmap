@@ -23,9 +23,6 @@ that appears after the colony code (e.g. "_ssf_se.rds)}
 saved to disk in the desired location. The map type and the age will be
 recorded in the name of the output file.}
 }
-\value{
-
-}
 \description{
 Takes all files with step-selection standard error present in a
 directory and creates a SE map.

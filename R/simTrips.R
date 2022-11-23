@@ -13,6 +13,7 @@
 #' This prevents activity to accumulate at the borders of the simulation space.
 #' @param .mindist The minimum distance from the central colony (in kilometers) a vulture is allowed to travel before
 #' being on a trip. Once on trip, when the vultures comes closer than `.mindist`, the trip is over.
+#' Currently, the only accepted values are 2, 5 and 10. Defaults to 5.
 #'
 #' @return A data frame with the location of steps (lon, lat), distance from the central colony,
 #' time of day (time-to-noon), trip number and duration of the trip (time away from colony).
@@ -21,7 +22,15 @@
 #'
 #' @examples
 simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
-                     .maxdist, .mindist = 5){
+                     .maxdist, .mindist = c(5, 2, 10)){
+
+  if(!.mindist %in% c(2, 5, 10)){
+    stop("Only  minimum trip distances of 2, 5 and 10 are supported. See .mindist")
+  }
+
+  if(length(.mindist) > 1){
+    .mindist <- 5
+  }
 
   # Transform maxdist to meters
   .maxdist <- .maxdist * 1000
@@ -74,9 +83,16 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
   sl_coefs <- .ssf_coef[grepl("sl_", names(.ssf_coef))]
 
   # Pre-calculate probabilities of returning to the colony
+  dur_dist <- dplyr::case_when(.mindist == 2 ~ vultRmap::nbinom_dur2,
+                               .mindist == 5 ~ vultRmap::nbinom_dur,
+                               .mindist == 10 ~ vultRmap::nbinom_dur10)
+
+  # not sure why, but this is needed to keep the names
+  names(dur_dist) <- names(vultRmap::nbinom_dur)
+
   pback <- stats::pnbinom(0:15,
-                          size = vultRmap::nbinom_dur[[.age]]["size"],
-                          mu = vultRmap::nbinom_dur[[.age]]["mu"])
+                          size = dur_dist[[.age]]["size"],
+                          mu = dur_dist[[.age]]["mu"])
 
   suppressPackageStartupMessages(
     require("dplyr") # Attach to speed up computation

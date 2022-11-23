@@ -38,7 +38,7 @@ for(j in 1:2){
    # Define age
    age <- ages[j]
 
-   for(i in seq_len(nrow(col_to_pred))){
+   for(i in 1:nrow(col_to_pred)){
 
       # Select a colony to process
       col_sel <- col_to_pred[i,]
@@ -70,10 +70,11 @@ for(j in 1:2){
 
       # Count the number of visits to each cell
       counts <- sims %>%
-         mutate(lon = round(lon, 3),
-                lat = round(lat, 3)) %>%
-         group_by(lon, lat) %>%
-         summarize(count = n())
+        mutate(lon = round(lon, 3),
+               lat = round(lat, 3)) %>%
+        group_by(lon, lat) %>%
+        summarize(count = n()) %>%
+        ungroup()
 
       # Associate counts with covariates
       hab <- hab %>%
@@ -90,11 +91,14 @@ for(j in 1:2){
                        dist_col_any, elev, slope, rugg, closed, crops, urban,
                        water, prot_area)
 
+      hab <- hab %>%
+        mutate(log_dist_sfs = log(dist_sfs + 1))
+
       # Fit GAM
       print(paste("Fitting", age, i, "of", nrow(col_to_pred)))
 
-      fit <- mgcv::bam(count ~ te(dist_col, ang, bs = c("cr", "cc")) +
-                          log_dist_col + s(dist_sfs, bs = "ts", k = 4) + s(dist_col_any, bs = "ts", k = 4) +
+      fit <- mgcv::bam(count ~ te(log_dist_col, ang, bs = c("cr", "cc")) +
+                          dist_sfs + dist_col_any +
                           s(elev, bs = "ts", k = 4) + s(slope, bs = "ts", k = 4) + s(rugg, bs = "ts", k = 4) +
                           closed+ crops+ urban+ water+ prot_area,
                        family = poisson(link = "log"), data = hab,
@@ -114,7 +118,7 @@ for(j in 1:2){
    }
 
    # Save explained deviance
-   saveRDS(expl_dev, paste0("analysis/output/expl_dev_gam_", age, ".rds"))
+   saveRDS(expl_dev, paste0("analysis/output/expl_deviance/expl_dev_gam_log_", age, ".rds"))
 
    gc()
 

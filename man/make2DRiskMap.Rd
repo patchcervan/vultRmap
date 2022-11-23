@@ -35,9 +35,6 @@ recorded in the name of the output file.}
 \item{.suffix}{A character string containing the part the name of the file
 that appears after the colony code (e.g. "_ad_gam.rds)}
 }
-\value{
-
-}
 \description{
 Takes all files with smoothed counts present in a directory
 and creates a risk map.
