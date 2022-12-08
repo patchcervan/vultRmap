@@ -71,6 +71,10 @@ make2DRiskMap <- function(col_to_pred, age, map_type = "risk", countsdir,
     dplyr::select(x = lon, y = lat, z = gamfit) %>%
     raster::rasterFromXYZ(crs = sp::CRS("+init=epsg:4326"))
 
+  # Crop map
+  frame <- raster::extent(c(12, 40, -37, -17))
+  r_gamfit <- raster::crop(r_gamfit, frame)
+
   # Save raster file
   if(!is.null(outdir)){
 
