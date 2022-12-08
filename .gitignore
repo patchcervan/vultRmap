@@ -43,5 +43,6 @@ vignettes/*.pdf
 analysis/output/*
 
 # Other working files
+analysis/misc/*
 old_files/*
 main_dev.R
