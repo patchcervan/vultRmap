@@ -9,7 +9,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%",
+  message = FALSE
 )
 ```
 
@@ -47,16 +48,155 @@ Finally, note that we started thinking of utilizaton distribution as being indic
 therefore you might find references to risk in some of the functions. In most cases, when we say
 'risk' we mean "utilization distribution".
 
+
 ## Repository structure
 
-This repository has two main components: 1) the `vultRmap` package, and 2) a number of
-analysis scripts with code to produce and updated utilization distribution maps.
+This repository has three main components:
 
-The analysis scripts can be found in the `analysis` directory and the `vultRmap` package
-provides the functionality needed to run these scripts. The package can be installed by
+1) the `vultRmap` package that can be installed by
 
 ```{r, eval=FALSE}
 remotes::install_github("patchcervan/vultRmap")
+```
+
+and provides the functionality needed to run the analysis scripts,
+
+2) various analysis scripts with code to produce and updated utilization distribution map,
+which can be found in the `analysis` directory, and
+
+
+3) the most recent utilization distribution maps in raster format, which can be found
+in the `rasters` directory.
+
+
+## Visualizing the current utilization distribution maps
+
+The simplest thing one may be interested in is to visualize the most current version
+of the population utilization (UD) distribution maps for the population of Cape Vultures.
+We say 'the most recent' because these maps may change as more or better data
+becomes available. The procedure for updating the maps is described in the sections
+below.
+
+In the `rasters` directory we find four rasters containing: 1) `ud_total` - the expected UD around
+Cape Vulture colonies assuming a single individual per colony, 2) `ud_hgt_total` the expected UD around
+these colonies accounting for the number of individuals expected to use each colony
+(population utilization distribution, large colonies accumulate more activity than small ones), 3) `pud_total` and 4) `pud_hgt_total`
+same as 1) and 2) respectively, but considering only vulture activity below 300 meters.
+
+Raster files can easily be visualized using the raster package, for example:
+```{r}
+library(raster)
+
+# visualize PUD
+pud <- raster("rasters/pud_total.tif")
+
+plot(pud)
+
+```
+
+However, UD is tipically very skewed and certain areas present extremely large values compared
+to others. To appreciate the gradient in activity better we can plot the cumulative UD.
+The advantage of this is that it is easily interpreted. Contours of the cumulative
+distribution enclose the corresponding percentage of the population of Cape Vultures. For example,
+we can draw a contour along the median value of the cumulative distribution to enclose 50% of the population
+or we can use the 0.9 quantile to enclose 90% of the population, etc.
+
+```{r}
+library(vultRmap)
+
+# Calculate the population cumulative distribution and divide it in 10 equal parts
+cum_pud <- makeBinnedRasterMap(pud, nlevels = 10, cutoff = 1)
+
+# makeBinnedRasterMap() is a convinience function of the vultRmap package
+
+# Crop map to make it nicer
+frame <- extent(c(12, 40, -37, -17))
+cum_pud <- crop(cum_pud, frame)
+
+# visualize cumulative PUD
+plot(cum_pud)
+
+```
+
+With a bit of work we can make it nicer
+
+```{r}
+library(sf)
+library(ggplot2)
+library(rnaturalearth)
+
+# Download South Africa map with Lesotho and Swaziland
+ssa_map <- ne_countries(scale = 50, continent = "Africa", returnclass = "sf")
+
+# Crop ssa_map
+sf_use_s2(FALSE) # There are some problematic vertices to use spherical geometry, so we switch it off
+ssa_map <- st_crop(ssa_map, frame)
+
+# Plot
+as.data.frame(cum_pud, xy = TRUE) %>%
+  ggplot() +
+  geom_raster(aes(x = x, y = y, fill = layer)) +
+  geom_sf(data = ssa_map, fill = NA, size = 0.05) +
+  scale_fill_viridis_c(name = "UD", option = "inferno", direction = 1, na.value = NA) +
+  xlab("") + ylab("") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 8),
+        legend.text = element_text(size = 10),
+        strip.text = element_text(size = 10))
+
+```
+
+
+## Calculating the population proportion exposed in an area
+
+One of the main goals of this work is to help in the assessment of the risk posed by
+wind energy facilities and other human infrastructure to the population of Cape Vultures.
+
+The population utilization distribution maps provide an idea of the expected number of 
+individuals potentially found at any location, at any given time. With this information,
+we can also calculate the number of individuals expected to use a region and the proportion
+of individuals in a region relative to a larger reference area. These two metrics are useful
+to evaluate the magnitude of the expected impact of the infrastructure, or at least to 
+compare competing alternatives, by looking that the proportion of the population of Cape
+Vultures exposed.
+
+In the `vultRmap` package there is a convenience function that does most of the work for us.
+Say we are interested in the number of individuals expected in Western Cape of South Africa,
+and in the proportion of the total population that these represent.
+
+```{r}
+library(raster)
+library(dplyr)
+library(sf)
+library(rnaturalearth)
+
+# Load PUD map
+pud <- raster("rasters/pud_total.tif")
+
+# Load a map with the South African provinces
+sa_map <- ne_states(country = "South Africa", returnclass = "sf")
+
+# Extract number of Cape Vultures expected in the Western Cape of South Africa
+wc_prov <- sa_map %>% 
+  filter(name == "Western Cape") %>% 
+  dplyr::select(name)
+
+calcRegionRisk(region = wc_prov, ref_area = NULL, ud_map = pud)
+
+# Extract number of Cape Vultures expected in South Africa
+sa_map_union <- sa_map %>% 
+  st_crop(xmin = 0, ymin = -35, xmax = 40, ymax = -15) %>%  # Removing some of the islands
+  mutate(un = 1) %>%     # aux variable to join polygons
+  group_by(un) %>% 
+  st_union() %>% 
+  st_sf()
+
+calcRegionRisk(region = sa_map_union, ref_area = NULL, ud_map = pud)
+
+# This is now trivial, but extract proportion of Cape Vultures expected in Western Cape relative to South Africa
+calcRegionRisk(region = wc_prov, ref_area = sa_map_union, ud_map = pud)
+
+
 ```
 
 
@@ -184,7 +324,7 @@ source("analysis/update_ALL/6_make_all_html_maps.R")
 
 ### Fun with vultRsims
 
-Finally, the Shiny App `vultRsims` can be used to explore the workings of these
+The Shiny App `vultRsims` can be used to explore the workings of these
 simulation routines in a relatively user-friendly way. The app is in the `analysis`
 directory and with it you can simulate vulture activity using simulated colony
 and supplementary feeding site data. You can also change some of the simulation
