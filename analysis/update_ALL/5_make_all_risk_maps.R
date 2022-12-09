@@ -1,11 +1,11 @@
 # 16-07-2021
 
-# In this script we build the hazard and risk maps for all colonies together
+# In this script we build the ud and pud maps for all colonies together
 # both in 2D and 3D.
 
 
 # xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-# MAKE 2D RISK MAPS ---------------------------------------
+# MAKE 2D UD MAPS ---------------------------------------
 # xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
@@ -17,7 +17,7 @@ rm(list = ls())
 # Load data and model results ---------------------------------------------
 
 # Colony and roost data
-colony_all <- read.csv("../vultRmap_data_aux/colony_data.csv")
+colony_all <- read.csv("../vultRmap_data_aux/data/colony_data.csv")
 
 # Define directory with smoothed counts
 countsdir <- "../vultRmap_data_aux/col_gam/"
@@ -35,7 +35,7 @@ col_to_pred <- colony_all %>%
   dplyr::filter((type == "breed" & avg_ad > 0) | (type == "roost" & (avg_ad + avg_juv) >= 50))
 
 
-# Calculate hazard for all colonies -------------------------------------------
+# Calculate ud for all colonies -------------------------------------------
 
 ages <- c("ad", "juv")
 
@@ -43,7 +43,7 @@ for(j in 1:2){
 
   age <- ages[j]
 
-  make2DRiskMap(col_to_pred = col_to_pred, age = age, map_type = "hazard",
+  make2DRiskMap(col_to_pred = col_to_pred, age = age, map_type = "ud",
                 countsdir = countsdir,
                 suffix = paste0("_", age, "_gam.rds"),
                 outdir = savedir)
@@ -51,7 +51,7 @@ for(j in 1:2){
 }
 
 
-# Calculate risk for all colonies -------------------------------------------
+# Calculate pud for all colonies -------------------------------------------
 
 ages <- c("ad", "juv")
 
@@ -59,7 +59,7 @@ for(j in 1:2){
 
   age <- ages[j]
 
-  make2DRiskMap(col_to_pred = col_to_pred, age = age, map_type = "risk",
+  make2DRiskMap(col_to_pred = col_to_pred, age = age, map_type = "pud",
                 countsdir = countsdir,
                 suffix = paste0("_", age, "_gam.rds"),
                 outdir = savedir)
@@ -67,24 +67,24 @@ for(j in 1:2){
 }
 
 
-# Calculate 2D risk totals --------------------------------------------------------
+# Calculate 2D pud totals --------------------------------------------------------
 
-# Hazard totals
-rr <- raster::raster(paste0(savedir, "hazard_ad.tif")) +
-  raster::raster(paste0(savedir, "hazard_juv.tif"))
+# ud totals
+rr <- raster::raster(paste0(savedir, "ud_ad.tif")) +
+  raster::raster(paste0(savedir, "ud_juv.tif"))
 
-raster::writeRaster(rr, paste0(savedir, "hazard_total.tif"), overwrite = TRUE)
+raster::writeRaster(rr, paste0(savedir, "ud_total.tif"), overwrite = TRUE)
 
-# Risk totals
-rr <- raster::raster(paste0(savedir, "risk_ad.tif")) +
-  raster::raster(paste0(savedir, "risk_juv.tif"))
+# pud totals
+rr <- raster::raster(paste0(savedir, "pud_ad.tif")) +
+  raster::raster(paste0(savedir, "pud_juv.tif"))
 
-raster::writeRaster(rr, paste0(savedir, "risk_total.tif"), overwrite = TRUE)
+raster::writeRaster(rr, paste0(savedir, "pud_total.tif"), overwrite = TRUE)
 
 
 
 # xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-# MAKE 3D RISK MAPS ---------------------------------------
+# MAKE 3D UD MAPS ---------------------------------------
 # xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
@@ -96,7 +96,7 @@ rm(list = ls())
 # Load data and model results ---------------------------------------------
 
 # Colony and roost data
-colony_all <- read.csv("../vultRmap_data_aux/colony_data.csv")
+colony_all <- read.csv("../vultRmap_data_aux/data/colony_data.csv")
 
 # Define directory with smoothed counts
 countsdir <- "../vultRmap_data_aux/col_hgt_gam/"
@@ -114,7 +114,7 @@ col_to_pred <- colony_all %>%
   dplyr::filter((type == "breed" & avg_ad > 0) | (type == "roost" & (avg_ad + avg_juv) >= 50))
 
 
-# Calculate hazard for all colonies -------------------------------------------
+# Calculate ud for all colonies -------------------------------------------
 
 ages <- c("ad", "juv")
 
@@ -122,7 +122,7 @@ for(j in 1:2){
 
   age <- ages[j]
 
-  make3DRiskMap(col_to_pred = col_to_pred, age = age, map_type = "hazard",
+  make3DRiskMap(col_to_pred = col_to_pred, age = age, map_type = "ud",
                 countsdir = countsdir,
                 suffix = paste0("_", age, "_hgt_gam.rds"),
                 outdir = savedir)
@@ -130,7 +130,7 @@ for(j in 1:2){
 }
 
 
-# Calculate risk for all colonies -------------------------------------------
+# Calculate pud for all colonies -------------------------------------------
 
 ages <- c("ad", "juv")
 
@@ -143,7 +143,7 @@ for(j in 1:2){
 
   age <- ages[j]
 
-  make3DRiskMap(col_to_pred = col_to_pred, age = age, map_type = "risk",
+  make3DRiskMap(col_to_pred = col_to_pred, age = age, map_type = "pud",
                 countsdir = countsdir,
                 suffix = paste0("_", age, "_hgt_gam.rds"),
                 outdir = savedir)
@@ -151,16 +151,16 @@ for(j in 1:2){
 }
 
 
-# Calculate 3D risk totals --------------------------------------------------------
+# Calculate 3D pud totals --------------------------------------------------------
 
-# Hazard totals
-rr <- raster::raster(paste0(savedir, "hazard_hgt_ad.tif")) +
-  raster::raster(paste0(savedir, "hazard_hgt_juv.tif"))
+# ud totals
+rr <- raster::raster(paste0(savedir, "ud_hgt_ad.tif")) +
+  raster::raster(paste0(savedir, "ud_hgt_juv.tif"))
 
-raster::writeRaster(rr, paste0(savedir, "hazard_hgt_total.tif"), overwrite = TRUE)
+raster::writeRaster(rr, paste0(savedir, "ud_hgt_total.tif"), overwrite = TRUE)
 
-# Risk totals
-rr <- raster::raster(paste0(savedir, "risk_hgt_ad.tif")) +
-  raster::raster(paste0(savedir, "risk_hgt_juv.tif"))
+# pud totals
+rr <- raster::raster(paste0(savedir, "pud_hgt_ad.tif")) +
+  raster::raster(paste0(savedir, "pud_hgt_juv.tif"))
 
-raster::writeRaster(rr, paste0(savedir, "risk_hgt_total.tif"), overwrite = TRUE)
+raster::writeRaster(rr, paste0(savedir, "pud_hgt_total.tif"), overwrite = TRUE)

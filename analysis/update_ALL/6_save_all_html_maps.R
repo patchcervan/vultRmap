@@ -10,10 +10,10 @@ rm(list = ls())
 mapdir <- "../vultRmap_data_aux/risk_maps/"
 
 # Define maps to plot and save
-maps <- c(paste0("hazard_", c("ad", "juv", "total")),
-          paste0("risk_", c("ad", "juv", "total")),
-          paste0("hazard_hgt_", c("ad", "juv", "total")),
-          paste0("risk_hgt_", c("ad", "juv", "total")))
+maps <- c(paste0("ud_", c("ad", "juv", "total")),
+          paste0("pud_", c("ad", "juv", "total")),
+          paste0("ud_hgt_", c("ad", "juv", "total")),
+          paste0("pud_hgt_", c("ad", "juv", "total")))
 
 # Define directory to save the html maps to
 savedir <- "../vultRmap_data_aux/risk_maps/html/"
@@ -22,7 +22,7 @@ savedir <- "../vultRmap_data_aux/risk_maps/html/"
 # Prepare buffer around EC colonies ---------------------------------------
 
 # Load colony data
-colony_all <- read.csv("../vultRmap_data_aux/colony_data.csv")
+colony_all <- read.csv("../vultRmap_data_aux/data/colony_data.csv")
 
 # Filter those colonies we are interested in
 col_sel <- colony_all %>%
@@ -44,7 +44,7 @@ col_sel_buff <- col_sel_buff %>%
   st_sf()
 
 # Save buffer
-write_sf(col_sel_buff, "../vultRmap_data_aux/ec_col_buff.shp")
+write_sf(col_sel_buff, "../vultRmap_data_aux/misc/ec_col_buff.shp")
 
 
 # Iterate through maps and save -------------------------------------------
@@ -63,7 +63,7 @@ for(i in seq_along(maps)){
   y <- crop(y, frame)
 
   # Prepare colour palette
-  clr <- ifelse(length(grep("risk", maps[i])) == 1, "inferno", "magma")
+  clr <- ifelse(length(grep("pud", maps[i])) == 1, "inferno", "magma")
 
   qpal <- colorFactor(clr, levels(y)[[1]][,1,drop = TRUE], #bins = bins,
                       na.color = "#00000000", reverse = FALSE)

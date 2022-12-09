@@ -2,21 +2,21 @@
 % Please edit documentation in R/calcRegionRisk.R
 \name{calcRegionRisk}
 \alias{calcRegionRisk}
-\title{Calculate region risk}
+\title{Calculate population exposed at a region}
 \usage{
-calcRegionRisk(region, ref_area = NULL, risk_map)
+calcRegionRisk(region, ref_area = NULL, ud_map)
 }
 \arguments{
-\item{region}{An \link[sf]{sf} polygon or multipolygon object to predict risk
-for. Risk is given as number of individuals at risk.}
+\item{region}{An \link[sf]{sf} polygon or multipolygon object to predict exposure
+for. Exposure is given as number of individuals potentially found in the region at any given time.}
 
-\item{ref_area}{Optional. An \link[sf]{sf} polygon object. if provided risk
-is calculated relative to this reference area as a the proportion of
-individuals at risk.}
+\item{ref_area}{Optional. An \link[sf]{sf} polygon object. if provided exposure
+is calculated relative to this reference area as the proportion of
+individuals exposed in the region relative to the total found in the reference area.}
 
-\item{risk_map}{A \link[raster]{raster} object with from which risk values
-are extracted from.}
+\item{ud_map}{A \link[raster]{raster} object with from which population
+utilization distribution values are extracted from.}
 }
 \description{
-Calculate region risk
+Calculate population exposed at a region
 }

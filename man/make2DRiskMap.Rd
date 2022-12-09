@@ -2,12 +2,12 @@
 % Please edit documentation in R/make2DRiskMap.R
 \name{make2DRiskMap}
 \alias{make2DRiskMap}
-\title{Make 2D Risk Map}
+\title{Make 2D UD Map}
 \usage{
 make2DRiskMap(
   col_to_pred,
   age,
-  map_type = "risk",
+  map_type = "pud",
   countsdir,
   suffix,
   outdir = NULL
@@ -18,11 +18,11 @@ make2DRiskMap(
 we want to include in the map.}
 
 \item{age}{A character string indicating the age of the vultures we want to
-calculate the risk map for: either "ad" or "juv.}
+calculate the UD map for: either "ad" or "juv.}
 
 \item{map_type}{A character string indicating the type of map that should be
-calculated: either "risk" in which the utilization distribution is multiplied
-by the size of the colony or "hazard" in which the UD is not scaled by the
+calculated: either "pud" in which the utilization distribution is multiplied
+by the size of the colony or "ud" in which the UD is not scaled by the
 size of the colony.}
 
 \item{countsdir}{A character string indicating the path to the directory
@@ -37,5 +37,5 @@ that appears after the colony code (e.g. "_ad_gam.rds)}
 }
 \description{
 Takes all files with smoothed counts present in a directory
-and creates a risk map.
+and creates a UD map.
 }

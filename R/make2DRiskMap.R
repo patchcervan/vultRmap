@@ -1,14 +1,14 @@
-#' Make 2D Risk Map
+#' Make 2D UD Map
 #'
 #' @description Takes all files with smoothed counts present in a directory
-#' and creates a risk map.
+#' and creates a UD map.
 #' @param col_to_pred A dataframe with the coordinates and sizes of all colonies
 #' we want to include in the map.
 #' @param age A character string indicating the age of the vultures we want to
-#' calculate the risk map for: either "ad" or "juv.
+#' calculate the UD map for: either "ad" or "juv.
 #' @param map_type A character string indicating the type of map that should be
-#' calculated: either "risk" in which the utilization distribution is multiplied
-#' by the size of the colony or "hazard" in which the UD is not scaled by the
+#' calculated: either "pud" in which the utilization distribution is multiplied
+#' by the size of the colony or "ud" in which the UD is not scaled by the
 #' size of the colony.
 #' @param countsdir A character string indicating the path to the directory
 #' where the smoothed counts are found.
@@ -22,19 +22,19 @@
 #' @export
 #'
 #' @examples
-make2DRiskMap <- function(col_to_pred, age, map_type = "risk", countsdir,
+make2DRiskMap <- function(col_to_pred, age, map_type = "pud", countsdir,
                           suffix, outdir = NULL){
 
   if(!dir.exists(dirname(outdir))){
     stop("outdir doesn't exist")
   }
 
-  if(map_type == "hazard"){
+  if(map_type == "ud"){
     scale <- FALSE
-  } else if(map_type == "risk"){
+  } else if(map_type == "pud"){
     scale <- TRUE
   } else {
-    stop("map_type must either be 'hazard' or 'risk'")
+    stop("map_type must either be 'ud' or 'pud'")
   }
 
   hab <- vultRmap::range_covts %>%
@@ -57,8 +57,8 @@ make2DRiskMap <- function(col_to_pred, age, map_type = "risk", countsdir,
 
   }
 
-  # If calculating a hazard map, we want the mean hazard across colonies
-  if(map_type == "hazard"){
+  # If calculating a ud map, we want the mean ud across colonies
+  if(map_type == "ud"){
 
     ncols <- nrow(col_to_pred)
 

@@ -4,13 +4,16 @@
 \alias{makeBinnedRasterMap}
 \title{Make binned raster map}
 \usage{
-makeBinnedRasterMap(x, nlevels, cutoff = 1)
+makeBinnedRasterMap(x, nlevels = NULL, breaks = NULL, cutoff = 1)
 }
 \arguments{
 \item{x}{a Raster object.}
 
 \item{nlevels}{numeric value representing the number of bins the values should
-be divided into.}
+be divided into. If specified \code{breaks} will be ignored.}
+
+\item{breaks}{a numeric vector with the quantiles defining each of the bins the
+values of \code{x} should be divided into.}
 
 \item{cutoff}{numeric, quantile of the cumulative distribution above which any value
 will be classified as NA and will not appear in the binned version of the raster.
@@ -29,7 +32,12 @@ myraster <- raster("directory/to/my/raster.tif")
 
 # Make a binned raster with 10 levels and excluding the top 1\% of the
 # cumulative distribution
-binraster <- makeBinnedRasterMap(myraster, 10, 0.99)
+binraster <- makeBinnedRasterMap(myraster, nlevels = 10, cutoff = 0.99)
+
+# Make a binned raster with 3 levels, using the 10\% and 50\% quantiles
+# as cut-points
+breaks <- calcUDquantile(getValues(myraster), c(0.1, 0.5))
+binraster <- makeBinnedRasterMap(myraster, breaks = breaks)
 
 }
 
