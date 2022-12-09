@@ -1,7 +1,5 @@
 # vultRmap 1.0.0
 
-# vultRmap 0.1.0
-
 * First version after paper was accepted.
 
 # vultRmap 0.0.0.9000
