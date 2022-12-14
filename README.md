@@ -94,7 +94,6 @@ example:
 
 ``` r
 library(raster)
-#> Warning: package 'raster' was built under R version 4.2.2
 
 # visualize PUD
 pud <- raster("rasters/pud_total.tif")
@@ -135,7 +134,6 @@ With a bit of work we can make it nicer
 
 ``` r
 library(sf)
-#> Warning: package 'sf' was built under R version 4.2.1
 library(ggplot2)
 library(rnaturalearth)
 
@@ -187,7 +185,6 @@ total population that these represent.
 ``` r
 library(raster)
 library(dplyr)
-#> Warning: package 'dplyr' was built under R version 4.2.1
 library(sf)
 library(rnaturalearth)
 
@@ -203,7 +200,6 @@ wc_prov <- sa_map %>%
   dplyr::select(name)
 
 calcRegionRisk(region = wc_prov, ref_area = NULL, ud_map = pud)
-#> Warning: package 'purrr' was built under R version 4.2.1
 #> Simple feature collection with 1 feature and 4 fields
 #> Geometry type: MULTIPOLYGON
 #> Dimension:     XY
@@ -229,7 +225,7 @@ calcRegionRisk(region = sa_map_union, ref_area = NULL, ud_map = pud)
 #> Bounding box:  xmin: 16.46998 ymin: -34.82195 xmax: 32.89308 ymax: -22.12645
 #> CRS:           +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 #>   pud_total    pud_avg    pud_sd                       geometry
-#> 1  13430.27 0.01188389 0.1720107 POLYGON ((23.37086 -34.0448...
+#> 1  13430.27 0.01188389 0.1720107 POLYGON ((23.38689 -34.0311...
 
 # This is now trivial, but extract proportion of Cape Vultures expected in Western Cape relative to South Africa
 calcRegionRisk(region = wc_prov, ref_area = sa_map_union, ud_map = pud)
