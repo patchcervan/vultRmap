@@ -71,7 +71,7 @@ to the zip file.
 
 ## Repository structure
 
-This repository has three main components:
+This repository has two main components:
 
 1)  the `vultRmap` package that provides the functionality needed to run
     the analysis scripts,
@@ -80,8 +80,8 @@ This repository has three main components:
     utilization distribution map, which can be found in the `analysis`
     directory, and
 
-*Note:* the most recent utilization distribution maps in raster format,
-can be downloaded from the `rasters` directory in the
+**Note:** the most recent utilization distribution maps in raster
+format, can be downloaded from the `rasters` directory in the
 [cape_vulture_cr](https://github.com/patchcervan/cape_vulture_cr)
 repository. The instructions below assume that you have those maps in a
 directory called `rasters` in your working directory.
