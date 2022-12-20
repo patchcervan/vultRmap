@@ -84,7 +84,9 @@ This repository has two main components:
 format, can be downloaded from the `rasters` directory in the
 [cape_vulture_cr](https://github.com/patchcervan/cape_vulture_cr)
 repository. The instructions below assume that you have those maps in a
-directory called `rasters` in your working directory.
+directory called `rasters` in your working directory. For ideas on how
+to download the rasters from the cape_vulture_cr repository see [this
+post](https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo).
 
 ## Visualizing the current utilization distribution maps
 
