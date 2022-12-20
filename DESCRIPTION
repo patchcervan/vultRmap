@@ -17,6 +17,7 @@ RoxygenNote: 7.2.1
 ByteCompile: true
 Imports: 
     dplyr,
+    exactextractr,
     furrr,
     future,
     magrittr,

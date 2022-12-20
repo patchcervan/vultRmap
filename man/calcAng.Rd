@@ -16,11 +16,11 @@ are given in radians}
 }
 \value{
 A vector equal length to x and y of angles. x and y coordinates are
-used by pairs (i.e. the first vector has coordinates c(x\link{1}, y\link{1}), the
-second c(x\link{2}, y\link{2}), etc)/
+used by pairs (i.e. the first vector has coordinates \code{c(x[1], y[1])}, the
+second \code{c(x[2], y[2])}, etc)/
 }
 \description{
-Calculates an angle between \link{0, 2*pi} from the x-axis to the
+Calculates an angle between \verb{[0, 2*pi]} from the x-axis to the
 vector that goes from the origin to the point x, y
 }
 \examples{

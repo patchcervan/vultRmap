@@ -28,12 +28,12 @@ size of the colony.}
 \item{countsdir}{A character string indicating the path to the directory
 where the smoothed counts are found.}
 
+\item{suffix}{A character string containing the part the name of the file
+that appears after the colony code (e.g. "_ad_gam.rds)}
+
 \item{outdir}{A character string. If not NULL (default) the output map is
 saved to disk in the desired location. The map type and the age will be
 recorded in the name of the output file.}
-
-\item{.suffix}{A character string containing the part the name of the file
-that appears after the colony code (e.g. "_ad_gam.rds)}
 }
 \description{
 Takes all files with smoothed counts present in a directory

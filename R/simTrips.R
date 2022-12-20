@@ -119,10 +119,10 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
     sls[sls < 1000] <- 1000
 
     stephab <- .hab %>%
-      mutate(.sls = sls,
-             predh = X[[t]]) %>%
-      filter(.sls < 150000) %>% # Subset space to a max step-length of 150 km to reduce computation load
-      mutate(wgamma = dgamma(.sls, shape = .mov_ker["shape"], scale = .mov_ker["scale"])/(.sls*6.3/1000)) # The probability of a distance must be divided by 2*pi*distance
+      dplyr::mutate(.sls = sls,
+                    predh = X[[t]]) %>%
+      dplyr::filter(.sls < 150000) %>% # Subset space to a max step-length of 150 km to reduce computation load
+      dplyr::mutate(wgamma = stats::dgamma(.sls, shape = .mov_ker["shape"], scale = .mov_ker["scale"])/(.sls*6.3/1000)) # The probability of a distance must be divided by 2*pi*distance
 
     # Apply model corrections for time of day (see names(sl_coefs))
     sls <- stephab$.sls/.mov_ker["model_sc"]
@@ -130,11 +130,11 @@ simTrips <- function(.nsteps, .age,  .hab, .mov_ker, .ssf_coef, .col_sel,
 
     # Calculate step sampling weights multiplying habitat and movement kernels
     stephab <- stephab %>%
-      mutate(predh = exp(predh + sls_correct),
-             w = predh*wgamma)
+      dplyr::mutate(predh = exp(predh + sls_correct),
+                    w = predh*wgamma)
 
     # Sample one location
-    step <- slice_sample(stephab, n = 1, weight_by = w)
+    step <- dplyr::slice_sample(stephab, n = 1, weight_by = w)
 
     # Update state and time
     if(step$dist_col_sc > .maxdist){

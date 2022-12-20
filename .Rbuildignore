@@ -7,5 +7,5 @@ data_aux/*
 analysis/*
 maps_html/*
 old_files/*
-raster/*
+rasters/*
 man/figures/*

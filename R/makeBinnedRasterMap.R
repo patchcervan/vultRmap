@@ -15,24 +15,10 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' myraster <- raster("directory/to/my/raster.tif")
-#'
-#' # Make a binned raster with 10 levels and excluding the top 1% of the
-#' # cumulative distribution
-#' binraster <- makeBinnedRasterMap(myraster, nlevels = 10, cutoff = 0.99)
-#'
-#' # Make a binned raster with 3 levels, using the 10% and 50% quantiles
-#' # as cut-points
-#' breaks <- calcUDquantile(getValues(myraster), c(0.1, 0.5))
-#' binraster <- makeBinnedRasterMap(myraster, breaks = breaks)
-#'
-#' }
-#'
 makeBinnedRasterMap <- function(x, nlevels = NULL, breaks = NULL, cutoff = 1){
 
   # Remove 0.1% of activity to reduce mapping
-  low_quant <- vultRmap::calcUDquantile(raster::getValues(x), cutoff)
+  low_quant <- calcUDquantile(raster::getValues(x), cutoff)
 
   # Here is the thing. Between these two commands
   # x[x < low_quant] <- NA

@@ -12,7 +12,7 @@
 #' size of the colony.
 #' @param countsdir A character string indicating the path to the directory
 #' where the smoothed counts are found.
-#' @param .suffix A character string containing the part the name of the file
+#' @param suffix A character string containing the part the name of the file
 #' that appears after the colony code (e.g. "_ad_hgt_gam.rds)
 #' @param outdir A character string. If not NULL (default) the output map is
 #' saved to disk in the desired location. The map type and the age will be

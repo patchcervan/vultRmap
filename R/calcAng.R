@@ -1,6 +1,6 @@
 #' Calculate POSITIVE angles
 #'
-#' @description Calculates an angle between [0, 2*pi] from the x-axis to the
+#' @description Calculates an angle between `[0, 2*pi]` from the x-axis to the
 #' vector that goes from the origin to the point x, y
 #' @param y A vector y-coordinates
 #' @param x A vector of x-coordinates
@@ -8,8 +8,8 @@
 #' are given in radians
 #'
 #' @return A vector equal length to x and y of angles. x and y coordinates are
-#' used by pairs (i.e. the first vector has coordinates c(x[1], y[1]), the
-#' second c(x[2], y[2]), etc)/
+#' used by pairs (i.e. the first vector has coordinates `c(x[1], y[1])`, the
+#' second `c(x[2], y[2])`, etc)/
 #' @export
 #'
 #' @examples
