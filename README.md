@@ -11,17 +11,19 @@ simulate and map Cape Vulture activity around their known colonies and
 roosts, for the paper “A utilization distribution for the global
 population of Cape Vultures *Gyps coprotheres* to guide wind energy
 development”, *Ecological Applications* (2023). Please, refer to this
-article for details on the modelling process and project background.
+article for details on the modelling process and project background. We
+also provide some functionality to visualise the utilization
+distribution maps and run some analysis to determine the exposure of
+Cape Vultures in an area of interest.
 
 There is a second repository were you can find all the scripts used for
 processing the data and run the models that are used for building the
-utilization distribution for the population of Cape Vultures. This
-package is used, once models are fitted, to produce a map by simulating
-vulture activity with the models outputs. The simulation routines were
-packaged and separated from the data processing and fitting routines to
-be able to easily update the maps, when more/better information becomes
-available. Throughout the publication process, we used different
-terminology to refer to the same things.
+utilization distribution for the population of Cape Vultures. Once
+models are fitted, the `vultRmap` package can be used to simulate
+vulture activity from the model and produce utilization distribution
+maps. The simulation routines were packaged and separated from the data
+processing and fitting routines to more easily update the maps, when
+more/better colony data become available.
 
 We had three main objectives in mind when developing this package:
 
@@ -48,7 +50,7 @@ With the package, though, we provide some testing data, with simulated
 colony and supplementary feeding sites locations. These can be used to
 test the functionality of the package.
 
-Finally, note that we started thinking of utilizaton distribution as
+Finally, note that we started thinking of utilization distribution as
 being indicative of ‘risk’ and therefore you might find references to
 risk in some of the functions. In most cases, when we say ‘risk’ we mean
 “utilization distribution”.
@@ -173,7 +175,7 @@ as.data.frame(cum_pud, xy = TRUE) %>%
   theme(axis.text = element_text(size = 8),
         legend.text = element_text(size = 10),
         strip.text = element_text(size = 10))
-#> Warning: Removed 1919387 rows containing missing values (geom_raster).
+#> Warning: Removed 1919387 rows containing missing values (`geom_raster()`).
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
