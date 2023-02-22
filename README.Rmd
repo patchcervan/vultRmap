@@ -89,10 +89,12 @@ becomes available. The procedure for updating the maps is described in the secti
 below.
 
 In the `rasters` directory we find four rasters containing: 1) `ud_total` - the expected UD around
-Cape Vulture colonies assuming a single individual per colony, 2) `ud_hgt_total` the expected UD around
+Cape Vulture colonies assuming a single individual per colony, 2) `pud_total` the expected UD around
 these colonies accounting for the number of individuals expected to use each colony
-(population utilization distribution, large colonies accumulate more activity than small ones), 3) `pud_total` and 4) `pud_hgt_total`
+(population utilization distribution, large colonies accumulate more activity than small ones), 3) `ud_hgt_total` and 4) `pud_hgt_total`
 same as 1) and 2) respectively, but considering only vulture activity below 300 meters.
+
+There are two additional files `cum_pud_total` and `cum_pud_hgt_total`. These two rasters represent the **cumulative** population utilization distribution (at any height and below 300 m, respectively), which is usually more useful than the raw UD for reasons that we show below. We also show how to compute the cumulative UD from the raw UD, but we provide pre-computed rasters to save to user the computations and to facilitate their use in platforms other than R.
 
 Raster files can easily be visualized using the raster package, for example:
 ```{r}

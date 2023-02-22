@@ -100,18 +100,28 @@ for updating the maps is described in the sections below.
 
 In the `rasters` directory we find four rasters containing: 1)
 `ud_total` - the expected UD around Cape Vulture colonies assuming a
-single individual per colony, 2) `ud_hgt_total` the expected UD around
+single individual per colony, 2) `pud_total` the expected UD around
 these colonies accounting for the number of individuals expected to use
 each colony (population utilization distribution, large colonies
-accumulate more activity than small ones), 3) `pud_total` and 4)
+accumulate more activity than small ones), 3) `ud_hgt_total` and 4)
 `pud_hgt_total` same as 1) and 2) respectively, but considering only
 vulture activity below 300 meters.
+
+There are two additional files `cum_pud_total` and `cum_pud_hgt_total`.
+These two rasters represent the **cumulative** population utilization
+distribution (at any height and below 300 m, respectively), which is
+usually more useful than the raw UD for reasons that we show below. We
+also show how to compute the cumulative UD from the raw UD, but we
+provide pre-computed rasters to save to user the computations and to
+facilitate their use in platforms other than R.
 
 Raster files can easily be visualized using the raster package, for
 example:
 
 ``` r
 library(raster)
+#> Warning: package 'raster' was built under R version 4.2.2
+#> Warning: package 'sp' was built under R version 4.2.2
 
 # visualize PUD
 pud <- raster("rasters/pud_total.tif")
@@ -152,8 +162,11 @@ With a bit of work we can make it nicer
 
 ``` r
 library(sf)
+#> Warning: package 'sf' was built under R version 4.2.2
 library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 4.2.2
 library(rnaturalearth)
+#> Warning: package 'rnaturalearth' was built under R version 4.2.2
 
 # Download South Africa map with Lesotho and Swaziland
 ssa_map <- ne_countries(scale = 50, continent = "Africa", returnclass = "sf")
@@ -161,8 +174,8 @@ ssa_map <- ne_countries(scale = 50, continent = "Africa", returnclass = "sf")
 # Crop ssa_map
 sf_use_s2(FALSE) # There are some problematic vertices to use spherical geometry, so we switch it off
 ssa_map <- st_crop(ssa_map, frame)
-#> Warning: attribute variables are assumed to be spatially constant throughout all
-#> geometries
+#> Warning: attribute variables are assumed to be spatially constant throughout
+#> all geometries
 
 # Plot
 as.data.frame(cum_pud, xy = TRUE) %>%
@@ -203,6 +216,7 @@ total population that these represent.
 ``` r
 library(raster)
 library(dplyr)
+#> Warning: package 'dplyr' was built under R version 4.2.2
 library(sf)
 library(rnaturalearth)
 
@@ -233,8 +247,8 @@ sa_map_union <- sa_map %>%
   group_by(un) %>% 
   st_union() %>% 
   st_sf()
-#> Warning: attribute variables are assumed to be spatially constant throughout all
-#> geometries
+#> Warning: attribute variables are assumed to be spatially constant throughout
+#> all geometries
 
 calcRegionRisk(region = sa_map_union, ref_area = NULL, ud_map = pud)
 #> Simple feature collection with 1 feature and 3 fields
@@ -243,7 +257,7 @@ calcRegionRisk(region = sa_map_union, ref_area = NULL, ud_map = pud)
 #> Bounding box:  xmin: 16.46998 ymin: -34.82195 xmax: 32.89308 ymax: -22.12645
 #> CRS:           +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 #>   pud_total    pud_avg    pud_sd                       geometry
-#> 1  13430.27 0.01188389 0.1720107 POLYGON ((23.38689 -34.0311...
+#> 1  13430.27 0.01188389 0.1720107 POLYGON ((23.37086 -34.0448...
 
 # This is now trivial, but extract proportion of Cape Vultures expected in Western Cape relative to South Africa
 calcRegionRisk(region = wc_prov, ref_area = sa_map_union, ud_map = pud)
